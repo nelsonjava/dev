@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+
+<?asciidoc-numbered?>
+
+<book lang="en">
+  <bookinfo>
+    
+    <title>ANT</title>
+    
+    
+    <date>2014-08-28</date>
+    
+    
+    
+    
+<!--<subtitle>Some subtitle</subtitle -->
+<!--
+<releaseinfo>4.0.0-SNAPSHOT</releaseinfo>
+<corpauthor>
+   <inlinemediaobject>
+      <imageobject>
+         <imagedata fileref="./images/hibernate_ogm_600px.png"
+                    format="PNG"
+                    scalefit="1"
+                    width="444"/>
+      </imageobject>
+      <textobject>
+         <phrase>Logo</phrase>
+      </textobject>
+   </inlinemediaobject>
+</corpauthor>
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>Emmanuel</firstname>
+      <surname>Bernard</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <author>
+      <firstname>Sanne</firstname>
+      <surname>Grinovero</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <collab>
+     <collabname>Guillaume Scheibel</collabname>
+   </collab>
+</authorgroup>
+ -->
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>NAIF</firstname>
+      <affiliation>
+         <shortaffil>SIMASOFT</shortaffil>
+      </affiliation>
+   </author>
+</authorgroup>
+    
+    
+
+  </bookinfo>
+<chapter id="ant">
+<title>INSTALACI&#211;N DEL APACHE ANT</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><emphasis role="strong">Descargar el Ant:</emphasis> <ulink url="http://ant.apache.org/bindownload.cgi">http://ant.apache.org/bindownload.cgi</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>*Directorio de descarga:*d:\download\ant</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><emphasis role="strong">Directorio de Instalaci&#243;n:</emphasis> D:\javajdk\apache-ant</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><emphasis role="strong">Configurar la variable de Entorno:</emphasis> ANT_HOME. Ejemplo: =D:\javajdk\apache-ant</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><emphasis role="strong">Configurar el Java al Path del windows.</emphasis> Ejemplos: &#8230;; %ANT_HOME%\bin</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><emphasis role="strong">Ejecutar la prueba de Instalaci&#243;n:</emphasis> ant - version</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_links">
+<title>LINKS</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Referencias</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="http://ant.apache.org/">http://ant.apache.org/ - Apache Ant</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://ant.apache.org/manual/index.html">http://ant.apache.org/manual/index.html - Apache Ant Manual</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>GitHub</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Examples</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_comandos">
+<title>COMANDOS</title>
+<orderedlist numeration="arabic">
+  
+    <listitem>
+      <simpara>java - version</simpara>
+      
+    </listitem>
+  
+</orderedlist>
+</chapter>
+<chapter id="_creaci_n_de_un_proyecto">
+<title>CREACI&#211;N DE UN PROYECTO</title>
+
+</chapter>
+<chapter id="_comando_varios">
+<title>COMANDO VARIOS</title>
+
+</chapter>
+<chapter id="_creaci_n_de_la_aplicaci_n">
+<title>CREACI&#211;N DE LA APLICACI&#211;N</title>
+<simpara>PASOS:</simpara>
+<orderedlist numeration="arabic">
+  
+    <listitem>
+      <simpara>Copiar el archivos base.fsh al directorio donde se va a crear la aplicaci�n.</simpara>
+      
+    </listitem>
+  
+</orderedlist>
+<programlisting language="console" linenumbering="unnumbered"> Archivo:base.fsh
+
+clear;
+
+new-project --topLevelPackage com.naif.base;
+
+set ACCEPT_DEFAULTS true;
+
+scaffold setup --scaffoldType faces;
+
+persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
+</programlisting>
+<orderedlist numeration="arabic">
+  
+    <listitem>
+      <simpara>Ubicarse en el directorio de la aplicaci�n y ejecutar el forge</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>forge</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Una vez ejecutado el forge ejecutar el archivo base.dsc</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>run base.fsh</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Ingresar el nombre del proyecto</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Crear el directorio del proyecto</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicaci�n.</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>exit</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Editar el archivo pom.xml del proyecto</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Agregar el Pluings del Maven para despegar la aplicaci�n en el Jboss aplication Server</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Ejecutar el Jboss Aplicati�n Server</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Compilar el proyecto</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn clean package</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Desplegar el proyecto</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn jboss-as:deploy</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn jboss-as:undeploy</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn jboss-as:redeploy</simpara>
+      
+    </listitem>
+  
+</orderedlist>
+</chapter>
+</book>

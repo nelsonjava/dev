@@ -1,0 +1,111 @@
+[[maven-instalacion]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== INSTALACION
+
+* Descargar http://maven.apache.org/download.html
+
+* Configurar la variable de Entorno:  M2_HOME. Ejemplo: M2_HOME=D:\javajdk\maven\3.0.2
+
+* Agregar el Maven al Path del windows. Ejemplos: ...; %M2_HOME%\bin
+
+* Probar la instalaci&#243;n abriendo una ventana de D.O.S con cmd y digitar: mvn --version
+
+== Installation
+
+Maven is a Java application, and it is distributed for the most adopted platforms; in this section we will cover the installation using the pre-built,
+binary package downloadable directly from the Apache project page, which is the most advised way to install Apache Maven, as opposed to Rpm, Deb,
+HomeBrew, MacPorts, and any other operating system-specific installation manager.
+
+=== Step 1: Prerequisites
+
+Maven needs minimal resources to run. Just be sure to have at least Java 1.5 installed:
+
+* *Java:* JDK 1.5 or above
+
+* *Memory:* No minimum memory limit, but at least 32 MB for the Maven processes are needed
+
+* *Disk space:*
+
+* No formal minimum limit, but Maven actually needs a few hundred available megabytes of disk
+
+
+=== Step 2: Downloading Maven
+
+Open the browser to http://maven.apache.org/download.cgi and follow the instructions; download the ZIP archive for Windows or the tar.gz archive for Unix-like operating systems containing the Apache Maven binaries
+
+
+=== Step 3: Installing Maven
+
+The installation process is almost exactly the same across different platforms, but the command-line syntax differs a bit.
+
+==== Microsoft Windows
+
+. Unzip the distribution archive, that is, apache-maven-3.0.5-bin.zip, to (for example) C:\Program Files\Apache. The subdirectory apache-maven-3.0.5 will be created in that folder while uncompressing the archive.
+
+. Open up the system properties window, select the Advanced tab and the Environment Variables button, then add the M2_HOME variable as a user variable with the value C:\Program Files\Apache\apache-maven-3.0.5.
+
+. In the same dialog, append%M2_HOME%\bin to the PATH variable value.
+
+. Add MAVEN_OPTS as a user variable to specify JVM properties. A value of -Xms256m -Xmx512m could be a good start.
+
+====  Linux and Mac OS X
+
+Installing on Linux and Mac OS X is practically the same process:
+
+. Download and extract the apache-maven-3.0.5-bin.tar.gz file to the directory you wish to install Maven, for example /usr/local/apache-maven-3.0.5.
+
+. Define M2_HOME using export M2_HOME=/usr/local/apache-maven-3.0.5. You can optionally set it in ~/.bash_profile.
+
+. Add Maven binaries to the classpath export PATH=$PATH:$M2_HOME/bin. You can optionally set it in ~/.bash_profile.
+
+. Add the MAVEN_OPTS environment variable to the same .profile file, for example export MAVEN_OPTS="-Xms256m -Xmx512m".
+
+
+=== Step 4: Verifying the installation
+
+As Maven is a Java tool, first of all we need to be sure Java is installed properly. The quickest way to test it is by opening a terminal:
+
+[options="header"]
+|===
+|OS      |Task                      |Command
+|Windows |Open Command Line Console |c:\> java -version
+|Linux   |Open Terminal             |$ java -version
+|Mac OS X|Open Terminal             |$ java -version
+|===
+
+In the console, run the following command, to check that Java is properly installed. For example, in a Microsoft Windows environment, you should see something similar to the following:
+
+
+[source, console]
+----
+c:\>java -version
+java version "1.7.0_10-ea"
+Java(TM) SE Runtime Environment (build 1.7.0_10-ea-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 23.6-b04, mixed mode)
+----
+
+
+If everything is fine, you can now run the mvn command to check that Maven is installed. You should see something similar to the following output:
+
+
+[source, JSON]
+----
+c:\>mvn -version
+Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 14:51:28+0100)
+Maven home: C:\Program Files\Apache\apache-maven-3.0.5
+Java version: 1.7.0_10-ea, vendor: Oracle Corporation
+Java home: C:\Program Files\Java\jdk1.7.0_03\jre
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 7", version: "6.1", arch: "amd64", family: "windows"
+----
+
+Now you are ready to work with Maven!

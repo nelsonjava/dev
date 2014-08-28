@@ -1,0 +1,104 @@
+[[ant]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== INSTALACI&#211;N DEL APACHE ANT
+
+* *Descargar el Ant:* http://ant.apache.org/bindownload.cgi[http://ant.apache.org/bindownload.cgi]
+
+* *Directorio de descarga:*d:\download\ant
+
+* *Directorio de Instalaci&#243;n:* D:\javajdk\apache-ant
+
+* *Configurar la variable de Entorno:* ANT_HOME. Ejemplo: =D:\javajdk\apache-ant
+
+* *Configurar el Java al Path del windows.* Ejemplos: ...; %ANT_HOME%\bin
+
+* *Ejecutar la prueba de Instalaci&#243;n:* ant - version
+
+== LINKS
+
+* Referencias
+
+** http://ant.apache.org/[http://ant.apache.org/ - Apache Ant]
+
+** http://ant.apache.org/manual/index.html[http://ant.apache.org/manual/index.html - Apache Ant Manual]
+
+*  GitHub
+
+* Examples
+
+== COMANDOS
+
+. java - version
+
+== CREACI&#211;N DE UN PROYECTO
+
+== COMANDO VARIOS
+
+== CREACI&#211;N DE LA APLICACI&#211;N
+
+PASOS:
+
+. Copiar el archivos base.fsh al directorio donde se va a crear la aplicaci�n.
+
+[source, console]
+----
+ Archivo:base.fsh
+
+clear;
+
+new-project --topLevelPackage com.naif.base;
+
+set ACCEPT_DEFAULTS true;
+
+scaffold setup --scaffoldType faces;
+
+persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
+
+----
+
+. Ubicarse en el directorio de la aplicaci�n y ejecutar el forge
+
+. forge
+
+. Una vez ejecutado el forge ejecutar el archivo base.dsc
+
+. run base.fsh
+
+. Ingresar el nombre del proyecto
+
+. Crear el directorio del proyecto
+
+. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicaci�n.
+
+. exit
+
+. Editar el archivo pom.xml del proyecto
+
+. Agregar el Pluings del Maven para despegar la aplicaci�n en el Jboss aplication Server
+
+. Ejecutar el Jboss Aplicati�n Server
+
+. Compilar el proyecto
+
+. mvn clean package
+
+. Desplegar el proyecto
+
+. mvn jboss-as:deploy
+
+. mvn jboss-as:undeploy
+
+. mvn jboss-as:redeploy
+
+
+
+
+

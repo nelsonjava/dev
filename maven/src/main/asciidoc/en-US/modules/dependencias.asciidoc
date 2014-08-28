@@ -1,0 +1,83 @@
+[[maven-dependencias]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== DEPENDENCIAS
+
+* Una dependencia es una referencia en el POM de la librer&#237;a que se desea incluir en el proyecto.
+
+* A Maven dependency is a pointerdefined in a pom.xml file to an artifact that needs to be included as a project's library. It must of course define the artifact's coordinates in order to uniquely identify it:
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<dependencies>
+   <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>3.2.2.RELEASE</version>
+   </dependency>
+</dependencies>
+----
+
+* Dependencies are transitive; if A depends on B and B depends on C, then A depends on C. In order to exclude a transitive dependency from your build, you can define exclusions as follows:
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<dependencies>
+   <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>3.2.2.RELEASE</version>
+      <exclusions>
+        <exclusion>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        <exclusion>
+      </exclusions>
+   </dependency>
+</dependencies>
+----
+
+Additionally, a dependency can define a <scope> element, but they will be introduced in the Maven lifecycle section.
+
+
+=== &#193;mbito de las dependencias:
+
+* *Compile:* Es el &#225;mbito por defecto. Las dependencias est&#225;n disponibles en el proyecto y en sus proyectos dependientes.
+
+* *Provided:* Se espera que el JDK, la aplicaci&#243;n o el contenedor provea la dependencia.
+
+* *Runtime:* La dependencia no es requerida en tiempo de compilaci&#243;n pero s&#237; para la ejecuci&#243;n.
+
+* *Test:* Son dependencias que son requeridas solo cuando se compila y ejecuta los test.
+
+* *System:* Similar a provided pero se le debe indicar el jar que contiene la dependencia
+
+* *Import:* Solo es usado en una dependencia del tipo POM en la secci&#243;n . Indica que el POM utilizado debe ser remplazado con las dependencias que &#233;ste tenga en su secci&#243;n
+
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<dependency>
+   <groupId>org.jboss.seam</groupId>
+   <artifactId>seam-bom</artifactId>
+   <version>${seam.version}</version>
+   <scope>import</scope> Ambito
+   <type>pom</type>
+</dependency>
+----
+
+Los objetos en el repositorio se identifican mediante 3 etiquetas: groupId,artifactId,version
+
+
+
+

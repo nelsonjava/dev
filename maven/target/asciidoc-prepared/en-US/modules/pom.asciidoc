@@ -1,0 +1,88 @@
+[[maven-pom]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== POM
+
+http://books.sonatype.com/mvnref-book/reference/pom-relationships.html[El POM (Project Object Model):]
+
+El POM file es el archivo XML de configuraci&#243;n de cualquier proyecto Maven, en &#233;l podemos encontrar informaci&#243;n sobre la versi&#243;n y las dependencias del proyecto as&#237;
+como cualquier otra configuraci&#243;n personalizada para el proyecto.
+
+==== Minimal pom.xml
+
+An example of a minimal pom.xml file is as follows:
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<project>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.mycompany.app</groupId>
+   <artifactId>app-web</artifactId>
+   <version>1.0-SNAPSHOT</version>
+   <type>war</type>
+</project>
+----
+
+The pom.xml file is the central configuration file for a Maven project, and it is fundamental to understand it deeply; it contains information about the project structure, metadata, and configuration related with the plugin's executions.
+
+The modelVersion element is in every pom.xml; it represents the pom.xml XML schema version and is set to 4.0.0 for all Maven 2.x and 3.x-based builds.
+
+The SNAPSHOT suffix in a pom.xml file specifies that the artifacts produced by this build are unreleased, and therefore they considered nightly builds.
+
+In this section we will introduce the most important elements of a POM; some will not be mentioned, while some others will be briefly introduced.
+
+===  Fig. The Project Object Model
+
+.The Project Object Model
+image::images/pom-small.png[]
+
+==== Super POM
+
+Every Maven POM implicitly inherits from Super POM (more information is available at http://maven.apache.org/ref/3.0.5/maven-model-builder/super-pom.html,
+which contains all the default values that are needed to perform built-in Maven features, as we will see later in this book. Super POM is provided by the Maven installation.
+
+It is not intended to be changed as it would cause build portability issues (more information is available at http://www.devx.com/Java/Article/32386 but
+it is definitely interesting to read and investigate it further (more information is available at http://maven.apache.org/guides/introduction/introduction-to-the-pom.html
+in order to be more confident when using/overriding values in your pom.xml file.
+
+=== Parent (also known as POM Inheritance)
+
+A pom.xml file can define a parent as a pointer to a POM artifact. As a result, all parent's Maven configurations will be inherited.
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<parent>
+   <groupId>com.mycompany.myproject</groupId>
+   <artifactId>my-parent-pom</artifactId>
+   <version>1.0-SNAPSHOT</version>
+</parent>
+----
+
+=== Effective POM
+
+Each execution of a Maven build will first of all merge the current pom.xml definition with the following:
+
+* Parent POM (and any parent's parent POM, if present)
+
+* Super POM
+
+* Enabled profiles
+
+The result is called the effective POM, and it's the definition that is taken into consideration when executing Maven builds.
+
+When writing a pom.xml definition or debugging a Maven build it is crucial to investigate the effective POM in order to
+deeply understand what Maven is doing.
+
+In order to visualize it, simply run the command mvn help:effective-pom, or use an IDE that supports effective POM visualization.
+
+The Maven Help Plugin available at http://maven.apache.org/plugins/maven-help-plugin provides more useful goals to debug your Maven logic.

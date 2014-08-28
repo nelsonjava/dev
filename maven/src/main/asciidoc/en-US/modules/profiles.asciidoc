@@ -1,0 +1,43 @@
+[[maven-profiles]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== PROFILES
+
+A Maven profile is a POM element that contains specific POM configurations for specific cases.
+A profile can for example be used to define environment specific configurations and build behaviors, as suggested by the following code snippet:
+
+Although profiles may be considered an advanced topic, they are widely used by the Maven community;
+it is crucial to know at least what they are in order to fully understand a Maven build.
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<profiles>
+    <profile>
+        <id>postgres</id>
+        <dependencies>
+            <dependency>
+              <groupId>${project.groupId}</groupId>
+              <artifactId>my-persistence-${dbDriver}</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </profile>
+</profiles>
+----
+
+Profiles are activated by invocation, appending -P<profile name> to your mvn command; additionally, profiles can declare their own *<activation>* rules.
+
+When activated, profiles are one by one, following the definition ordering merged with the main pom.xml definition into the effective POM.
+
+The effective POM will be the result of the sum of the main pom.xml features and the profile ones.
+
+There's much more available at http://books.sonatype.com/mvnref-book/reference/profiles.html to know
+about profiles in order to exploit all their potentials.

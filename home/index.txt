@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory">DEVELOPMENT</title>
+<link rel="stylesheet" href="css/hibernate-single.css" type="text/css"/>
+<meta xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" name="generator" content="DocBook XSL Stylesheets V1.74.0"/>
+<meta xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" http-equiv="Content-Type" content="text/html; charset=UTF-8"/></head>
+<body>
+<div class="book" lang="en-US"><div class="titlepage"><div>
+<p id="title">
+   <a href="http://www.hibernate.org" class="site_href"><strong>Hibernate.org</strong></a>
+   <a href="http://hibernate.org/Documentation/DocumentationOverview" class="doc_href"><strong>Community Documentation</strong></a>
+</p>
+<div><h1 class="title"><a id="d0e2"/>DEVELOPMENT</h1></div>
+<div><div xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="authorgroup">
+<div class="authors">by <span xmlns="http://www.w3.org/1999/xhtml" class="firstname">NAIF</span> (SIMASOFT)</div>
+<div class="editors"/><div class="others"/></div></div></div><hr/></div>
+<div class="toc"><dl><dt><span class="preface"><a href="#d0e17"/></span></dt></dl></div>
+<div class="preface" lang="en-US"><div class="titlepage"><div>
+<div><h2 class="title"><a id="d0e17"/></h2></div></div></div>
+<div class="itemizedlist">
+<ul>
+<li><a class="ulink" href="proyectos.html" target="_new">PROJECTS</a></li>
+<li><a class="ulink" href="wildfly.html" target="_new">WILDFLY</a></li>
+<li><a class="ulink" href="ant.html" target="_new">ANT</a></li>
+<li><a class="ulink" href="forge.html" target="_new">FORGE</a></li>
+<li><a class="ulink" href="java.html" target="_new">JAVA</a></li>
+<li><a class="ulink" href="maven.html" target="_new">MAVEN</a></li>
+<li><a class="ulink" href="mongo.html" target="_new">MongoDB</a></li>
+  <ul>
+    <li><a class="ulink" href="mongo-m101j.html" target="_new">M101J: MongoDB for Java Developers</a></li>
+  </ul>
+<li><a class="ulink" href="play.html" target="_new">PLAY FRAMEWORK</a></li>
+</ul>
+</div></div></div><HR xmlns=""/><a xmlns="" href=""/>
+</body>
+</html>

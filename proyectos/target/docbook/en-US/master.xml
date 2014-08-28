@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+
+<?asciidoc-numbered?>
+
+<book lang="en">
+  <bookinfo>
+    
+    <title>DEVELOPMENT PROYECT</title>
+    
+    
+    <date>2014-08-28</date>
+    
+    
+    
+    
+<!--<subtitle>Some subtitle</subtitle -->
+<!--
+<releaseinfo>4.0.0-SNAPSHOT</releaseinfo>
+<corpauthor>
+   <inlinemediaobject>
+      <imageobject>
+         <imagedata fileref="./images/hibernate_ogm_600px.png"
+                    format="PNG"
+                    scalefit="1"
+                    width="444"/>
+      </imageobject>
+      <textobject>
+         <phrase>Logo</phrase>
+      </textobject>
+   </inlinemediaobject>
+</corpauthor>
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>Emmanuel</firstname>
+      <surname>Bernard</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <author>
+      <firstname>Sanne</firstname>
+      <surname>Grinovero</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <collab>
+     <collabname>Guillaume Scheibel</collabname>
+   </collab>
+</authorgroup>
+ -->
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>NAIF</firstname>
+      <affiliation>
+         <shortaffil>SIMASOFT</shortaffil>
+      </affiliation>
+   </author>
+</authorgroup>
+    
+    
+
+  </bookinfo>
+<chapter id="proyectos-introducion">
+<title>PRUEBAS</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="https://www.github.com/nelsonjava/pruebas">https://github.com/nelsonjava/pruebas</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://read.amazon.com">Amazon Reader</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_prioridades">
+<title>PRIORIDADES</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Crear un jar con las entidades para crear solamente la base de datos y compartirlas para las apliciones en MongoDb nativo y la aplicaci&#243;n web JDF.</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>D:\dev\pruebas\naifdb - Pruebas para lograr esta actividad.</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Ejemplo que se esta probando: D:\download\eBooks\mongo\Hibernate Mongo\9781430257943\apps\NetBeans\chapter_6\HOGM_MONGODB_HNAPI_CRUD</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Aplicaci&#243;n de Pruebas = D:\dev\pruebas\RafaEShop</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Aplicaci&#243;n de Prueba: D:\download\eBooks\mongo\Hibernate Mongo\9781430257943\apps\NetBeans\chapter_8\RafaEShop</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Informaci&#243;n importante: DISCO DURO F:\simavirtual\www\naif\modelos</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_ebooks">
+<title>EBOOKS</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="http://ebook.online-convert.com/es/convertir-a-epub"> - Convertir texto al formato ePub para ebook</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://www.methods.co.nz/asciidoc/publishing-ebooks-with-asciidoc.html">Generar EPUB</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_desarrollo_java">
+<title>DESARROLLO JAVA</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Hacer pruebas con Openshif si localmente existen problemas</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Mongo</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Caused by: org.jboss.modules.ModuleNotFoundException: Module org.hibernate:ogm is not found in local module loader</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="https://forum.hibernate.org/viewtopic.php?p=2465959">https://forum.hibernate.org/viewtopic.php?p=2465959</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://forum.hibernate.org/viewforum.php?f=31">Forum de MongoDb + OGM</ulink></simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="https://forum.hibernate.org/viewtopic.php?f=31&amp;t=1027292">Adding persistance.xml for hibernate OGM?</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://forum.hibernate.org/viewtopic.php?f=31&amp;t=1025959">Running OGM in JBoss AS 7.2.0.Final</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://hibernate.org/subprojects/ogm.html">http://hibernate.org/subprojects/ogm.html</ulink></simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="https://github.com/hibernate/hibernate-ogm">https://github.com/hibernate/hibernate-ogm</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://forum.hibernate.org/viewforum.php?f=31&amp;start=25">https://forum.hibernate.org/viewforum.php?f=31&amp;start=25</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://www.mongodb.com/presentations/webinar-creaci%C3%B3n-de-su-primera-aplicaci%C3%B3n-java-con-mongodb">Webinar: Creaci&#243;n de su primera aplicaci&#243;n Java con MongoDB</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_despliegue_de_apliciones">
+<title>DESPLIEGUE DE APLICIONES</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="http://localhost:8080/">http://localhost:8080/</ulink></simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>D:\javasrv\jboss-as-7.1.1.Final\standalone\configuration\standalone.xml</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>&lt;socket-binding name="http" port="8088"/&gt;</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://localhost:9990/console/">http://localhost:9990/console/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://localhost:8080/h2console/">http://localhost:8080/h2console/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://my.safaribooksonline.com/book/databases/9781430257943">Pro Hibernate and MongoDB</ulink></simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Codigo del libro:D:\download\eBooks\mongo\Hibernate Mongo</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Build de Ant para el Jboss:D:\dev\tem\buil-jboss</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Maven:</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>mvn clean package</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn jboss-as:deploy</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn clean package jboss-as:deploy</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn jboss-as:undeploy</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>mvn clean install --debug - Consulta de la Instalaci�n</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Ejemplo a desplegar:D:\dev\tem\mongodb\examples\polyglot-persistence - Llevar en la memoria</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_recursos">
+<title>RECURSOS</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="http://192.168.1.93:8088/naif-rc1/TiposLinksModels.java?tiposLinksModelsId=3">MongoDb</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://192.168.1.93:8088/naif-rc1/TiposLinksModelsList.java">Base de Datos de Conocimientos</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://ssl.safaribooksonline.com/trial?iid=anon-home-redirect">Safari Books Online</ulink> - <ulink url="mailto:nelsonfer1@gmail.com">nelsonfer1@gmail.com</ulink> - <ulink url="mailto:nelsonjava@gmail.com">nelsonjava@gmail.com</ulink></simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Biblioteca libre</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Biblioteca de libros MicroSoft</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://www.udacity.com">https://www.udacity.com</ulink> - Login - <ulink url="mailto:naif.nafg@gmail.com">naif.nafg@gmail.com</ulink> - 64</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Introduction to Computer Science</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Web Development</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Introduction to Programming</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Mobile Web Development</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_requerimientos_no_funcionales">
+<title>REQUERIMIENTOS NO FUNCIONALES</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Mensajeria del Sistema</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Enviar correos</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Leer correos de gmail.com,hotmail camino a comunicaiones unificadas: Utilizar el API de Gmail y otros</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Mensaje de Texto: Mensaje de textos enviados por el sistema en ciertas opciones del sistema</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Base de Datos: Persistencia Polyglota,NoSql</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Compatible con Mobiles: Apple, Android</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Contactos</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Compatiblidad con Verifiquese</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Informes: Excel,pdf,directo a la impresora.</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>PicketLink</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+</book>

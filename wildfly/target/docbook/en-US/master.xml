@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+
+<?asciidoc-numbered?>
+
+<book lang="en">
+  <bookinfo>
+    
+    <title>WILDFLY</title>
+    
+    
+    <date>2014-08-28</date>
+    
+    
+    
+    
+<!--<subtitle>Some subtitle</subtitle -->
+<!--
+<releaseinfo>4.0.0-SNAPSHOT</releaseinfo>
+<corpauthor>
+   <inlinemediaobject>
+      <imageobject>
+         <imagedata fileref="./images/hibernate_ogm_600px.png"
+                    format="PNG"
+                    scalefit="1"
+                    width="444"/>
+      </imageobject>
+      <textobject>
+         <phrase>Logo</phrase>
+      </textobject>
+   </inlinemediaobject>
+</corpauthor>
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>Emmanuel</firstname>
+      <surname>Bernard</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <author>
+      <firstname>Sanne</firstname>
+      <surname>Grinovero</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <collab>
+     <collabname>Guillaume Scheibel</collabname>
+   </collab>
+</authorgroup>
+ -->
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>NAIF</firstname>
+      <affiliation>
+         <shortaffil>SIMASOFT</shortaffil>
+      </affiliation>
+   </author>
+</authorgroup>
+    
+    
+
+  </bookinfo>
+<chapter id="recursos-introducion">
+<title>INTRODUCI&#211;N</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>WildFly is a flexible, lightweight, managed application runtime that helps you build amazing applications.</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="wildfly-instalacion">
+<title>INSTALACION</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="http://wildfly.org/">http://wildfly.org/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Descargar <ulink url="http://wildfly.org/downloads/">http://wildfly.org/downloads/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://docs.jboss.org/author/display/WFLY8/Getting+Started+Guide#GettingStartedGuide-Requirements">Getting Started Guide</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Configurar la variable de Entorno:  JBOSS_HOME. Ejemplo: JBOSS_HOME=D:\javasrv\wildfly</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Configurar la variable de Entorno: JAVA_OPTS: -server -Xms64m -Xmx512m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true
+-Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000
+-Djboss.modules.system.pkgs=org.jboss.byteman</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Probar la instalaci&#243;n desde el browser: <ulink url="http://localhost:8080/">http://localhost:8080/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Crear los usuarios de administraci�n:</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Ubicarse en el directorio: %JBOSS_HOME%\bin\</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Ejecutar el comando: add-usert "archivo:add-user.bat"</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Management User (mgmt-users.properties): Seleccionar la opci�n: a</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Username : admin</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Password : console</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://localhost:9990/console/App.html">http://localhost:9990/console/App.html</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_h2_console">
+<title>H2-CONSOLE</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Descargar el h2console.war en <ulink url="https://github.com/wildfly/quickstart/tree/master/h2-console">https://github.com/wildfly/quickstart/tree/master/h2-console</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Grabar el archivo en D:\download\wildfly</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Desplegar la aplicaci�n desde la consola de administraci�n del wildfly</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Estando en la consola ir a: [server][Manage Deployments][Add]</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="wildfly-recursos">
+<title>RECURSOS</title>
+<section id="_generalidades">
+<title>GENERALIDADES</title>
+
+</section>
+<section id="_links">
+<title>LINKS:</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Referencias</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="http://wildfly.org/">wildfly</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://github.com/wildfly/quickstart">Quickstart</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+</section>
+</chapter>
+</book>

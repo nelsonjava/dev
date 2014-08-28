@@ -1,0 +1,53 @@
+[[maven-plugins]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== PLUGINS
+
+A Maven plugin is a JAR Maven artifact containing Java classes that implement one or more goals using the Maven Plugin API (more information is available at http://maven.apache.org/ref/3.0.5/maven-plugin-api ), and declares a public short name (that is, tomcat7x).
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<build>
+   <plugins>
+      <plugin>
+         <groupId>org.apache.tomcat.maven</groupId>
+         <artifactId>tomcat7-maven-plugin</artifactId>
+         <version>2.1</version>
+         <configuration>
+            <url>http://127.0.0.1:8080/manager</url>
+            <server>Tomcat</server>
+            <path>/app-web</path>
+         </configuration>
+      </plugin>
+   </plugins>
+</build>
+----
+
+http://maven.apache.org/guides/mini/guide-configuring-plugins.html[Guide to Configuring Plug-ins]
+
+=== Goals
+
+The goal identifies a build task; it has a unique name (that is, run) within the same plugin. It can access and change the POM and provide a wide range of operations,
+from zipping a folder to performing a remote deployment on a Tomcat server.
+
+* A goal can be executed by the mvn command using the following syntax:
+
+  <plugin_shortname>:<goal_name>, for example mvn tomcat7x:run
+
+* A goal can be invoked by the lifecycle phase; you will read more about it in the Maven lifecycle section.
+
+* All plugins having an artifactId coordinate starting with maven are directly supported by Maven projects (more information is available at http://maven.apache.org/plugins/.
+
+* In order to understand how to use a Maven Plugin, search for its official documentation page; the Usage page available at http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/usage.html
+explains how to add the plugin to your build;
+
+* The Goals page available at http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/plugin-info.html lists all goals and parameters that you can set.
+

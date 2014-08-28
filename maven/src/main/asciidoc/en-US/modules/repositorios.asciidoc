@@ -1,0 +1,115 @@
+[[maven-repositorios]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== REPOSITORIOS
+
+* A Maven Repository is a folder with a specific layout that can optionally be located remotely:
+
+* En el repositorio encontramos los JAR, WAR, etc en una jerarquía de carpetas que siguen el mismo concepto: groupId, artifactId, version.
+
+* El repositorio es un mecanismo espacial de Maven para organizar los ficheros Jar y otras dependencias que utilizan tus aplicaciones. (Maven también utiliza el término artefacto para referirse a las dependencias).
+
+* El repositorio esencialmente es una carpeta con un estructura específica para Maven, y soluciona dos problemas:
+
+** *Primero*, proporciona una localización centralizada para todos los ficheros Jar y otras dependencias que necesita tu proceso de construcción.
+
+** *Segundo*, es un ayuda con los problemas de versiones proponiendo una convención de nombrado.
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+<repositories>
+   <repository>
+      <id>my-custom-repo</id>
+      <url>http://artifacts.mysite.com/repository</url>
+   </repository>
+</repositories>
+----
+
+* The Repository layout is a key convention in Maven that allows you to uniquely locate an artifact:
+
+** <repository_url>/<groupId>/<artifactId>/<version>/<artifactId>-<classifier>-<version>.<type>
+
+* For example, you can have the following coordinates for the preceding artifact:
+
+[source, XML]
+[subs="verbatim,attributes"]
+----
+groupId: org.apache.solr
+artifactId: solr
+version: 4.3.0
+type: .war
+----
+
+* For a remote URL, the Repository URL can be:
+
+** http://repo.maven.apache.org/maven2
+
+* The layout key will hence be:
+
+**  http://repo.maven.apache.org/maven2/org/apache/solr/solr/4.3.0/solr-4.3.0.war
+
+* For a local URL, the Repository URL can be:
+
+** file:///Users/mau/.m2/repository
+
+* The layout key will hence be:
+
+** file:///Users/mau/.m2/repository/org/apache/solr/solr/4.3.0/solr-4.3.0.war
+
+* A Maven Repository is the source and the destination of artifacts in the following scenarios:
+
+** *Source:* When a Maven build depends on one or more artifacts, the Maven Repository is the place where these files are resolved and downloaded from
+
+** *Destination:* When a Maven build produces one or more artifacts, it may be optionally deployed on a Maven Repository
+
+* A Maven Repository can restrict the download/upload artifact operations depending whether the artifact's version is a SNAPSHOT literal or not.
+  This way, you can easily define nightly builds, repositories, and define tailored maintenance operations (that is, remove SNAPSHOT artifacts after 30 days).
+
+* SNAPSHOT artifacts are a special case for Maven Repositories:
+
+** When uploaded, the SNAPSHOT literal of the artifact name will be replaced with the current timestamp (more information is available at http://docs.oracle.com/javase/6/docs/api/java/sql/Timestamp.html
+
+** When downloaded, the revolved artifact will be the one with the highest timestamp (most recently uploaded amongst all other SNAPSHOT artifacts having the same coordinates)
+
+** The Super POM defines two very special repositories:
+
+
+
+
+
+=== Tipos de Repositorios de Maven
+
+Maven maneja 3 niveles de repositorio:
+
+* *Repositorio Local:*
+
+** El repositorio local normalmente conocido como .m2 se guarda localmente en nuestra pc
+
+** This repository is a local folder located in ~/.m2/repository (~ means user home in Linux, Unix, and OS X environments).
+   The Local Repository works as a cache for all remotely-fetched artifacts: every time Maven downloads an artifact for you, it will do it only once.
+   This rule does not apply to -SNAPSHOT artifacts, since these versions are supposed to change frequently; in this case, the build will ask the Maven Repository
+   whether the SNAPSHOT artifact was updated since the last fetch.
+
+* *Repositorio Empresarial:*
+
+** Maven Central Repository: This is a remote Maven repository containing the official releases of Maven core plugins which deliver all built in functionalities of Apache Maven and
+  the biggest collection of Java artifacts in the world (Java.net and Oracle are hosted here, and many other companies, projects, and communities).
+  Maven Central is open ( more information is available at http://www.sonatype.org/central/participate ) to the contribution of anyone who wants to share their artifacts with the rest of the world.
+  You can browse Maven Central using http://search.maven.org (shown in the following screenshot). Maven Central is hosted by Sonatype (more information is available at http://www.sonatype.org/.
+
+** El repositorio Empresarial tiene la misma estructura que el repositorio local con la diferencia que almacena librer&#237;as de uso compartido a nivel de red.
+   Los repositorios empresariales normalmente se utilizan cuando se maneja un equipo de desarrolladores que trabaja sobre un conjunto variado de proyectos,
+   los cuales normalmente tienen interdependencia entre ellos y sus librer&#237;as.
+
+* *Repositorio Global:*
+
+** Los repositorios globales son repositorios p&#250;blicos que almacenan librer&#237;as de uso compartido, como por ejemplo el repositorio mismo de Maven o el repositorio p&#250;blico de JBoss o maven central.
