@@ -1,3 +1,0 @@
-= DEVELOPMENT PROYECT
-
-include::modules/introduccion.asciidoc[]

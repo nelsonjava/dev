@@ -1,3 +1,0 @@
-= JBOSS FORGE
-
-include::modules/forge.asciidoc[]

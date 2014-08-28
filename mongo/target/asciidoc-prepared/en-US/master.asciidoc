@@ -1,5 +1,0 @@
-= MONGO
-
-include::modules/introduccion.asciidoc[]
-
-

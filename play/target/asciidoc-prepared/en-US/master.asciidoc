@@ -1,3 +1,0 @@
-= PLAY FRAMEWORK
-
-include::modules/play.asciidoc[]
