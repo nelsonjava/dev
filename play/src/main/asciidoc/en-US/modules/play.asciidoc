@@ -38,17 +38,27 @@ https://h50203.www5.hp.com/wclweb/WCLNoWarranty.aspx
 
 ** https://playdoces.appspot.com/documentation/1.2.4/overview[https://playdoces.appspot.com/documentation/1.2.4/overview - Comenzando a usar play!]
 
-** https://playdoces.appspot.com/documentation/1.2.4/guide1[https://playdoces.appspot.com/documentation/1.2.4/guide1 - Tutorial — Guía de play, una verdadera aplicación paso a paso]
+** https://playdoces.appspot.com/documentation/1.2.4/guide1[https://playdoces.appspot.com/documentation/1.2.4/guide1 - Tutorial — Gu&#237;a de play, una verdadera aplicaci&#243;n paso a paso]
+
+** https://playdoces.appspot.com/documentation/1.2.4/guide2[Una primera iteracion con el modelo de datos]
+
+** https://playdoces.appspot.com/documentation/1.2.4/guide7[Configuracion basica de un area de administracion usando CRUD]
 
 ** http://playdoces.appspot.com/2.0[http://playdoces.appspot.com/2.0 - Estamos trabajando en Play 2.0]
 
-** http://algo3.uqbar-project.org/play-framework[http://algo3.uqbar-project.org/play-framework - Programación de Interfaces de Usuario]
+** http://algo3.uqbar-project.org/play-framework[http://algo3.uqbar-project.org/play-framework - Programaci&#243;n de Interfaces de Usuario]
 
 * M&#243;dulo Morphia
 
 ** http://www.playframework.com/modules/morphia[http://www.playframework.com/modules/morphia]
 
-** http://www.playframework.com/modules/morphia-1.2.12/home[http://www.playframework.com/modules/morphia-1.2.12/home - PlayMorphia module Documentation]
+** http://www.playframework.com/modules/morphia-1.2.12/home[PlayMorphia module Documentation]
+
+** http://www.playframework.com/modules/morphia-1.2.12/home#guide[Tutorials PlayMorphia guide, adapt YABE from JPA to PlayMorphia]
+
+** http://www.playframework.com/modules/morphia[Morphia - MongoDB Integration]
+
+** http://www.ibm.com/developerworks/java/library/j-morphia/[Domain-model persistence with Morphia and MongoDB]
 
 * *Play View Templates*
 
@@ -88,7 +98,7 @@ https://h50203.www5.hp.com/wclweb/WCLNoWarranty.aspx
 
 PASOS:
 
-. Copiar el archivos base.fsh al directorio donde se va a crear la aplicación.
+. Copiar el archivos base.fsh al directorio donde se va a crear la aplicaci&#243;n.
 
 [source, console]
 ----
@@ -106,7 +116,7 @@ persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
 
 ----
 
-. Ubicarse en el directorio de la aplicación y ejecutar el forge
+. Ubicarse en el directorio de la aplicaci&#243;n y ejecutar el forge
 
 . forge
 
@@ -118,15 +128,15 @@ persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
 
 . Crear el directorio del proyecto
 
-. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicación.
+. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicaci&#243;n.
 
 . exit
 
 . Editar el archivo pom.xml del proyecto
 
-. Agregar el Pluings del Maven para despegar la aplicación en el Jboss aplication Server
+. Agregar el Pluings del Maven para despegar la aplicaci&#243;n en el Jboss aplication Server
 
-. Ejecutar el Jboss Aplicatión Server
+. Ejecutar el Jboss Aplicati&#243;n Server
 
 . Compilar el proyecto
 

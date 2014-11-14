@@ -1,0 +1,822 @@
+[[mongo-m101j-week2]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+==== WEEK 2 - CRUD
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=C-3vZ8nB7fQ[Introduction to Week 2]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=4KtdCMSKx84[CRUD and the Mongo Shell]
+
+* Quiz: CRUD and the Mongo Shell. https://www.youtube.com/watch?feature=player_embedded&v=lqhzCtKuJ7c[Answer]
+
+** By the end of this week, you'll know which of the following?
+
+*** MongoDB's basic document creation, retrieval, modification, and removal operations *OK*
+
+*** Some features of the MongoDB shell, mongo *OK*
+
+*** How to measure performance of MongoDB operations
+
+*** How to manipulate MongoDB documents from Java *OK*
+
+*** How to analyze data in MongoDB collections
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=hJy10xgZXzc[Secrets of the Mongo Shell]
+
+* Quiz: Secrets of the Mongo Shell. https://www.youtube.com/watch?feature=player_embedded&v=a6TFwpCoLoY[Answer]
+
+** What does the following fragment of JavaScript output?
+
+[source, console]
+----
+x = { "a" : 1 };
+y = "a";
+x[y]++;
+print(x.a);
+----
+
+[source, console]
+----
+2
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=K3J6WvDW-Hc[BSON Introduced]
+
+* Quiz: BSON Introduced. https://www.youtube.com/watch?feature=player_embedded&v=4hsTQrMs-xY[Answer]
+
+** Which of the following are types available in BSON?
+
+*** Strings *OK*
+
+*** Floating-point numbers *OK*
+
+*** Complex numbers
+
+*** Arrays *OK*
+
+*** Objects *OK*
+
+*** Timestamps *OK*
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=RbRRvBLl7Qo[Mongo shell, inserting docs]
+
+Insert a document into the "fruit" collection with the attributes of
+"name" being "apple", "color" being "red", and "shape" being round.
+Assume that we have already issued the use command to get into the right database. Use the "insert" method.
+
+[source, console]
+----
+db.fruit.insert({name:"apple", color:"red", shape:"round"})
+----
+
+https://www.youtube.com/watch?feature=player_embedded&v=4eqpL7ETQZQ[Answer]
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=w9V0fJsDwbQ[Mongo shell, introduction to findOne]
+
+Quiz: Mongo shell, introduction to findOne. https://www.youtube.com/watch?feature=player_embedded&v=uN_wf5a3BE4[Answer]
+
+Use findOne on the collection users to find one document where the key username is "dwight", and retrieve only the key named email.
+
+[source, console]
+----
+db.users.findOne ( { "username" : "dwight" } , { "_id" : false , "email" : true } );
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=8kKfFK6a0Ak[Mongo shell, introduction to find]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=UIg86QjSoyY[Mongo shell, querying using field selection]
+
+Supposing a scores collection similar to the one presented, how would you find all documents
+with an essay score equal to 50 and only retrieve the student field?
+
+[source, console]
+----
+db.scores.find({ type:"essay", score:50}, {student:true,_id:false});
+----
+
+https://www.youtube.com/watch?feature=player_embedded&v=ouHFZgtEAuU[Answer]
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=FHLrz4VGzkg[Querying using $gt and $lt]
+
+* Quiz: Querying using $gt and $lt  https://www.youtube.com/watch?feature=player_embedded&v=tY7I1l8JdDI[Answer]
+
+** Which of these finds documents with a score between 50 and 60, inclusive?
+
+*** db.scores.find({ score : { $gt : 50 , $lt : 60 } } );
+
+*** db.scores.find({ score : { $gte : 50 , $lte : 60 } } );  *OK*
+
+*** db.scores.find({ score : { $gt : 50 , $lte : 60 } } );
+
+*** db.scores.find({ score : { $gte : 50 , $lt : 60 } } );
+
+*** db.scores.find({ score : { $gt : 50 } } );
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=imCCKOevU3c[Inequalities on strings]
+
+* Quiz: Inequalities on strings. https://www.youtube.com/watch?feature=player_embedded&v=ZRWT0lcHsoU[Answer]
+
+** Which of the following will find all users with name between "F" and "Q"?
+
+*** db.users.find( { name : { $gte : "F" , $lte : "Q" } } ); *OK*
+
+*** db.users.find( { name : { $lte : "Q" , $gte : "F" } } ); *OK*
+
+*** db.users.find( { name : { $gte : "f" , $lte : "Q" } } );
+
+*** db.users.find( { name : { $lte : "Q" } });
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=lI-jhqYf1JY[Using regexes, $exists, $type]
+
+Quiz: Using regexes, $exists, $type  https://www.youtube.com/watch?feature=player_embedded&v=yMi7PwOoqXY[Answer]
+
+Write a query that retrieves documents from a users collection where the name has a "q" in it, and the document has an email field.
+
+[source, console]
+----
+db.users.find({ name : { $regex : "q" }, email : { $exists: true } } );
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=BW5ElNCRZps[Using $or]
+
+Quiz: Using $or  https://www.youtube.com/watch?feature=player_embedded&v=diimYkvr374[Answer]
+
+How would you find all documents in the scores collection where the score is less than 50 or greater than 90?
+
+[source, console]
+----
+db.scores.find( { $or : [ { score : { $lt : 50 } }, { score : { $gt : 90 } } ] } ) ;
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=hYk7pjgjjzc[Using $and]
+
+Quiz: Using $and https://www.youtube.com/watch?feature=player_embedded&v=oIkSajy8NLw[Answer]
+
+What will the following query do? [Answer]
+
+[source, console]
+----
+db.scores.find( { score : { $gt : 50 }, score : { $lt : 60 } } );
+----
+
+* Find all documents with score between 50 and 60
+
+* Find all documents with score greater than 50
+
+* Find all documents with score less than 60 *OK*
+
+* Explode like the Death Star
+
+* None of the above
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=jvEqwW75Bus[Querying inside arrays]
+
+Quiz: Querying inside arrays https://www.youtube.com/watch?feature=player_embedded&v=gwECaa4N9Xc[Answer]
+
+Which of the following documents would be returned by this query?
+
+[source, console]
+----
+db.products.find( { tags : "shiny" } );
+----
+
+* { _id : 42 , name : "Whizzy Wiz-o-matic", tags : [ "awesome", "shiny" , "green" ] }  *OK*
+
+* { _id : 704 , name : "Fooey Foo-o-tron", tags : [ "blue", "mediocre" ] }
+
+* { _id : 1040 , name : "Snappy Snap-o-lux", tags : "shiny" } *OK*
+
+* { _id : 12345 , name : "Quuxinator", tags : [ ] }
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=6O1UGHwuEww[Using $in and $all]
+
+Quiz: Using $in and $all  https://www.youtube.com/watch?feature=player_embedded&v=6O1UGHwuEww[Answer]
+
+Which of the following documents matches this query?
+
+[source, console]
+----
+db.users.find( { friends : { $all : [ "Joe" , "Bob" ] }, favorites : { $in : [ "running" , "pickles" ] } } )
+----
+
+* { name : "William" , friends : [ "Bob" , "Fred" ] , favorites : [ "hamburgers", "running" ] }
+
+* { name : "Stephen" , friends : [ "Joe" , "Pete" ] , favorites : [ "pickles", "swimming" ] }
+
+* { name : "Cliff" , friends : [ "Pete" , "Joe" , "Tom" , "Bob" ] , favorites : [ "pickles", "cycling" ] } *OK*
+
+* { name : "Harry" , friends : [ "Joe" , "Bob" ] , favorites : [ "hot dogs", "swimming" ] }
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=NrjFECIfwqk[Queries with dot notation]
+
+Quiz: Queries with dot notation https://www.youtube.com/watch?feature=player_embedded&v=yiEjK_V008s[Answer]
+
+Suppose a simple e-commerce product catalog called catalog with documents that look like this:
+
+[source, console]
+----
+{ product : "Super Duper-o-phonic",
+  price : 100000000000,
+  reviews : [ { user : "fred", comment : "Great!" , rating : 5 },
+              { user : "tom" , comment : "I agree with Fred, somewhat!" , rating : 4 } ],
+  ... }
+----
+
+Write a query that finds all products that cost more than 10,000 and that have a rating of 5 or better.
+
+[source, console]
+----
+db.catalog.find( { price : { $gt : 10000 } , "reviews.rating" : { $gte : 5 } } );
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=3jA6iFSEJOI[Querying, cursors]
+
+Quiz: Querying, cursors https://www.youtube.com/watch?feature=player_embedded&v=djzpK7UIO94[Answer]
+
+Recall the documents in the scores collection:
+
+[source, JSON]
+----
+{
+	"_id" : ObjectId("50844162cb4cf4564b4694f8"),
+	"student" : 0,
+	"type" : "exam",
+	"score" : 75
+}
+----
+
+Write a query that retrieves exam documents, sorted by score in descending order, skipping the first 50 and showing only the next 20.
+
+[source, console]
+----
+db.scores.find( { type : "exam" } ).sort( { score : -1 } ).skip(50).limit(20)
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=eKD5bVmNQMI[Counting results]
+
+Quiz: Counting results. https://www.youtube.com/watch?feature=player_embedded&v=Uozp0diXOc8[Answer]
+
+How would you count the documents in the scores collection where the type was "essay" and the score was greater than 90?
+
+[source, console]
+----
+db.scores.count({ type:"essay", score:{$gt:90}});
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=EBCk6W7x-OY[Wholesale Updating of a Document]
+
+Quiz: Wholesale Updating of a Document. https://www.youtube.com/watch?feature=player_embedded&v=pwnRUdtI8lY[Answer]
+
+Let's say you had a collection with the following document in it:
+
+[source, console]
+----
+{ "_id" : "Texas", "population" : 2500000, "land_locked" : 1 }
+----
+
+and you issued the query:
+
+[source, console]
+----
+db.foo.update({_id:"Texas"},{population:30000000})
+----
+
+What would be the state of the collection after the update?
+
+* { "_id" : "Texas", "population" : 2500000, "land_locked" : 1 }
+
+* { "_id" : "Texas", "population" : 3000000, "land_locked" : 1 }
+
+* { "_id" : "Texas", "population" : 30000000 } *OK*
+
+* { "_id" : ObjectId("507b7c601eb13126c9e3dcca"), "population" : 2500000 }
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=9iMX2KxYAd8[Using the $set command]
+
+Quiz: Using the $set command. https://www.youtube.com/watch?feature=player_embedded&v=F6ZY_VVAXZ8[Answer]
+
+Given the document
+
+[source, console]
+----
+{'username':'splunker', 'country':'US', 'phone':'718-343-3433'}
+----
+
+in the collection users, write the shell command for updating the country to 'RU' for only this user.
+
+[source, console]
+----
+db.users.update({'username':'splunker'},{$set:{'country':'RU'}})
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=Kxd4MXBEx-I[Using the $unset command]
+
+Quiz: Using the $unset command. https://www.youtube.com/watch?feature=player_embedded&v=edqDAKMQTv4[Answer]
+
+Write an update query that will unset the interests key in the following document in the collection users. The primary key is username.
+
+[source, console]
+----
+db.users.update({username:'jimmy'}, {$unset:{'interests':1}})
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=iHSwyr7bfQs[Using $push, $pop, $pull, $pushAll, $pullAll, $addToSet]
+
+Quiz: Using $push, $pop, $pull, $pushAll, $pullAll, $addToSet https://www.youtube.com/watch?feature=player_embedded&v=bGbiIGEM0FY[Answer]
+
+Suppose you have the following document in your friends collection:
+
+[source, console]
+----
+{ _id : "Mike", interests : [ "chess", "botany" ] }
+----
+
+What will the result of the following updates be?
+
+[source, console]
+----
+db.friends.update( { _id : "Mike" }, { $push : { interests : "skydiving" } } );
+db.friends.update( { _id : "Mike" }, { $pop : { interests : -1 } } );
+db.friends.update( { _id : "Mike" }, { $addToSet : { interests : "skydiving" } } );
+db.friends.update( { _id : "Mike" }, { $pushAll: { interests : [ "skydiving" , "skiing" ] } } );
+----
+
+[source, console]
+----
+{ _id : "Mike" , "interests" : [ "botany", "skydiving", "skydiving", "skiing" ] }
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=8uNNDduO09w[Multi-update]
+
+Quiz: Multi-update https://www.youtube.com/watch?feature=player_embedded&v=B1DqIls06Tc[Answer]
+
+Recall the schema of the scores collection:
+
+[source, console]
+----
+{
+	"_id" : ObjectId("50844162cb4cf4564b4694f8"),
+	"student" : 0,
+	"type" : "exam",
+	"score" : 75
+}
+----
+
+How would you give every record whose score was less than 70 an extra 20 points?
+
+[source, console]
+----
+db.scores.update( { score : { $lt: 70 } } , { $inc : { score : 20 } } , { multi : true } );
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=PMhGgc3HCn4[Removing data]
+
+Quiz: Removing data. https://www.youtube.com/watch?feature=player_embedded&v=T3wcuZHm6Ac[Answer]
+
+Recall the schema of the scores collection:
+
+[source, console]
+----
+{
+	"_id" : ObjectId("50844162cb4cf4564b4694f8"),
+	"student" : 0,
+	"type" : "exam",
+	"score" : 75
+}
+----
+
+How would you delete every record whose score was less than 60?
+
+[source, console]
+----
+db.scores.remove( { score : { $lt : 60 } } );
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=kUulkJQvH_A[getLastError]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=rAArRbxw0xI[Java driver: representing documents]
+
+Quiz: Java driver: representing documents. https://www.youtube.com/watch?feature=player_embedded&v=3_b5ybZpero[Answer]
+
+How would you create a document using the Java driver with this JSON structure:
+
+[source, console]
+----
+{
+   "_id" : "user1",
+   "interests" : [ "basketball", "drumming"]
+}
+----
+
+* new HashMap().put("_id", "user1").put(Arrays.asList("basketball", "drumming"));
+
+* new BasicDBObject("_id", "user1").append("interests", "basketball", "drumming");
+
+* new DBObject("_id", "user1").append("interests", Arrays.asList("basketball", "drumming"));
+
+* new BasicDBObject("_id", "user1").append("interests", Arrays.asList("basketball", "drumming")); *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=wAGixFmneRI[Java driver: insert]
+
+Quiz: Java driver: insert https://www.youtube.com/watch?feature=player_embedded&v=v4I5ijidFGk[Answer]
+
+Do you expect the second insert below to succeed?
+
+[source, console]
+----
+MongoClient client = new MongoClient();
+        DB db = client.getDB("school");
+        DBCollection people = db.getCollection("people");
+
+        DBObject doc = new BasicDBObject("name", "Andrew Erlichson")
+                .append("company", "10gen");
+
+        try {
+            people.insert(doc);      // first insert
+            doc.removeField("_id");  // remove the "_id" field
+            people.insert(doc);      // second insert
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=wgTeReQW7zI[Java driver: find, findOne, count]
+
+Quiz: Java driver: find, findOne, count
+
+In the following code snippet:
+
+[source, console]
+----
+MongoClient client = new MongoClient();
+        DB db = client.getDB("school");
+        DBCollection people = db.getCollection("people");
+        DBObject doc;
+        xxxx
+        System.out.println(doc);
+----
+
+
+Answer:
+[source, console]
+----
+doc = people.findOne();
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=5UtrLdHD06I[Java driver: query criteria]
+
+Quiz: Java driver: query criteria. https://www.youtube.com/watch?feature=player_embedded&v=_Zxiwo3lo28[Answer]
+
+Given a collection of documents with two fields -- type and score -- what is the correct line of code to find all documents where type is "quiz" and score is greater than 20 and less than 90. Select all that apply.
+
+* scores.find(new BasicDBObject("score", new BasicDBObject("$gt", 20).append("$lt", 90));
+
+* scores.find(new BasicDBObject("type", "quiz").append("score", new BasicDBObject("$gt", 20).append("$lt", 90))) *OK*
+
+* scores.find(new BasicDBObject("type", "quiz").append("$gt", new BasicDBObject("score", 20)).append("$lt", new BasicDBObject("score", 90)))
+
+* scores.find(QueryBuilder.start("type").is("quiz").and("score").greaterThan(20).lessThan(90).get()) *OK*
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=oW-0h-Ux3hQ[Java driver: field selection]
+
+Quiz: Java driver: field selection. https://www.youtube.com/watch?feature=player_embedded&v=F8kAQ88a3Bg[Answer]
+
+Given a variable named "students" of type DBCollection, which of the following lines of code could be used to find all documents in the collection, retrieving only the "phoneNumber" field.
+
+* students.find(new BasicDBObject("phoneNumber", 1).append("_id", 0))
+
+* students.find(new BasicDBObject("phoneNumber", 1))
+
+* students.find(new BasicDBObject(), new BasicDBObject("phoneNumber", 1).append("_id", 0))
+
+* students.find(new BasicDBObject("phoneNumber", 1).append("_id", 0), new BasicDBObject())
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=b8HWPdz9u38[Java driver: dot notation]
+
+Quiz: Java driver: dot notation. https://www.youtube.com/watch?feature=player_embedded&v=hWL1otPB51w[Answer]
+
+In the following code snippet, what do you think will happen if there exists in the collection a document that matches the query but does not have a key called "media.url"?
+
+[source, console]
+----
+DBObject findOneUrlByMediaType(DBCollection videos, String mediaType) {
+    DBObject query = new BasicDBObject("media.type", mediaType);
+    DBObject projection = new BasicDBObject("media.url", true);
+
+    return videos.findOne(query, projection);
+}
+----
+
+* It will throw an exception.
+
+* It will return an empty document
+
+* It will return a document containing a single field containing the document's _id  *OK*
+
+* There is not enough information to know
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=sYPs9PlBxrs[Java driver: sort, skip and limit]
+
+Quiz: Java driver: sort, skip and limit
+
+Supposed you had the following documents in a collection named things.
+
+[source, console]
+----
+{ "_id" : 0, "value" : 10 }
+{ "_id" : 1, "value" : 5 }
+{ "_id" : 2, "value" : 7 }
+{ "_id" : 3, "value" : 20 }
+----
+
+If you performed the following query in the Java driver:
+
+[source, console]
+----
+collection.find().sort(new BasicDBObject("value", -1)).skip(2).limit(1);
+----
+
+Quiz: Java driver: update and remove
+
+which document would be returned?
+
+* The document with _id=0
+
+* The document with _id=1
+
+* The document with _id=2 *OK*
+
+* The document with _id=3
+
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=6n9rN6vzRyg[Java driver: update and remove]
+
+Quiz: Java driver: update and remove
+
+In the following code fragment, what is the Java expression in place of xxxx that will set the field "examiner" to the value "Jones" for the document with _id of 1. Please use the $set operator.
+
+[source, console]
+----
+# update using $set
+        scores.update(new BasicDBObject("_id", 1), xxxx);
+----
+
+Answer:
+[source, console]
+----
+new BasicDBObject("$set", new BasicDBObject("examiner", "Jones"))
+----
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=PWZMQTsJFGs[Java driver: findAndModify]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=cKLfVZDs9FU[Blog, User Interface]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=JeyNWgk6FJc[Blog, Session Management]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=VdEJQPsf7gg[Blog, Internals]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=AXlFWtLDZp8[Python Eats Java]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=lK4L2l0q0vA[Installing Python on Windows]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=HhgFjhJxsOI[Installing Pymongo, Windows]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ywuf9uD5dks[Installing Pymongo, Mac]
+
+.
+
+===== Homework 2.1
+
+In this problem, you will be using a collection of student scores that is similar to what we used in the lessons. Please download the grades.json file and import it into your local mongo database as follows:
+
+[source, console]
+----
+mongoimport -d students -c grades < grades.json
+----
+
+The dataset contains 4 scores for 200 students.
+First, let’s confirm your data is intact; the number of documents should be 800.
+
+[source, console]
+----
+> use students
+> db.grades.count()
+800
+----
+
+This next query, which uses the aggregation framework that we have not taught yet, will tell you the student_id with the highest average score:
+
+[source, console]
+----
+> db.grades.aggregate({'$group':{'_id':'$student_id', 'average':{$avg:'$score'}}}, {'$sort':{'average':-1}}, {'$limit':1})
+----
+
+*Note: Aggregation requires http://www.mongodb.org/downloads[mongodb 2.2] or above.*
+The answer, deep in the resulting document, should be student_id 161 with an average of approximately 85.2.
+
+The answer, deep in the resulting document, should be student_id 161 with an average of approximately 85.2.
+
+Now it's your turn to analyze the data set. Find all exam scores greater than or equal to 65. and sort those scores from lowest to highest.
+What is the student_id of the lowest exam score above 65?
+
+* 115
+
+* 22
+
+* 48
+
+* 114 *RTA*
+
+* 87
+
+* 67
+
+===== https://github.com/nelsonjava/m101j/tree/master/week2[Homework 2.2] https://www.youtube.com/watch?feature=player_embedded&v=Bpz5E_L17RY[Answer:]
+
+Write a program in the language of your choice that will remove the grade of type "homework" with the lowest score for each student from the dataset that you imported in HW 2.1.
+Since each document is one grade, it should remove one document per student.
+
+Hint/spoiler: If you select homework grade-documents, sort by student and then by score, you can iterate through and find the
+lowest score for each student by noticing a change in student id. As you notice that change of student_id, remove the document.
+
+To confirm you are on the right track, here are some queries to run after you process the data with the correct answer shown:
+
+Let us count the number of grades we have:
+
+[source, console]
+----
+> db.grades.count()
+600
+----
+
+Now let us find the student who holds the 101st best grade across all grades:
+
+[source, console]
+----
+> db.grades.find().sort({'score':-1}).skip(100).limit(1)
+{ "_id" : ObjectId("513257f68d6e7cb63d7b1ead"), "student_id" : 164, "type" : "exam", "score" : 87.06518186605459 }
+----
+
+===== Homework 2.3 https://www.youtube.com/watch?feature=player_embedded&v=Bpz5E_L17RY[Answer]
+
+Now let us sort the students by student_id, score and see what the top five docs are:
+
+[source, console]
+----
+> db.grades.find({},{'student_id':1, 'type':1, 'score':1, '_id':0}).sort({'student_id':1, 'score':1, }).limit(5)
+{ "student_id" : 0, "type" : "quiz", "score" : 16.28337833467709 }
+{ "student_id" : 0, "type" : "exam", "score" : 64.40706888325151 }
+{ "student_id" : 0, "type" : "homework", "score" : 80.31845193864314 }
+{ "student_id" : 1, "type" : "quiz", "score" : 11.45004974085635 }
+{ "student_id" : 1, "type" : "homework", "score" : 31.56114538077717 }
+----
+
+To verify that you have completed this task correctly, provide the identify of the student with the highest average in the class with
+following query that uses the aggregation framework. The answer will appear in the _id field of the resulting document.
+
+[source, console]
+----
+> db.grades.aggregate({'$group':{'_id':'$student_id', 'average':{$avg:'$score'}}}, {'$sort':{'average':-1}}, {'$limit':1})
+----
+
+Enter the student ID below. Please enter just the number, with no spaces, commas or other characters.
+
+https://www.youtube.com/watch?feature=player_embedded&v=Bpz5E_L17RY[Answer:]
+[source, console]
+----
+124
+----
+
+===== https://github.com/nelsonjava/m101j/tree/master/week3[Homework 2.3]
+
+Blog User Sign-up and Login
+https://education.mongodb.com/static/m101j-october-2013/handouts/hw2-3.7f0c86868288.zip[hw2.3.zip] or
+https://education.mongodb.com/static/m101j-october-2013/handouts/hw2-3.a7c14526bec0.tar[hw2.3.tar]
+and unpack. This is the beginning of the blog project with the UI for creating an logging in blog authors, but nothing to display posts.
+
+There is a pom.xml file that describes the project.
+
+The project roughly follows the model/view/controller paradigm. BlogController.java is the controller and the model. The templates comprise the view. Here is a description of the directories and files.
+
+[source, console]
+----
+/src/main/java/course - contains source code
+/src/main/resources/freemarker - contains templates
+validate.py - the python script that will validate you got it right
+run.sh - the mvn command that starts it running if you don't want to use an IDE
+----
+
+If everything is working properly, you should be able to start the blog by typing:
+
+[source, console]
+----
+mvn compile exec:java -Dexec.mainClass=course.BlogController
+----
+
+If you goto http://localhost:8082/[http://localhost:8082] you should see a message “this is a placeholder for the blog”
+
+Here are some URLs that must work when you are done.
+
+[source, console]
+----
+http://localhost:8082/signup
+http://localhost:8082/login
+http://localhost:8082/logout
+----
+
+When you login or sign-up, the blog will redirect to http://localhost:8082/welcome and that must work properly, welcoming the user by username
+
+We have removed four Java statements from UserDAO and marked the areas where you need to work with XXX.
+You should not need to touch any other code. The java statements that you are going to add will add a new user upon sign-up and validate a login by retrieving the right user document.
+
+The blog stores its data in the blog database in two collections, users and sessions. Here are two example docs for a username ‘erlichson’ with password ‘fubar’. You can insert these if you like, but you don’t need to.
+
+[source, console]
+----
+> db.users.find()
+{ "_id" : "erlichson", "password" : "VH9IFu+/vUNSKTzZsFZEOsK1,-1924261330" }
+>
+> db.sessions.find()
+{ "_id" : "AN4M7warH+fdKOszU8qnd2Hmfn8JZFFZ9sff4zcPRpw=", "username" : "erlichson" }
+>
+----
+
+Once you have the the project working, the following steps should work:
+
+* go to http://localhost:8082/signup[http://localhost:8082/signup]
+* create a user
+
+It should redirect you to the welcome page and say: welcome username, where username is the user you signed up with. Now
+
+* Goto http://localhost:8082/logout[http://localhost:8082/logout]
+* Now login http://localhost:8082/login[http://localhost:8082/login].
+
+Ok, now it’s time to validate you got it all working.
+
+There was one additional program that should have been downloaded in the project called validate.py.
+
+[source, console]
+----
+python validate.py
+----
+
+If you got it right, it will provide a validation code for you to enter into the box below. Enter just the code, no spaces.
+*Notes on validation*
+
+The Python validation script requires the following python modules be installed on your computer: pymongo, urllib, urllib2, and cookielib. A typical Python installation will already have most of these installed except pymongo.
+
+If you have python-setuptools installed, the command "easy_install" makes this simple. Any other missing packages will show up when validate.py is run, and can be installed in a similar fashion.
+
+[source, console]
+----
+$ easy_install pymongo
+----
+
+Alternative Java-based Validation
+
+We also have an alternative validation program written in Java. If you are having trouble getting the Python one to
+work due to issues with your Python installation, you can try this. Start by downloading Validate.zip into a directory. Now cd to that directory and issue the following command
+
+[source, console]
+----
+java -jar Validate.jar
+----
+
+https://www.youtube.com/watch?feature=player_embedded&v=sktDBIkR_pA[Answer:]
+[source, console]
+----
+fhj837hf9376hgf93hf832jf9
+----

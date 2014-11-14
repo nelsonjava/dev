@@ -1,0 +1,433 @@
+[[mongo-m101j-week6]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+==== WEEK 6 - APPLICATION ENGINEERING
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=3zcbhNHebAc[Introduction]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=EtEPEkX3koo[Write Concern]
+
+Quiz: Write Concern. https://www.youtube.com/watch?feature=player_embedded&v=2-UO105PDrk[Answer]
+
+Provided you assume that the disk is persistent, what are the w and j settings required to guarantee that an insert or update has been written all the way to disk.
+
+* w=0, j=0
+
+* w=1, j=1 *OK*
+
+* w=2, j=0
+
+* w=1, j=0
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=BycNYXFpqhM[Network Errors]
+
+Quiz: Network Errors. https://www.youtube.com/watch?feature=player_embedded&v=64mAA3SEnkg[Answer]
+
+What are the reasons why an application may receive an error back even if the write was successful. Check all that apply.
+
+* The network TCP network connection between the application and the server was reset between the time of the write and the time of the getLastError call. *OK*
+
+* The MongoDB server terminates between the write and the getLastError call. *OK*
+
+* The network fails between the time of the write and the time of the getLastError call.  *OK*
+
+* The write violates a primary key constraint on the collection and must be rolled back.  *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=H1zGLx8ggXk[The Pymongo Driver]
+
+Quiz: The Pymongo Driver
+
+In the 2.4 release of Pymongo, a new connection class is introduced that automatically sets w=1, j=0. It essentially defaults to what
+used to be called safe mode and replaces the old Connection class. What is the name of that class?
+
+* MongoSafe
+
+* SafeConnection
+
+* MongoClient *OK*
+
+* FireAndRemember
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=f1WTYGORU3w[Introduction to Replication]
+
+Quiz: Introduction to Replication. https://www.youtube.com/watch?feature=player_embedded&v=XCssKzhlnZU[Answer]
+
+What is the minimum original number of nodes needed to assure the election of a new Primary if a node goes down?
+
+* 1
+
+* 2
+
+* 3 *OK*
+
+* 5
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=WFXSVHO78bQ[Replica Set Elections]
+
+Quiz: Replica Set Elections. https://www.youtube.com/watch?feature=player_embedded&v=vrUxTTD-XwA[Answer]
+
+Which types of nodes can participate in elections of a new primary?
+
+* Regular replica set members *OK*
+
+* Hidden Members *OK*
+
+* Arbiters *OK*
+
+* Lawyers
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=Oqf_Eza-s1M[Write Consistency]
+
+Quiz: Write Consistency. https://www.youtube.com/watch?feature=player_embedded&v=SjaJEYK1u3E[Answer]
+
+During the time when failover is occurring, can writes successfully complete?
+
+Yes
+
+No *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=flCFVFBRsKI[Creating a Replica Set]
+
+Quiz: Creating a Replica Set https://www.youtube.com/watch?feature=player_embedded&v=ibZVf59aUj8[Answer]
+
+Which command, when issued from the mongo shell, will allow you to read from a secondary?
+
+* db.isMaster()
+
+* db.adminCommand({'readPreference':'Secondary'})
+
+* rs.setStatus("Primary")
+
+* rs.slaveOk() *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=lx0Kj4n4EWM[Replica Set Internals]
+
+Quiz: Replica Set Internals https://www.youtube.com/watch?feature=player_embedded&v=_am2mdVF1uk[Answer]
+
+In the video how long did it take to elect a new primary?
+
+* About three seconds *OK*
+
+* Above 10 seconds
+
+* About 30 seconds
+
+* About a minute
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=IW1oW_Adlt0[Failover and Rollback]
+
+Quiz: Failover and Rollback https://www.youtube.com/watch?feature=player_embedded&v=t3rNxRg6WZE[Answer]
+
+What happens if a node comes back up as a secondary after a period of being offline and the oplog has looped on the primary?
+
+* The entire dataset will be copied from the primary *OK*
+
+* A rollback will occur
+
+* The new node stays offline (does not re-join the replica set)
+
+* The new node begins to calculate Pi to a large number of decimal places
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=GL4kika730k[Connecting to a Replica Set from Pymongo]
+
+Quiz: Connecting to a Replica Set from Java Driver https://www.youtube.com/watch?feature=player_embedded&v=E5vOOKL45pc[Answer]
+
+If you leave a replica set node out of the seedlist within the driver, what will happen?
+
+* The missing node will not be used by the application.
+
+* The missing node will be discovered as long as you list at least one valid node. *OK*
+
+* This missing node will be used for reads, but not for writes.
+
+* The missing node will be used for writes, but not for reads.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=0ANiUSyhG9k[Bad Things Happen to Good Nodes]
+
+Quiz: Bad Things Happen to Good Nodes https://www.youtube.com/watch?feature=player_embedded&v=VmVINcX3zQs[Answer]
+
+If you use the special MongoReplicaSetClient, are you guaranteed to avoid a network error due an intervening failover?
+
+* Yes
+
+* No *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=352E66ZG0OU[Write Concern Revisited]
+
+Quiz: Write Concern https://www.youtube.com/watch?feature=player_embedded&v=352E66ZG0OU[Answer]
+
+What are the w and j settings required to guarantee that an insert, update or delete has been persisted to disk?
+
+* w=0, j=0
+
+* w=1, j=1 *OK*
+
+* w=2, j=0
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=64mAA3SEnkg[Network Errors]
+
+Quiz: Network Errors https://www.youtube.com/watch?feature=player_embedded&v=64mAA3SEnkg[Answer]
+
+What are the reasons why an application may receive an error back even if the write was successful. Check all that apply.
+
+* The network TCP network connection between the application and the server was reset between the time
+  of the write and the time of the getLastError call.
+
+* The MongoDB server terminates between the write and the getLastError call. *OK*
+
+* The network fails between the time of the write and the time of the getLastError call *OK*
+
+* The write violates a primary key constraint on the collection and must be rolled back. *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=lA9UIEtvfWo[Read Preferences]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=_GfDqa1qRl0[Introduction to Sharding]
+
+Quiz: Introduction to Sharding https://www.youtube.com/watch?feature=player_embedded&v=4Z0D2bX5Cg4[Answer]
+
+If the shard key is not include in a find operation and there are 3 shards, each one a replica set
+with 3 nodes, how many nodes will see the find operation?
+
+* 1
+
+* 3 *OK*
+
+* 9
+
+* 6
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=aaYc2W4keF4[Building a Sharded Environment]
+
+Quiz: Building a Sharded Environment. https://www.youtube.com/watch?feature=player_embedded&v=5tPjnJrY0rU[Answer]
+
+If you want to build a production system with two shards, each one a replica set with three nodes, how may mongod processes must you start?
+
+* 2
+
+* 6
+
+* 7
+
+* 9 *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ig278F60gRA[Implications of Sharding]
+
+Quiz: Implications of Sharding https://www.youtube.com/watch?feature=player_embedded&v=vfl0hqdgB3Q[Answer]
+
+Suppose you wanted to shard the zip code collection after importing it. You want to shard on zip code. What index would be required to allow MongoDB to shard on zip code?
+
+* An index on zip or a non-multi-key index that starts with zip. *OK*
+
+* No index is required to use zip as the shard key.
+
+* A unique index on the zip code.
+
+* Any index that that includes the zip code.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=-rtYrLb1bgY[Sharding + Replication]
+
+Quiz: Sharding + Replication https://www.youtube.com/watch?feature=player_embedded&v=hnuiYokdO7g[Answer]
+
+Suppose you want to run multiple mongos routers for redundancy. What level of the stack will assure that you can failover to a different mongos from within your application?
+
+* mongod
+
+* mongos
+
+* drivers *OK*
+
+* sharding config servers
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=8q2GB3QSBSI[Choosing a Shard Key]
+
+Quiz: Choosing a Shard Key
+
+You are building a facebook competitor called footbook that will be a mobile social network of feet. 
+You have decided that your primary data structure for posts to the wall will look like this:
+
+[source, console]
+----
+{'username':'toeguy',
+     'posttime':ISODate("2012-12-02T23:12:23Z"),
+     "randomthought": "I am looking at my feet right now",
+     'visible_to':['friends','family', 'walkers']}
+----
+
+Thinking about the tradeoffs of shard key selection, select the true statements below.
+
+* Choosing posttime as the shard key will cause hotspotting as time progresses. *OK*
+
+* Choosing username as the shard key will distribute posts to the wall well across the shards. *OK*
+
+* Choosing visible_to as a shard key is illegal.  *OK*
+
+* Choosing posttime as the shard key suffers from low cardinality.
+
+
+===== [HW 6.1] https://www.youtube.com/watch?feature=player_embedded&v=J4ZuF8UJD9s[Answer]
+
+Which of the following statements are true about MongoDB replication. Check all that apply.
+
+* The minimum sensible number of voting nodes to a replica set is three.
+
+* MongoDB replication is synchronous.
+
+* The Mongo shell is capable of attaching to a replica set and automatically failing over.
+
+* By default, using the new MongoClient connection class, w=1 and j=1.
+
+* The oplog utilizes a capped collection.
+
+===== [HW 6.2] https://www.youtube.com/watch?feature=player_embedded&v=8K-6JPrvkEs[Answer]
+
+Let's suppose you have a five member replica set and want to assure that writes are committed to the journal and are
+acknowledged by at least 3 nodes before you proceed forward. What would be the appropriate settings for w and j?
+
+* w=1, j=1
+
+* w="majority", j=1 *OK*
+
+* w=3, j=0
+
+* w=5, j=1
+
+* w=1,j=3
+
+===== [HW 6.3] https://www.youtube.com/watch?feature=player_embedded&v=496QtQt4tX8[Answer]
+
+Which of the following statements are true about choosing and using a shard key:
+
+* The shard key must be unique
+
+* There must be a index on the collection that starts with the shard key. *OK*
+
+* Mongo can not enforce unique indexes on a sharded collection other than the shard key itself. *OK*
+
+* Any update that does not contain the shard key will be sent to all shards. *OK*
+
+* You can change the shard key on a collection if you desire.
+
+===== [HW 6.4] https://www.youtube.com/watch?feature=player_embedded&v=uEemjO9S7vQ[Answer]
+
+You have a sharded system with three shards and have sharded the collections "grades" in the "test" database across
+those shards. The output of sh.status() when connected to mongos looks like this:
+
+[source, console]
+----
+mongos> sh.status()
+--- Sharding Status ---
+  sharding version: { "_id" : 1, "version" : 3 }
+  shards:
+	{  "_id" : "s0",  "host" : "s0/localhost:37017,localhost:37018,localhost:37019" }
+	{  "_id" : "s1",  "host" : "s1/localhost:47017,localhost:47018,localhost:47019" }
+	{  "_id" : "s2",  "host" : "s2/localhost:57017,localhost:57018,localhost:57019" }
+  databases:
+	{  "_id" : "admin",  "partitioned" : false,  "primary" : "config" }
+	{  "_id" : "test",  "partitioned" : true,  "primary" : "s0" }
+		test.grades chunks:
+				s1	4
+				s0	4
+				s2	4
+			{ "student_id" : { $minKey : 1 } } -->> { "student_id" : 0 } on : s1 Timestamp(12000, 0)
+			{ "student_id" : 0 } -->> { "student_id" : 2640 } on : s0 Timestamp(11000, 1)
+			{ "student_id" : 2640 } -->> { "student_id" : 91918 } on : s1 Timestamp(10000, 1)
+			{ "student_id" : 91918 } -->> { "student_id" : 176201 } on : s0 Timestamp(4000, 2)
+			{ "student_id" : 176201 } -->> { "student_id" : 256639 } on : s2 Timestamp(12000, 1)
+			{ "student_id" : 256639 } -->> { "student_id" : 344351 } on : s2 Timestamp(6000, 2)
+			{ "student_id" : 344351 } -->> { "student_id" : 424983 } on : s0 Timestamp(7000, 2)
+			{ "student_id" : 424983 } -->> { "student_id" : 509266 } on : s1 Timestamp(8000, 2)
+			{ "student_id" : 509266 } -->> { "student_id" : 596849 } on : s1 Timestamp(9000, 2)
+			{ "student_id" : 596849 } -->> { "student_id" : 772260 } on : s0 Timestamp(10000, 2)
+			{ "student_id" : 772260 } -->> { "student_id" : 945802 } on : s2 Timestamp(11000, 2)
+			{ "student_id" : 945802 } -->> { "student_id" : { $maxKey : 1 } } on : s2 Timestamp(11000, 3)
+----
+
+If you ran the query
+
+[source, console]
+----
+use test
+db.grades.find({'student_id':530289})
+----
+
+Which shards would be involved in answering the query?
+
+* s0,s1 and s2
+
+* s0
+
+* s1 *OK*
+
+* s2
+
+
+===== [HW 6.5]
+
+In this homework you will build a small replica set on your own computer. We will check that it works with validate.py,
+which you should download in
+[week6-lessons.tar] or
+[week6-lessons.zip].
+
+Create three directories for the three mongod processes. On unix, this could be done as follows:
+
+[source, console]
+----
+mkdir -p /data/rs1 /data/rs2 /data/rs3
+----
+
+Now start three mongo instances as follows. Note that are three commands. The browser is probably wrapping them visually.
+
+[source, console]
+----
+mongod --replSet m101 --logpath "1.log" --dbpath /data/rs1 --port 27017 --smallfiles --oplogSize 64 --fork
+
+mongod --replSet m101 --logpath "2.log" --dbpath /data/rs2 --port 27018 --smallfiles --oplogSize 64 --fork
+
+mongod --replSet m101 --logpath "3.log" --dbpath /data/rs3 --port 27019 --smallfiles --oplogSize 64 --fork
+----
+
+Now connect to a mongo shell and make sure it comes up
+
+[source, console]
+----
+mongo --port 27017
+----
+
+Now you will create the replica set. Type the following commands into the mongo shell:
+
+[source, console]
+----
+config = { _id: "m101", members:[
+          { _id : 0, host : "localhost:27017"},
+          { _id : 1, host : "localhost:27018"},
+          { _id : 2, host : "localhost:27019"} ]
+};
+rs.initiate(config);
+----
+
+At this point, the replica set should be coming up. You can type
+
+[source, console]
+----
+rs.status()
+----
+
+to see the state of replication.
+
+Now run validate.py to confirm that it works.
+
+[source, console]
+----
+CongratsYouRock2012
+----

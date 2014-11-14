@@ -1,0 +1,797 @@
+[[mongo-m101j-week5]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+==== WEEK 5 - AGGREGATION
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=EaEIHm3CMQM[Introduction to Aggregation]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=T2BX-LZOYsY[Simple Aggregation Example]
+
+Quiz: Simple Aggregation Example. https://www.youtube.com/watch?feature=player_embedded&v=Nt0cQI86G40[Answer]
+
+Write the aggregation query that will find the number of products by category of a collection that has the form:
+{
+	"_id" : ObjectId("50b1aa983b3d0043b51b2c52"),
+	"name" : "Nexus 7",
+	"category" : "Tablets",
+	"manufacturer" : "Google",
+	"price" : 199
+}
+
+Have the resulting key be called "num_products," as in the video lesson. Hint, you just need to change which key you are aggregating on relative to the examples shown in the lesson.
+Please double quote all keys to make it easier to check your result.
+
+[source, console]
+----
+db.products.aggregate([{$group:{"_id":"$category", "num_products":{"$sum":1}}}])
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=WazN2DS8s8c[The Aggregation Pipeline]
+
+Quiz: The Aggregation Pipeline. https://www.youtube.com/watch?feature=player_embedded&v=mcnGfI69rRc#t=0[Answer]
+
+Which of the following are stages in the aggregation pipeline. Check all that apply.
+
+* Match *OK*
+
+* Transpose *OK*
+
+* Group *OK*
+
+* Skip *OK*
+
+* Limit *OK*
+
+* Sort *OK*
+
+* Project *OK*
+
+* unwind *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=3lEpnMcfpCs[Simple Example Expanded]
+
+Quiz: Simple Example Expanded. https://www.youtube.com/watch?feature=player_embedded&v=nr1E1qTyIHU[Answer]
+
+If you have the following collection of stuff:
+
+[source, console]
+----
+> db.stuff.find()
+{ "_id" : ObjectId("50b26f9d80a78af03b5163c8"), "a" : 1, "b" : 1, "c" : 1 }
+{ "_id" : ObjectId("50b26fb480a78af03b5163c9"), "a" : 2, "b" : 2, "c" : 1 }
+{ "_id" : ObjectId("50b26fbf80a78af03b5163ca"), "a" : 3, "b" : 3, "c" : 1 }
+{ "_id" : ObjectId("50b26fcd80a78af03b5163cb"), "a" : 3, "b" : 3, "c" : 2 }
+{ "_id" : ObjectId("50b26fd380a78af03b5163cc"), "a" : 3, "b" : 5, "c" : 3 }
+----
+
+and you perform the following aggregation:
+
+[source, console]
+----
+db.stuff.aggregate([{$group:{_id:'$c'}}])
+----
+
+How many documents will be in the result set from aggregate?
+
+* 1
+
+* 2
+
+* 3 *OK*
+
+* 4
+
+* 5
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=LPFVRrag2Zg[Compound Grouping]
+
+Quiz: Compound Grouping https://www.youtube.com/watch?feature=player_embedded&v=bIlwnlYBRA0[Answer]
+
+Given the following collection:
+
+[source, console]
+----
+> db.stuff.find()
+{ "_id" : ObjectId("50b26f9d80a78af03b5163c8"), "a" : 1, "b" : 1, "c" : 1 }
+{ "_id" : ObjectId("50b26fb480a78af03b5163c9"), "a" : 2, "b" : 2, "c" : 1 }
+{ "_id" : ObjectId("50b26fbf80a78af03b5163ca"), "a" : 3, "b" : 3, "c" : 1 }
+{ "_id" : ObjectId("50b26fcd80a78af03b5163cb"), "a" : 3, "b" : 3, "c" : 2 }
+{ "_id" : ObjectId("50b26fd380a78af03b5163cc"), "a" : 3, "b" : 5, "c" : 3 }
+{ "_id" : ObjectId("50b27f7080a78af03b5163cd"), "a" : 3, "b" : 3, "c" : 2 }
+----
+
+And the following aggregation query:
+
+[source, console]
+----
+db.stuff.aggregate([{$group:
+		     {_id:
+		      {'moe':'$a',
+		       'larry':'$b',
+		       'curly':'$c'
+		      }
+		     }
+		    }])
+----
+
+How many documents will be in the result set?
+
+
+* 2
+
+* 3
+
+* 4
+
+* 5 *OK*
+
+* 6
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=zoN4cj_XQzY[Using a document for _id]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=L4G14MTfTgQ[Aggregation Expressions]
+
+Quiz: Aggregation Expressions. https://www.youtube.com/watch?feature=player_embedded&v=kJ0k2na4ukU[Answer]
+
+Which of the following aggregation expressions must be used in conjunction with a sort to make any sense?
+
+* $addToSet
+
+* $first *OK*
+
+* $last  *OK*
+
+* $max
+
+* $min
+
+* $avg
+
+* $push
+
+* $sum
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=oAV9tC0R8xk[Using $sum]
+
+Quiz: Using $sum  https://www.youtube.com/watch?feature=player_embedded&v=ATO_s_Ah08o[Answer]
+
+This problem, and some after it, use the zips collection from media.mongodb.org/zips.json.
+
+You don't need to download it, but you can if you want, allowing you to test your queries within MongoDB.
+
+You can import, once downloaded, using mongoimport
+
+Suppose we have a collection of populations by postal code.
+
+The postal codes in are in the _id field, and are therefore unique. Documents look like this:
+
+[source, console]
+----
+{
+	"city" : "CLANTON",
+	"loc" : [
+		-86.642472,
+		32.835532
+	],
+	"pop" : 13990,
+	"state" : "AL",
+	"_id" : "35045"
+}
+----
+
+For students outside the United States, there are 50 non-overlapping states in the US with two letter abbreviations such as NY and CA.
+In addition, the capital of Washington is within an area designated the District of Columbia, and
+carries the abbreviation DC. For purposes of the mail, the postal service considers DC to be a "state." So in this dataset,
+there are 51 states. We call postal codes "zip codes." A city may overlap several zip codes.
+
+Write an aggregation query to sum up the population (pop) by state and put the result in a field called population.
+
+Don't use a compound _id key (you don't need one and the quiz checker is not expecting one).
+
+The collection name is zips. so something along the lines of db.zips.aggregrate...
+
+[source, console]
+----
+db.zips.aggregate([{"$group":{"_id":"$state", "population":{$sum:"$pop"}}}])
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=7UWOK8rWf1w[Using $avg]
+
+Quiz: Using $avg https://www.youtube.com/watch?feature=player_embedded&v=tT6Jx8s9dTc[Answer]
+
+This problem uses the same dataset as we described in using $sum quiz and you should review that quiz if you did not complete it.
+Given population data by zip code (postal code) that looks like this:
+
+[source, console]
+----
+{
+	"city" : "FISHERS ISLAND",
+	"loc" : [
+		-72.017834,
+		41.263934
+	],
+	"pop" : 329,
+	"state" : "NY",
+	"_id" : "06390"
+}
+----
+
+Write an aggregation expression to calculate the average population of a zip code (postal code) by state.
+
+As before, the postal code is in the _id field and is unique.
+
+The collection is assumed to be called "zips" and you should name the key in the result set "average_pop".
+
+[source, console]
+----
+db.zips.aggregate([{"$group":{"_id":"$state", "average_pop":{"$avg":"$pop"}}}])
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=y2FD4R3in5U[Using $addToSet]
+
+Quiz: Using $addToSet https://www.youtube.com/watch?feature=player_embedded&v=zGcTxUQuLGE[Answer]
+
+This problem uses the same zip code data as the $using sum quiz. See that quiz for a longer explanation.
+Suppose we population by zip code (postal code) data that looks like this (putting in a query for the zip codes in Palo Alto)
+
+[source, console]
+----
+> db.zips.find({state:"CA",city:"PALO ALTO"})
+{ "city" : "PALO ALTO", "loc" : [ -122.149685, 37.444324 ], "pop" : 15965, "state" : "CA", "_id" : "94301" }
+{ "city" : "PALO ALTO", "loc" : [ -122.184234, 37.433424 ], "pop" : 1835, "state" : "CA", "_id" : "94304" }
+{ "city" : "PALO ALTO", "loc" : [ -122.127375, 37.418009 ], "pop" : 24309, "state" : "CA", "_id" : "94306" }
+----
+
+Write an aggregation query that will return the postal codes that cover each city. The results should look like this:
+
+[source, console]
+----
+{
+			"_id" : "CENTREVILLE",
+			"postal_codes" : [
+				"22020",
+				"49032",
+				"39631",
+				"21617",
+				"35042"
+			]
+		},
+----
+
+Again the collection will be called zips. You can deduce what your result column names should be from the above output.
+(ignore the issue that a city may have the same name in two different states and is in fact two
+different cities in that case - for eg Springfield, MO and Springfield, MA)
+
+[source, console]
+----
+db.zips.aggregate([{"$group":{"_id":"$city", "postal_codes":{"$addToSet":"$_id"}}}])
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=gjIVUFufx3A[Using $push]
+
+Quiz: Using $push https://www.youtube.com/watch?feature=player_embedded&v=hFqDvVXtm6E[Answer]
+
+Given the zipcode dataset (explained more fully in the using $sum quiz) that has documents that look like this:
+
+[source, console]
+----
+> db.zips.findOne()
+{
+	"city" : "ACMAR",
+	"loc" : [
+		-86.51557,
+		33.584132
+	],
+	"pop" : 6055,
+	"state" : "AL",
+	"_id" : "35004"
+}
+----
+
+would you expect the following two queries to produce the same result or different results?
+
+[source, console]
+----
+db.zips.aggregate([{"$group":{"_id":"$city", "postal_codes":{"$push":"$_id"}}}])
+----
+
+[source, console]
+----
+db.zips.aggregate([{"$group":{"_id":"$city", "postal_codes":{"$addToSet":"$_id"}}}])
+----
+
+* Same result *OK*
+
+* Different Result
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=BYoNX4trjOQ[Using $max and $min]
+
+Quiz: Using $max and $min https://www.youtube.com/watch?feature=player_embedded&v=sHCdOiCispA[Answer]
+
+Again thinking about the zip code database, write an aggregation query that will return the
+population of the postal code in each state with the highest population.
+It should return output that looks like this:
+
+[source, console]
+----
+{
+			"_id" : "WI",
+			"pop" : 57187
+		},
+		{
+			"_id" : "WV",
+			"pop" : 70185
+		},
+..and so on
+----
+
+Once again, the collection is named zips.
+
+[source, console]
+----
+db.zips.aggregate([{$group:{"_id":"$state", pop:{$max:"$pop"}}}])
+----
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ET4ubwQTTos[Double $group stages]
+
+Quiz: Double $group stages. https://www.youtube.com/watch?feature=player_embedded&v=J-asAAEHJ0Q[Answer]
+
+Given the following collection:
+
+[source, console]
+----
+> db.fun.find()
+{ "_id" : 0, "a" : 0, "b" : 0, "c" : 21 }
+{ "_id" : 1, "a" : 0, "b" : 0, "c" : 54 }
+{ "_id" : 2, "a" : 0, "b" : 1, "c" : 52 }
+{ "_id" : 3, "a" : 0, "b" : 1, "c" : 17 }
+{ "_id" : 4, "a" : 1, "b" : 0, "c" : 22 }
+{ "_id" : 5, "a" : 1, "b" : 0, "c" : 5 }
+{ "_id" : 6, "a" : 1, "b" : 1, "c" : 87 }
+{ "_id" : 7, "a" : 1, "b" : 1, "c" : 97 }
+----
+
+And the following aggregation query
+
+[source, console]
+----
+db.fun.aggregate([{$group:{_id:{a:"$a", b:"$b"}, c:{$max:"$c"}}}, {$group:{_id:"$_id.a", c:{$min:"$c"}}}])
+----
+
+What values are returned?
+
+* 17 and 54
+
+* 97 and 21
+
+* 54 and 5
+
+* 52 and 22 *OK*
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=yi-ySSNO8Ao[$project]
+
+Quiz: $project  https://www.youtube.com/watch?feature=player_embedded&v=IGN0lXg-kJ0[Answer]
+
+Write an aggregation query with a single projection stage that will transform the documents in the zips collection from this:
+
+[source, console]
+----
+{
+	"city" : "ACMAR",
+	"loc" : [
+		-86.51557,
+		33.584132
+	],
+	"pop" : 6055,
+	"state" : "AL",
+	"_id" : "35004"
+}
+----
+
+to documents in the result set that look like this:
+
+[source, console]
+----
+{
+	"city" : "acmar",
+	"pop" : 6055,
+	"state" : "AL",
+	"zip" : "35004"
+}
+----
+
+So that the checker works properly, please specify what you want to do with the _id key as the first item.
+The other items should be ordered as above. As before, assume the collection is called zips.
+You are running only the projection part of the pipeline for this quiz.
+
+A few facts not mentioned in the lesson that you will need to know to get this right:
+If you don't mention a key, it is not included, except for _id, which must be explicitly suppressed.
+If you want to include a key exactly as it is named in the source document, you just write key:1,
+where key is the name of the key. You will probably get more out of this quiz is you download the zips.json
+file and practice in the shell. zips.json link is in the using $sum quiz
+
+[source, console]
+----
+db.zips.aggregate([{$project:{_id:0, city:{$toLower:"$city"}, pop:1, state:1, zip:"$_id"}}])
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=qohLRL8k0So[$match]
+
+Quiz: $match https://www.youtube.com/watch?feature=player_embedded&v=CHGiumXE-pU[Answer]
+
+Again, thinking about the zipcode collection, write an aggregation query with a single match phase that filters
+for zipcodes with greater than 100,000 people. You may need to look up the use of the
+http://docs.mongodb.org/manual/reference/operators/[$gt operator in the MongoDB docs].
+
+Assume the collection is called zips.
+
+[source, console]
+----
+db.zips.aggregate([{$match:{pop:{$gt:100000}}}])
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=TW1KByIuns4[$sort]
+
+Quiz: $sort https://www.youtube.com/watch?feature=player_embedded&v=-cghyd6AHHA[Answer]
+
+Again, considering the zipcode collection, which has documents that look like this,
+
+[source, console]
+----
+{
+	"city" : "ACMAR",
+	"loc" : [
+		-86.51557,
+		33.584132
+	],
+	"pop" : 6055,
+	"state" : "AL",
+	"_id" : "35004"
+}
+----
+
+Write an aggregation query with just a sort stage to sort by (state, city), both ascending. Assume the collection is called zips.
+
+[source, console]
+----
+db.zips.aggregate([{$sort:{state:1, city:1}}])
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=AdxoEzVqdtc[$limit and $skip]
+
+Quiz: $limit and $skip https://www.youtube.com/watch?feature=player_embedded&v=joRw-fqCIWA[Answer]
+
+Suppose you change the order of skip and limit in the query shown in the lesson, to look like this:
+
+[source, console]
+----
+db.zips.aggregate([
+    {$match:
+     {
+	 state:"NY"
+     }
+    },
+    {$group:
+     {
+	 _id: "$city",
+	 population: {$sum:"$pop"},
+     }
+    },
+    {$project:
+     {
+	 _id: 0,
+	 city: "$_id",
+	 population: 1,
+     }
+    },
+    {$sort:
+     {
+	 population:-1
+     }
+    },
+    {$limit: 5},
+    {$skip: 10}
+])
+----
+
+How many documents do you think will be in the result set?
+
+* 10
+
+* 5
+
+* 0  *OK*
+
+* 100
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=O1zeqAxdUgk[Revisiting $first and $last]
+
+Quiz: Revisiting $first and $last https://www.youtube.com/watch?feature=player_embedded&v=WBWb0ssDVeY[Answer]
+
+Given the following collection:
+
+[source, console]
+----
+> db.fun.find()
+{ "_id" : 0, "a" : 0, "b" : 0, "c" : 21 }
+{ "_id" : 1, "a" : 0, "b" : 0, "c" : 54 }
+{ "_id" : 2, "a" : 0, "b" : 1, "c" : 52 }
+{ "_id" : 3, "a" : 0, "b" : 1, "c" : 17 }
+{ "_id" : 4, "a" : 1, "b" : 0, "c" : 22 }
+{ "_id" : 5, "a" : 1, "b" : 0, "c" : 5 }
+{ "_id" : 6, "a" : 1, "b" : 1, "c" : 87 }
+{ "_id" : 7, "a" : 1, "b" : 1, "c" : 97 }
+----
+
+What would be the value of c in the result from this aggregation query
+
+[source, console]
+----
+db.fun.aggregate([
+    {$match:{a:0}},
+    {$sort:{c:-1}},
+    {$group:{_id:"$a", c:{$first:"$c"}}}
+])
+----
+
+* 21
+
+* 54 *OK*
+
+* 97
+
+* 5
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=E4aYOQPeQvI[$unwind]
+
+Quiz: $unwind https://www.youtube.com/watch?feature=player_embedded&v=Xfl3m7wz8ts[Answer]
+
+Suppose you have the following collection:
+
+[source, console]
+----
+db.people.find()
+{ "_id" : "Barack Obama", "likes" : [ "social justice", "health care", "taxes" ] }
+{ "_id" : "Mitt Romney", "likes" : [ "a balanced budget", "corporations", "binders full of women" ] }
+----
+
+And you unwind the "likes" array of each document. How many documents will you wind up with?
+
+* 2
+
+* 4
+
+* 6 *OK*
+
+* 9
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=XiWCJr4Lqag[$unwind example]
+
+Quiz: $unwind example https://www.youtube.com/watch?feature=player_embedded&v=jAWL-BJD0tI[Answer]
+
+Which grouping operator will enable to you to reverse the effects of an unwind?
+
+* $sum
+
+* $addToSet
+
+* $push *OK*
+
+* $first
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=sgnidsHyFeU[Double $unwind]
+
+Quiz: Double $unwind https://www.youtube.com/watch?feature=player_embedded&v=pziFq1oVRI4[Answer]
+
+Can you reverse the effects of a double unwind (2 unwinds in a row) in our inventory collection (shown in the lesson ) with the $push operator?
+
+* Yes  *OK*
+
+* No
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=auL2R0XKlyM[Mapping between SQL and Aggregation]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ep2gLSR6C0U[Some Common SQL examples]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=8BQzKXI-_wE[Limitations of the Aggregation Framwork]
+
+.
+
+===== [HW 5.1]
+
+Homework: HW 5.1 https://www.youtube.com/watch?feature=player_embedded&v=9wkTlkRZ8Z0[Answer]
+
+Finding the most frequent author of comments on your blog
+
+In this assignment you will use the aggregation framework to find the most frequent author of comments on your blog.
+We will be using the same dataset as last week.
+
+Start by downloading the posts.json dataset from last week's homework, found in
+https://education.mongodb.com/static/m101j-october-2013/handouts/hw4-3.549d89fe98d1.tgz[hw4-3.tgz] or
+https://education.mongodb.com/static/m101j-october-2013/handouts/hw4-3.de5d68fa4eec.zip[hw4-3.zip].
+Then import into your blog database as follows:
+
+[source, console]
+----
+mongoimport -d blog -c posts --drop < posts.json
+----
+
+Now use the aggregation framework to calculate the author with the greatest number of comments.
+
+To help you verify your work before submitting, the author with the least comments is Efrain Claw and he commented 384 times.
+
+Ok, please choose your answer below for the most prolific comment author:
+
+* Tonisha Games
+
+* Milan Mcgavock
+
+* Lucinda Vanderburg
+
+* Dusti Lemmond
+
+* Mikaela Meidinger *OK*
+
+* Corliss Zuk
+
+===== [HW 5.2] https://www.youtube.com/watch?feature=player_embedded&v=VTSFb8m4vrs[Answer]
+
+Crunching the Zipcode dataset
+
+Please download the zips.json dataset and import it into a collection of your choice.
+
+Please calculate the average population of cities in California (abbreviation CA) and New York (NY) (taken together) with populations over 25,000.
+
+For this problem, assume that a city name that appears in more than one state represents two separate cities.
+
+Please round the answer to a whole number.
+Hint: The answer for CT and NJ is 49749.
+
+* 78347
+
+* 96343
+
+* 86253
+
+* 93164
+
+* 82541 *OK*
+
+* 68341
+
+===== [HW 5.3] https://www.youtube.com/watch?feature=player_embedded&v=wqfqAzhOie8[Answer]
+
+*Who's the easiest grader on campus?*
+
+In this problem you will be analyzing a dataset of student grades. Please import grades_5-3.js into a database and collection of your choice.
+
+The documents look like this:
+
+[source, console]
+----
+{
+	"_id" : ObjectId("50b59cd75bed76f46522c392"),
+	"student_id" : 10,
+	"class_id" : 5,
+	"scores" : [
+		{
+			"type" : "exam",
+			"score" : 69.17634380939022
+		},
+		{
+			"type" : "quiz",
+			"score" : 61.20182926719762
+		},
+		{
+			"type" : "homework",
+			"score" : 73.3293624199466
+		},
+		{
+			"type" : "homework",
+			"score" : 15.206314042622903
+		},
+		{
+			"type" : "homework",
+			"score" : 36.75297723087603
+		},
+		{
+			"type" : "homework",
+			"score" : 64.42913107330241
+		}
+	]
+}
+----
+
+There are documents for each student (student_id) across a variety of classes (class_id). 
+Note that not all students in the same class have the same exact number of assessments. 
+Some students have three homework assignments, etc.
+
+Your task is to calculate the class with the best average student performance. 
+This involves calculating an average for each student in each class of all non-quiz assessments and then averaging 
+those numbers to get a class average. To be clear, each student's average includes 
+only exams and homework grades. *Don't include their quiz scores in the calculation.*
+
+What is the class_id which has the highest average student perfomance?
+
+Hint/Strategy: You need to group twice to solve this problem. 
+You must figure out the GPA that each student has achieved in a class and then average those numbers to get a class average. 
+After that, you just need to sort. The hardest class is class_id=2. Those students achieved a class average of 37.6
+
+Below, choose the class_id with the highest average student average.
+
+* 8
+
+* 9
+
+* 1 *OK*
+
+* 5
+
+* 7
+
+* 0
+
+* 6
+
+===== [HW 5.4] https://www.youtube.com/watch?feature=player_embedded&v=UpwIQjRO2vw[Answer]
+
+*Removing Rural Residents* In this problem you will calculate the number of people who live in a zip code in the US 
+where the city starts with a digit. We will take that to mean they don't really live in a city. 
+Once again, you will be using the zip code collection you imported earlier.
+
+The project operator can extract the first digit from any field. For example, 
+to extract the first digit from the city field, you could write this query:
+
+The project operator can extract the first digit from any field. For example, 
+to extract the first digit from the city field, you could write this query:
+
+[source, console]
+----
+db.zips.aggregate([
+    {$project: 
+     {
+	first_char: {$substr : ["$city",0,1]},
+     }
+   }
+])
+----
+
+Using the aggregation framework, calculate the sum total of people who are living in a zip code where the city starts with a digit. Choose the answer below.
+
+Note that you will need to probably change your projection to send more info through than just that first character.
+Also, you will need a filtering step to get rid of all documents where the city does not start with a digital (0-9).
+
+* 298015 *OK*
+
+* 345232
+
+* 245987
+
+* 312893
+
+* 158249
+
+* 543282

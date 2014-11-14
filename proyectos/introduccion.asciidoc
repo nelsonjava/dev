@@ -86,7 +86,7 @@ n=&#241; N=&#209;
 
 ** mvn jboss-as:undeploy
 
-** mvn clean install --debug - Consulta de la Instalación
+** mvn clean install --debug - Consulta de la Instalaci&#243;n
 
 * Ejemplo a desplegar:D:\dev\tem\mongodb\examples\polyglot-persistence - Llevar en la memoria
 

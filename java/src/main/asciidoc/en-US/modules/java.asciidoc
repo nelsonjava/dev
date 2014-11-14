@@ -52,7 +52,7 @@ n=&#241; N=&#209;
 
 PASOS:
 
-. Copiar el archivos base.fsh al directorio donde se va a crear la aplicación.
+. Copiar el archivos base.fsh al directorio donde se va a crear la aplicaci&#243;n.
 
 [source, console]
 ----
@@ -70,7 +70,7 @@ persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
 
 ----
 
-. Ubicarse en el directorio de la aplicación y ejecutar el forge
+. Ubicarse en el directorio de la aplicaci&#243;n y ejecutar el forge
 
 . forge
 
@@ -82,15 +82,15 @@ persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
 
 . Crear el directorio del proyecto
 
-. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicación.
+. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicaci&#243;n.
 
 . exit
 
 . Editar el archivo pom.xml del proyecto
 
-. Agregar el Pluings del Maven para despegar la aplicación en el Jboss aplication Server
+. Agregar el Pluings del Maven para despegar la aplicaci&#243;n en el Jboss aplication Server
 
-. Ejecutar el Jboss Aplicatión Server
+. Ejecutar el Jboss Aplicati&#243;n Server
 
 . Compilar el proyecto
 

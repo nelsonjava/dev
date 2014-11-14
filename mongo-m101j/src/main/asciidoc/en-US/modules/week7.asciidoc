@@ -1,0 +1,23 @@
+[[mongo-m101j-week7]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+==== WEEK 7 - CASE STUDIES
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=adRyiudsgv0[Introduction]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=GBauy0o-Wzs[Interview with Jon Hoffman, foursquare]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=RkPmVQNesZA[Interview with Ryan Bubinski, Codecademy]
+
+.

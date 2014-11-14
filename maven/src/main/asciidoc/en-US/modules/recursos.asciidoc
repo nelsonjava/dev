@@ -21,7 +21,7 @@ n=&#241; N=&#209;
 
 *** Este plugin permite configurar Maven para que al empaquetar el proyecto JAR con sus dependencias y asi poderlo ejecutar con la orden: java -jar target/myapp-1.0-SNAPSHOT.jar
 
-*** Para lo anteror debemos agregar la sección build con el respectivo plugin en el archivo: pom.xml
+*** Para lo anteror debemos agregar la secci&#243;n build con el respectivo plugin en el archivo: pom.xml
 
 [source, XML]
 [subs="verbatim,attributes"]

@@ -25,13 +25,13 @@ n=&#241; N=&#209;
 
 * Probar la instalaci&#243;n desde el browser: http://localhost:8080/
 
-* Crear los usuarios de administración:
+* Crear los usuarios de administraci&#243;n:
 
 ** Ubicarse en el directorio: %JBOSS_HOME%\bin\
 
 ** Ejecutar el comando: add-usert "archivo:add-user.bat"
 
-*** Management User (mgmt-users.properties): Seleccionar la opción: a
+*** Management User (mgmt-users.properties): Seleccionar la opci&#243;n: a
 
 *** Username : admin
 
@@ -45,7 +45,7 @@ n=&#241; N=&#209;
 
 * Grabar el archivo en D:\download\wildfly
 
-* Desplegar la aplicación desde la consola de administración del wildfly
+* Desplegar la aplicaci&#243;n desde la consola de administraci&#243;n del wildfly
 
 ** Estando en la consola ir a: [server][Manage Deployments][Add]
 

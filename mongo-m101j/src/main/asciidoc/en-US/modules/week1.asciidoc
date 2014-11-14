@@ -1,0 +1,392 @@
+[[mongo-m101j-week1]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+==== WEEK 1 - INTRODUCTION
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=FN10crzDOjk[Welcome to M101J]
+
+* Quiz: Welcome to M101J https://www.youtube.com/watch?feature=player_embedded&v=ysg0vfgg6fI[Answer]
+
+** What counts toward your final grade in the class?
+
+*** Quizzes
+
+*** Homeworks *OK*
+
+*** Final Exam *OK*
+
+*** Class Participation
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=q2iLKZ1LgjI[What is MongoDB?]
+
+* Quiz: What is MongoDB? https://www.youtube.com/watch?feature=player_embedded&v=CAR42sMkXEo[Answer]
+
+** Which of the following statements are true about MongoDB?
+
+*** MongoDB is document oriented. *OK*
+
+*** MongoDB supports Joins.
+
+*** MongoDB has dynamic schema
+
+*** MongoDB supports SQL.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=IAvnMgvHuLw[Mongo Relative to Relational]
+
+* Quiz: Mongo Relative to Relational. https://www.youtube.com/watch?feature=player_embedded&v=IAvnMgvHuLw[Answer]
+
+** Which features did MongoDB omit in order to retain scalability?
+
+*** Joins *OK*
+
+*** Indexes
+
+*** Secondary Indexes
+
+*** Transactions across multiple collections *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=swhH4q_2Ttc[Overview of Building an app with Mongo]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=f-lyGAMnNY4[Quick Introduction to the Mongo Shell]
+
+* Quiz: Quick Introduction to the Mongo Shell. https://www.youtube.com/watch?feature=player_embedded&v=YQTqdLe3W4M[Answer]
+
+** Which of the following expressions are valid JSON documents?
+
+*** {a:1, b:2, c:3} *OK*
+
+*** {a,1; b,4, c,6}
+
+*** {a:1; b:1; c:4}
+
+*** (A,1; b:2; c,4}
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=2jsJeH8q6YM[JSON introduced]
+
+* Quiz: JSON introduced. https://www.youtube.com/watch?feature=player_embedded&v=uWcOsdV4Iz4[Answer]
+
+** Which of the following are valid JSON documents?
+
+*** {a:1, b:2, c: 3} *OK*
+
+*** {a:1, b:2, c:[1,2,3,4,5]}
+
+*** {a:1, b:{}, c: [ { a:1, b:2}, 5, 6]}
+
+*** { }
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=_vYz3CZwyK0[System Requirements]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=6VFukRETCTg[Installing MongoDB (mac)]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=hX5louVryOQ[Installing MongoDB (windows)]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=72vejAmaypM[Installing and Using Maven]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=FtyaK3pMHxw[The MongoDB Java Driver]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=UH-VD_ypal8[Intro to the Spark Web Application Framework]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=_8-3K2Ds-Ok[Intro to the Freemarker Templating Engine]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=7fdtf9aLc2w[Spark and Freemarker together]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=8S5tvJAOYzg[All together now: MongoDB, Spark, and Freemarker]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=7t1IafamuVs[Spark framework: handling GET requests]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=jZDuxesy5cc[Spark framework: handling POST requests]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=K6dlBbH_XHI[Mongo is Schemaless]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=zbYCcMWJGNY[JSON Revisited]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=JkK9n6_ahVk[JSON Arrays]
+
+* Write the JSON for a simple document containing a single key "fruit" that has as its value an array containing three
+  strings: "apple", "pear", and "peach". https://www.youtube.com/watch?feature=player_embedded&v=ciuq7XPqHKI[Answer]
+
+[source, JSON]
+----
+{fruit:["apple","pear","peach"]}
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=vrYAEH3g13M[JSON Subdocuments]
+
+* Write a JSON document with a single key, "address" that has as it value another document with the
+keys 'street_address', 'city', 'state', 'zipcode', with the following values: 'street_address' is
+ "23 Elm Drive", 'city' is "Palo Alto", 'state' is "California", 'zipcode' is "94305"  https://www.youtube.com/watch?feature=player_embedded&v=NGp_y6BaEMw[Answer]
+
+[source, JSON]
+----
+{address:{street_address:"23 Elm Drive",city:"Palo Alto",state:"California",zipco
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=kOrsT94-A28[JSON Spec]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ePi3kDoexoM[Introduction to our class project, the blog]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=boR2y9MHCa0[Blog in Relational Tables]
+
+* let's assume that our blog can be modeled with the following relational tables:
+
+[source, JSON]
+----
+authors:
+	author_id,
+	name,
+	email,
+	password
+
+posts:
+	post_id,
+	author_id
+	title,
+	body,
+	publication_date
+
+comments:
+	comment_id,
+	name,
+	email,
+	comment_text
+
+post_comments:
+	post_id,
+	comment_id
+
+
+tags
+	tag_id
+	name
+
+post_tags
+	post_id
+	tag_id
+----
+
+** In order to display a blog post with its comments and tags, how many tables will need to be accessed? https://www.youtube.com/watch?feature=player_embedded&v=vB-4AbbLKeg[Answer]
+
+*** 2
+
+*** 3
+
+*** 5
+
+*** 6 *OK*
+
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ZjwCzyqKVdY[Blog in Documents]
+
+* Quiz: Blog in Documents. https://www.youtube.com/watch?feature=player_embedded&v=WJblHPsp1p4[Answer]
+
+** Given the document schema that we proposed for the blog, how many collections would we need to access to display the blog home page?
+
+*** 0
+
+*** 1 *OK*
+
+*** 2
+
+*** 4
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=6XE3wZCPiZ8[Intro to Schema Design]
+
+* Quiz: Intro to Schema Design. https://www.youtube.com/watch?feature=player_embedded&v=wiwOEG_6ojs[Answer]
+
+** In which scenario is it impossible to embed data within a document (you must put the data in it a separate collection). Check all that apply.
+
+*** The data would be duplicated across multiple objects within a collection.
+
+*** You need an index on the data element.
+
+*** The embedded data could exceed the 16MB document limit within MongoDB *OK*
+
+*** The data is not isomorphic.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=r48N7GcDqVI[Homework 1.1] https://www.youtube.com/watch?feature=player_embedded&v=memPfvehjGo[Answer]
+
+Install MongoDB on your computer and run it on the standard port.
+Download the
+https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-1.957cdceb1c1e.tar[HW1 tarball (mac)] or
+https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-1.184820ec29b6.zip[zipfile (windows)],
+expand it as follows:
+
+Mac Users:
+
+[source, console]
+----
+tar xvf hw1.tar
+----
+
+Windows Users:
+
+[source, console]
+----
+You probably don't have tar installed so right click on
+the hw1.zip file and choose "extract all"
+----
+
+Use mongorestore to restore the dump into your running mongod. Do this by opening a
+terminal window (mac) or cmd window (windows) and navigating to the directory so
+that the dump directory is directly beneath you. Now type
+
+[source, console]
+----
+mongorestore dump
+----
+
+Note you will need to have your path setup correctly to find mongorestore.
+Now, using the Mongo shell, perform a findone on the collection called hw1 in the database m101.
+That will return one document. Please provide the value corresponding to the "answer" key from the document returned.
+
+[source, console]
+----
+42
+----
+
+===== Homework 1.2
+
+* Which of the following are valid JSON documents. Please choose all that apply.
+
+** {'name':'Fred Flintstone';'occupation':'Miner';'wife':'Wilma'}
+
+** {'title':'Star Wars', 'quotes':['Use The Force','These are not the Droids you are looking for'],'director':'George Lucas'} *OK*
+
+** {} *OK*
+
+** {'city':'New York', 'population', 7999034, boros:{'queens', 'manhattan', 'staten island', 'the bronx', 'brooklyn'}}
+
+** {'a':1, 'b':{'b':1, 'c':'foo', 'd':'bar', 'e':[1,2,4]}}
+
+===== Homework 1.3
+
+Before starting this problem, you should have run mongorestore to set up your MongoDB database as described in HW1.1.
+
+We want to test that you have a working JDK, that maven is installed and that you can run maven-based projects.
+Please install JDK 1.6 or above and maven if they are not already installed. This week's video lessons show how to install maven.
+
+Download hw1-3.zip or hw1-3.tar, uncompress it, cd into the hw1-3 directory (there should be a pom.xml file in there), and run Maven as follows:
+
+[source, console]
+----
+mvn compile exec:java -Dexec.mainClass=com.tengen.Week1Homework3
+----
+
+It requires Maven to be installed correctly, your mongod server to be running, and that you have run mongorestore properly.
+If it's working correctly, there should be two lines towards the bottom that say:
+
+[source, console]
+----
+[INFO] -------------------
+[INFO] BUILD SUCCESS
+----
+
+Right before those lines there should be a line that starts with:
+
+[source, console]
+----
+THE ANSWER IS:
+----
+
+Type the number that appears after the colon into the box below.
+
+[source, console]
+----
+366
+----
+
+===== Homework 1.4
+
+We are now going to test that you can run a Maven-based project that depends on the MongoDB Java driver,
+Spark, and Freemarker. Download hw1-4.zip or hw1-4.tar, uncompress it, cd to the hw-1.4 directory, and run Maven as follows:
+
+[source, console]
+----
+mvn compile exec:java -Dexec.mainClass=com.tengen.Week1Homework4
+----
+
+Like the previous homework, it requires Maven to be installed correctly, your mongod server to be running,
+and that you have run mongorestore properly from HW 1.1.
+If all is working correctly, there should be two lines towards the bottom that say:
+
+[source, console]
+----
+== Spark has ignited ...
+>> Listening on 0.0.0.0:4567
+----
+
+Next, open a tab in your web browser and navigate to http://localhost:4567/[http://localhost:4567].
+There should be a single line of text that starts with:
+
+[source, console]
+----
+THE ANSWER IS:
+----
+
+Type the number that appears after the colon into the box below, no spaces or punctuation.
+
+[source, console]
+----
+2805
+----
+
+===== Files Week 1
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/week1-examples.tar.38e9f70c479b.gz[week1-examples.tar.gz]
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/week1-examples.b5fba9953936.zip[week1-examples.zip]
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-1.184820ec29b6.zip[hw1-1.zip]
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-1.957cdceb1c1e.tar[hw1-1.tar]
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-3.2005b1d3b047.zip[hw1-3.zip]
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-3.431e01c66fae.tar[hw1-3.tar]
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-4.b2846101dcff.zip[hw1-4.zip]
+
+* https://education.mongodb.com/static/m101j-october-2013/handouts/hw1-4.52e51eafad59.tar[hw1-4.tar]

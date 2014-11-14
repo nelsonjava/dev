@@ -48,9 +48,9 @@ For more information about naming conventions, check the official Maven document
 ==== Coordinates uniquely identify an artifact
 
 * <groupId> El id del grupo al que pertenece el proyecto.
-* <artifactId> El id del artifact o proyecto (en la mayoría de los casos el nombre del proyecto). Identificador particular de una librería en particular
+* <artifactId> El id del artifact o proyecto (en la mayor&#237;a de los casos el nombre del proyecto). Identificador particular de una librer&#237;a en particular
 * <version> La versi&#243;n del artifact en el grupo especificado.
-* <dependency> Aquí se colocarán todas las dependencias del proyecto.
+* <dependency> Aqu&#237; se colocar&#225;n todas las dependencias del proyecto.
 
 _El POM requiere que estos valores est&#233;n definidos ya que esta es la sintaxis en que Maven los identifica dentro de su repositorio._
 

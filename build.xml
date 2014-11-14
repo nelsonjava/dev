@@ -35,7 +35,6 @@
   </target>
 
   <target name="site" description="Initialize the build">
-    <delete dir="site" failonerror="no"/>
     <mkdir dir="site" />
     <mkdir dir="site/css" />
     <mkdir dir="site/images/org/hibernate" />
@@ -47,6 +46,7 @@
        </fileset>
     </copy>
     <copy file="home/index.txt" tofile="site/index.html"/>
+    <copy file="home/links.txt" tofile="site/links.html"/>
     <copy file="proyectos/target/docbook/publish/en-US/html_single/index.html" tofile="site/proyectos.html"/>
     <copy file="ant/target/docbook/publish/en-US/html_single/index.html" tofile="site/ant.html"/>
     <copy file="wildfly/target/docbook/publish/en-US/html_single/index.html" tofile="site/wildfly.html"/>
@@ -54,6 +54,7 @@
     <copy file="java/target/docbook/publish/en-US/html_single/index.html" tofile="site/java.html"/>
     <copy file="maven/target/docbook/publish/en-US/html_single/index.html" tofile="site/maven.html"/>
     <copy file="mongo/target/docbook/publish/en-US/html_single/index.html" tofile="site/mongo.html"/>
+    <copy file="mongo-m101j/target/docbook/publish/en-US/html_single/index.html" tofile="site/mongo-m101j.html"/>
     <copy file="play/target/docbook/publish/en-US/html_single/index.html" tofile="site/play.html"/>
   </target>
 

@@ -8,19 +8,19 @@ A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
 n=&#241; N=&#209;
 ////
 
-== INSTALACIÓN DEL JBOSS FORGE
+== INSTALACI&#211;N DEL JBOSS FORGE
 
 * http://forge.jboss.org/[Descargar Jboss Forge]
 
 * Directorio de descarga:\download\JBoss Forge
 
-* Directorio de Instalación: D:\javajdk\forge
+* Directorio de Instalaci&#243;n: D:\javajdk\forge
 
 * Configurar la variable de Entorno: FORGE_HOME. Ejemplo: FORGE_HOME=D:\javajdk\forge
 
 * Configurar el Forge al Path del windows. Ejemplos: ...; %FORGE_HOME%\bin
 
-* Ejecutar la prueba de Instalación: forge - about
+* Ejecutar la prueba de Instalaci&#243;n: forge - about
 
 == LINKS
 
@@ -36,7 +36,7 @@ n=&#241; N=&#209;
 
 ** http://forge.github.com/[GitHub]
 
-** http://forge.github.com/docs/[http://forge.github.com/docs/ - Documentación]
+** http://forge.github.com/docs/[http://forge.github.com/docs/ - Documentaci&#243;n]
 
 ** https://github.com/lincolnthree[https://github.com/lincolnthree - GitHub the Lincon Baster]
 
@@ -121,11 +121,11 @@ n=&#241; N=&#209;
 
 . Aplicacion conftrack
 
-== CREACIÓN DE LA APLICACIÓN
+== CREACI&#211;N DE LA APLICACI&#211;N
 
 PASOS:
 
-. Copiar el archivos base.fsh al directorio donde se va a crear la aplicación.
+. Copiar el archivos base.fsh al directorio donde se va a crear la aplicaci&#243;n.
 
 [source, console]
 ----
@@ -143,7 +143,7 @@ persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
 
 ----
 
-. Ubicarse en el directorio de la aplicación y ejecutar el forge
+. Ubicarse en el directorio de la aplicaci&#243;n y ejecutar el forge
 
 . forge
 
@@ -155,15 +155,15 @@ persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
 
 . Crear el directorio del proyecto
 
-. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicación.
+. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicaci&#243;n.
 
 . exit
 
 . Editar el archivo pom.xml del proyecto
 
-. Agregar el Pluings del Maven para despegar la aplicación en el Jboss aplication Server
+. Agregar el Pluings del Maven para despegar la aplicaci&#243;n en el Jboss aplication Server
 
-. Ejecutar el Jboss Aplicatión Server
+. Ejecutar el Jboss Aplicati&#243;n Server
 
 . Compilar el proyecto
 

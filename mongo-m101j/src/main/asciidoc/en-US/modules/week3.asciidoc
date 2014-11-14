@@ -1,0 +1,408 @@
+[[mongo-m101j-week3]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+==== WEEK 3 - SCHEMA DESIGN
+
+You were most recently in Handling Blobs. If you're done with that, choose another section on the left.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=hFhSIJ-NvO4[Introduction to Week 3]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=itnfWjMnQ4A[MongoDB Schema Design]
+
+Quiz: MongoDB Schema Design
+
+What's the single most important factor in designing your application schema within MongoDB?
+
+* Making the design extensible.
+
+* Making it easy to read by a human.
+
+* Matching the data access patterns of your application. https://www.youtube.com/watch?feature=player_embedded&v=OVDnLJXpqNE[*OK*]
+
+* Keeping the data in third normal form.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=GX__f2s4hd8[Relational Normalization]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=PRylEHH5t84[Mongo Design for Blog]
+
+Quiz: Mongo Design for Blog
+
+Which data access pattern is not well supported by the blog schema?
+
+* Collecting the most recent blog entries for the blog home page
+
+* Collecting all the information to display a single post
+
+* Collecting all comments by a single author
+
+* Providing a table of contents by tag https://www.youtube.com/watch?feature=player_embedded&v=s5E0T4caqj4[*OK*]
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ZvqNWVWB2-o[Alternative Schema for Blog]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=YFRMkDPaams[Living Without Constraints]
+
+Quiz: Living Without Constraints
+
+What does Living Without Constraints refer to?
+
+* Living every day like it's your last
+
+* Saying whatever you want when you want it
+
+* Keeping your data consistent even though MongoDB lacks foreign key constraints https://www.youtube.com/watch?feature=player_embedded&v=3VckBMGInic[*OK*]
+
+* Wearing no belt
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=FfRr3qjRfww[Living without Transactions]
+
+Quiz: Living without Transactions
+
+Which of the following operations operate atomically within a single document? Check all that apply. 
+https://www.youtube.com/watch?feature=player_embedded&v=189zABW3HHk[Answer]
+
+* Update *OK*
+
+* findAndModify *OK*
+
+* $addToSet (within an update) *OK*
+
+* $push within an update *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=cCsfon0vUlQ[One to One Relations]
+
+Quiz: One to One Relations. https://www.youtube.com/watch?feature=player_embedded&v=BjW64RkzlGg[Answer]
+
+What's a good reason you might want to keep two documents that are related to each other one-to-one in separate collections? Check all that apply.
+
+* Because you want to allow atomic update of both documents at once.
+
+* To reduce the working set size of your application.
+
+* To enforce foreign key constraints
+
+* Because the combined size of the documents would be larger than 16MB
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=EIaP1KbVkUc[One To Many Relations]
+
+Quiz: One To Many Relations. https://www.youtube.com/watch?feature=player_embedded&v=KQcspnr-Y2M[Answer]
+
+When is it recommended to represent a one to many relationship in multiple collections?
+
+* Always
+
+* Whenever the many is large *OK*
+
+* Whenever the many is actually few
+
+* Never
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=fEYYjZ7zEHc[Many to Many Relations]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=ocU9WNUL9YQ[Multikeys]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=XIN0Dqht08Q[Benefits of Embedding]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=lIjXyQklGWY[Trees]
+
+Quiz: Trees. https://www.youtube.com/watch?feature=player_embedded&v=80P6yVSkKQY[Answer]
+
+Given the following typical document for a e-commerce category hierarchy collection called categories
+
+[source, console]
+----
+{
+  _id: 34,
+  name : "Snorkeling",
+  parent_id: 12,
+  ancestors: [12, 35, 90]
+}
+----
+
+Which query will find all descendants of the snorkeling category?
+
+* db.categories.find({ancestors:{'$in':[12,35,90]}})
+
+* db.categories.find({parent_id: 34})
+
+* db.categories.find({_id:{'$in':[12,35,90]}})
+
+* db.categories.find({ancestors:34}) *OK*
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=jDZ-HFoJ0vg[When to Denormalize]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=Q_uyOT4Kbk4[Handling Blobs]
+
+Quiz: Handling Blobs. https://www.youtube.com/watch?feature=player_embedded&v=7t_kcScYlQs[Answer]
+
+Which of the following statements are true about GridFS
+
+* GridFS stores large blobs in a single collection by breaking up the file into multiple pieces.
+
+* Each gridFS document is given a unique filename.
+
+* GridFS stores large blobs in two collections, one for metadata and one for the blob chunks. *OK*
+
+* GridFS compresses your file on disk.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=oNRPiyKu6Hc[Learn more about GridFS]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=wlNPns5hc6M[Sidebar: Importing from a Twitter feed]
+
+.
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=iP_dNV9ze2c[HW 3.1]
+
+Homework: HW 3.1
+
+Download the students.json file to your computer and import it into your local Mongo instance with this command:
+
+[source, console]
+----
+$ mongoimport -d school -c students < students.json
+----
+
+This dataset holds the same type of data as last week's grade collection, but it's modeled differently. You might want to start by inspecting it in the Mongo shell.
+
+Write a program in Java that will remove the lowest homework score for each student. Since there is a single document for each student containing an array of scores, you will need to update the scores array and remove the homework.
+
+Hint/spoiler: With the new schema, this problem is a lot harder and that is sort of the point. One way is to find the lowest homework in code and then update the scores array with the low homework pruned. If you are struggling with the Java side of this, look at the ArrayList.remove method, which can remove stuff from a Java ArrayList. Note also that when the value for a particular key is list within MongoDB, the Java driver returns a BasicDBList, which can you cast to an ArrayList.
+
+To confirm you are on the right track, here are some queries to run after you process the data with the correct answer shown:
+
+Let us count the number of students we have:
+
+[source, console]
+----
+> use school
+> db.students.count()
+200
+----
+
+Let's see what Demarcus Audette's record looks like:
+
+[source, console]
+----
+>db.students.find({_id:100}).pretty()
+{
+	"_id" : 100,
+	"name" : "Demarcus Audette",
+	"scores" : [
+		{
+			"type" : "exam",
+			"score" : 30.61740640636871
+		},
+		{
+			"type" : "quiz",
+			"score" : 14.232338213537322
+		},
+		{
+			"type" : "homework",
+			"score" : 31.414212985763324
+		}
+	]
+}
+----
+
+To verify that you have completed this task correctly, provide the identify of the
+student with the highest average in the class with following query that uses the aggregation
+framework. The answer will appear in the _id field of the resulting document.
+
+[source, console]
+----
+> db.students.aggregate({'$unwind':'$scores'},{'$group':{'_id':'$_id', 'average':{$avg:'$scores.score'}}},
+{'$sort':{'average':-1}}, {'$limit':1})
+----
+
+Enter just the numeric value of the _id below: https://www.youtube.com/watch?feature=player_embedded&v=i7C9_57Cmqs[Answer]
+
+[source, console]
+----
+37
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=SEh6Y4lHkWQ[HW 3.2]
+
+Homework: HW 3.2
+
+*Making your blog accept posts*
+
+In this homework you will be enhancing the blog project to insert entries into the posts
+collection. After this, the blog will work. It will allow you to add blog posts with a title,
+body and tags and have it be added to the posts collection properly.
+
+We have provided the code that creates users and allows you to
+login (the assignment from last week). To get started, please download hw3-2and3-3.tar or hw3-2and3-3.zip and unpack.
+You will be using these file for this homework and the HW 3.3.
+
+The areas where you need to add code are marked with XXX. You need only touch the BlogPostDAO class.
+There are three locations for you to add code for this problem.
+Scan that file for XXX to see where to work. Here is an example of valid blog post:
+
+[source, console]
+----
+> db.posts.find().pretty()
+{
+	"_id" : ObjectId("513d396da0ee6e58987bae74"),
+	"title" : "Martians to use MongoDB",
+	"author" : "andrew",
+	"body" : "Representatives from the planet Mars announced today that the planet would adopt MongoDB as a planetary standard. Head Martian Flipblip said that MongoDB was the perfect tool to store the diversity of life that exists on Mars.",
+	"permalink" : "martians_to_use_mongodb",
+	"tags" : [
+		"martians",
+		"seti",
+		"nosql",
+		"worlddomination"
+	],
+	"comments" : [ ],
+	"date" : ISODate("2013-03-11T01:54:53.692Z")
+}
+----
+
+As a reminder, to run your blog you type
+
+[source, console]
+----
+mvn compile exec:java -Dexec.mainClass=course.BlogController
+----
+
+Or, use an IDE to run it. To play with the blog you can navigate to the following URLs
+
+[source, console]
+----
+http://localhost:8082/
+http://localhost:8082/signup
+http://localhost:8082/login
+http://localhost:8082/newpost
+----
+
+You will be proving that it works by running our validation script as follows:
+
+[source, console]
+----
+python validate.py
+----
+
+You need to run this in a separate terminal window while your blog is running and while the database is running.
+It makes connections to both to determine if your program works properly.
+Validate connects to localhost:8082 and expects that mongod is running on localhost on port 27017.
+
+Read if you want to run your blog on non-standard port, different host or connected to a mongod on different server.
+
+By popular demand, validate.py now takes some optional arguments that you can discover with
+the -h flag. These arguments will allow you to direct validate.py to make a connection to a
+web server at different port on a different host and connect to a mongod on a different host.
+You can also use a database name other than blog, a necessity if you are running on the free tier at MongoHW (for eg).
+I won't go into how these arguments work, as they are pretty self documenting.
+Note that to run the blog.py code to connect to a database outside of localhost
+(for example to a database at MongoHQ), you will need to make some global changes.
+
+The python validator requires Python 2.7. The code is not 3.0 compliant.
+
+Ok, once you get the blog posts working, validate.py will print out a
+validation code for HW 3.2. Please enter it below, exactly as shown with no spaces.
+
+https://www.youtube.com/watch?feature=player_embedded&v=MrHQzCoIuj4[Answer]
+[source, console]
+----
+njkfd489hj9fhds8934kf23
+----
+
+===== https://www.youtube.com/watch?feature=player_embedded&v=HPSgVT2BEYQ[HW 3.3]
+
+Homework: HW 3.3
+
+Making your blog accept comments
+
+In this homework you will add code to your blog so that it accepts comments.
+You will be using the same code as you downloaded for HW 3.2.
+
+Once again, the area where you need to work is marked with an XXX in the BlogPostsDAO class.
+There is only a single location you need to work to insert comments.
+You don't need to figure out how to retrieve comments for this homework because the code you did in 3.2
+already pulls the entire blog post (unless you specifically projected to eliminate the comments)
+and we gave you the code in the template that pulls them out of the JSON document.
+
+This assignment has fairly little code, but it's a little more subtle than the previous assignment
+because you are going to be manipulating an array within the Mongo document.
+For the sake of clarity, here is a document out of the posts collection from a working project that also has comments.
+
+[source, console]
+----
+{
+	"_id" : ObjectId("513d396da0ee6e58987bae74"),
+	"author" : "andrew",
+	"body" : "Representatives from the planet Mars announced today that the planet would adopt MongoDB as a planetary standard. Head Martian Flipblip said that MongoDB was the perfect tool to store the diversity of life that exists on Mars.",
+	"comments" : [
+		{
+			"author" : "Larry Ellison",
+			"body" : "While I am deeply disappointed that Mars won't be standardizing on a relational database, I understand their desire to adopt a more modern technology for the red planet.",
+			"email" : "larry@oracle.com"
+		},
+		{
+			"author" : "Salvatore Sanfilippo",
+			"body" : "This make no sense to me. Redis would have worked fine."
+		}
+	],
+	"date" : ISODate("2013-03-11T01:54:53.692Z"),
+	"permalink" : "martians_to_use_mongodb",
+	"tags" : [
+		"martians",
+		"seti",
+		"nosql",
+		"worlddomination"
+	],
+	"title" : "Martians to use MongoDB"
+}
+----
+
+Note that you add comments in this blog from the blog post detail page, which appears at
+
+[source, console]
+----
+http://localhost:8082/post/post_slug
+----
+
+where post_slug is the permalink. For the sake of eliminating doubt, the permalink for the example blog post above is
+http://localhost:8082/post/martians_to_use_mongodb
+
+You will run validate.py to check your work, much like the last problem.
+Validate.py will run through and check the requirements of HW 3.2 and
+then will check to make sure it can add blog comments, as required by this problem,
+HW 3.3. It checks the web output as well as the database documents.
+This validate.py program will print out a 3.3 validation code that you should enter below.
+
+[source, console]
+----
+python validate.py
+----
+
+Once you have the validation code, please copy and paste in the box below, no spaces.
+
+https://www.youtube.com/watch?feature=player_embedded&v=qts8vpcvAjc[Answer]
+[source, console]
+----
+ihfr48nf89jk09309kj0d2d
+----

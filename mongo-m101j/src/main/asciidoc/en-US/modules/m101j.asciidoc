@@ -1,0 +1,25 @@
+[[mongo-m101j]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+=== M101J: MongoDB for Java Developers
+
+About this course
+
+Learn everything you need to know to get started building a MongoDB-based app.
+
+This course will go over basic installation, JSON, schema design, querying, insertion of data, 
+indexing and working with language drivers. In the course, 
+you will build a blogging platform, backed by MongoDB. Our code examples will be in Java.
+
+Prerequisites
+
+To take this course you should be familiar with Java. Knowledge of relational databases is not required.
+
+https://education.mongodb.com/static/m101j-october-2013/handouts/M101J%20-%20Syllabus.465fda01fb0d.pdf[Syllabus]

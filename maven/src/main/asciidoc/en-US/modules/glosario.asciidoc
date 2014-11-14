@@ -11,7 +11,7 @@ n=&#241; N=&#209;
 == GLOSARIO MAVEN
 
 Maven::
-  Es una herramienta para la gestión de proyectos de software, que se basa en el concepto de POM (Proyect Object Model).
+  Es una herramienta para la gesti&#243;n de proyectos de software, que se basa en el concepto de POM (Proyect Object Model).
 
 Arquetipo::
   Es una plantilla,capaz de generar una estructura de directorios y archivos.

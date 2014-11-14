@@ -13,15 +13,15 @@ n=&#241; N=&#209;
 
 * A Maven Repository is a folder with a specific layout that can optionally be located remotely:
 
-* En el repositorio encontramos los JAR, WAR, etc en una jerarquía de carpetas que siguen el mismo concepto: groupId, artifactId, version.
+* En el repositorio encontramos los JAR, WAR, etc en una jerarqu&#237;a de carpetas que siguen el mismo concepto: groupId, artifactId, version.
 
-* El repositorio es un mecanismo espacial de Maven para organizar los ficheros Jar y otras dependencias que utilizan tus aplicaciones. (Maven también utiliza el término artefacto para referirse a las dependencias).
+* El repositorio es un mecanismo espacial de Maven para organizar los ficheros Jar y otras dependencias que utilizan tus aplicaciones. (Maven tambi&#233;n utiliza el t&#233;rmino artefacto para referirse a las dependencias).
 
-* El repositorio esencialmente es una carpeta con un estructura específica para Maven, y soluciona dos problemas:
+* El repositorio esencialmente es una carpeta con un estructura espec&#237;fica para Maven, y soluciona dos problemas:
 
-** *Primero*, proporciona una localización centralizada para todos los ficheros Jar y otras dependencias que necesita tu proceso de construcción.
+** *Primero*, proporciona una localizaci&#243;n centralizada para todos los ficheros Jar y otras dependencias que necesita tu proceso de construcci&#243;n.
 
-** *Segundo*, es un ayuda con los problemas de versiones proponiendo una convención de nombrado.
+** *Segundo*, es un ayuda con los problemas de versiones proponiendo una convenci&#243;n de nombrado.
 
 [source, XML]
 [subs="verbatim,attributes"]
