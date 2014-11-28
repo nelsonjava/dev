@@ -29,7 +29,7 @@ n=&#241; N=&#209;
 
 ** Ubicarse en el directorio: %JBOSS_HOME%\bin\
 
-** Ejecutar el comando: add-usert "archivo:add-user.bat"
+** Ejecutar el comando: add-user "archivo:add-user.bat"
 
 *** Management User (mgmt-users.properties): Seleccionar la opci&#243;n: a
 

@@ -1,0 +1,56 @@
+[[wildfly-gmail]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== ENVIANDO CORREOS USANDO GMAIL
+
+La forma mas conveniente de confirgurar WildFly es usar la http://localhost:9990/console/App.html[consola de administraci&#243;n]
+
+1. Configuramos el Socket Binding donde se configura la informaci&#243;n del Gmail smtp server:[Configuration][General Configuration][Socket Binding]
+[standard-sockets][View] para ver los detalles de la informaci&#243;n del standard-sockets:
+
+image::images/mail_step_01.png[]
+
+2. Seleccionamos la pesta&#241;a [Outbound Remote][Edit]. Editamos la informaci&#243;n del servidor de correo de la siguiente forma:
+
+* Name : mail-smtp
+* Host : smtp.gmail.com
+* Port : 465
+
+image::images/mail_step_02.png[]
+
+
+3. Agregar el nombre JNDI para email session: [Configuration][Connector][Mail][Add]:
+
+* JNDI Name : java:jboss/mail/Gmail[Save]
+
+[Edit]java:jboss/mail/Gmail
+
+* Default From : Your mail address
+
+image::images/mail_step_03.png[]
+
+4. Registrar el nuevo Mail Server en [Configuration][Connector][Mail][java:jboss/mail/Gmail][View][Add] con la siguiente informaci&#243;n:
+
+* Socket Binding : mail-smtp
+* Type : smtp
+* UserName : your gmail email address
+* Password : your email password
+* Use SSL? : checked
+
+image::images/mail_step_04.png[]
+
+5. Recargar la configuraci&#243;n del servidor:[Runtime][SERVER][Reload]
+
+image::images/mail_step_05.png[]
+
+6. http://github.com/wildfly/quickstart[Quickstarts]
+
+* https://github.com/wildfly/quickstart/tree/master/mail[Quickstarts - Mail]
