@@ -74,3 +74,10 @@ image::images/mail_step_05.png[]
 7. Otros Recursos
 
 * http://www.opensiam.com/2014/06/wildfly-8-sending-email-using-gmail.html[WildFly 8 : Sending Email using Gmail smtp server]
+
+8. JavaMail
+
+* B&#250;squeda Google: java mail with file attachment example
+* http://www.codejava.net/java-ee/javamail/send-e-mail-with-attachment-in-java[Send e-mail with attachment in Java]
+* http://stackoverflow.com/questions/3177616/how-to-attach-multiple-files-to-an-email-using-javamail[How to attach multiple files to an email using JavaMail?]
+* http://www.javatpoint.com/example-of-sending-attachment-with-email-using-java-mail-api[Sending email with attachment using JavaMail API]
