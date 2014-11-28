@@ -54,3 +54,23 @@ image::images/mail_step_05.png[]
 6. http://github.com/wildfly/quickstart[Quickstarts]
 
 * https://github.com/wildfly/quickstart/tree/master/mail[Quickstarts - Mail]
+
+* http://localhost:8080/[http://localhost:8080/ - Server Wildfly]
+
+* http://localhost:9990/console/App.html[http://localhost:9990/console/App.html - Consola de Administraci&#243;n]
+
+* http://localhost:8080/wildfly-mail/home.jsf[http://localhost:8080/wildfly-mail/home.jsf]
+
+* Para realizar la prueba se debe editar la clase del ejemplo Quickstarts - Mail - Email.java
+
+    @Resource(mappedName = "java:jboss/mail/Gmail")
+
+* https://support.google.com/accounts/answer/6010255[Permitir que las aplicaciones menos seguras accedan a tu cuenta]
+
+* https://www.google.com/settings/security/lesssecureapps[Permitir el acceso de aplicaciones menos seguras]
+
+* https://security.google.com/settings/security/activity[Revisa la p&#225;gina Actividad de la cuenta en la direcci&#243;n]
+
+7. Otros Recursos
+
+* http://www.opensiam.com/2014/06/wildfly-8-sending-email-using-gmail.html[WildFly 8 : Sending Email using Gmail smtp server]
