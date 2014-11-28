@@ -26,6 +26,7 @@
     <delete dir="proyectos/target" failonerror="no"/>
     <delete dir="ant/target" failonerror="no"/>
     <delete dir="wildfly/target" failonerror="no"/>
+    <delete dir="GlassFish/target" failonerror="no"/>
     <delete dir="forge/target" failonerror="no"/>
     <delete dir="java/target" failonerror="no"/>
     <delete dir="maven/target" failonerror="no"/>
@@ -57,6 +58,8 @@
     <copy file="mongo-m101j/target/docbook/publish/en-US/html_single/index.html" tofile="site/mongo-m101j.html"/>
     <copy file="play/target/docbook/publish/en-US/html_single/index.html" tofile="site/play.html"/>
   </target>
+
+
 
 </project>
 

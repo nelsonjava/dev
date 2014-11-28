@@ -1,0 +1,15 @@
+ El volumen de la unidad D no tiene etiqueta.
+ El n£mero de serie del volumen es: 3029-3EA4
+
+ Directorio de D:\dev\njava\dev\wildfly\src\main\asciidoc\en-US\images
+
+28/11/2014  09:56 a. m.    <DIR>          .
+28/11/2014  09:56 a. m.    <DIR>          ..
+28/11/2014  09:56 a. m.                 0 a.txt
+28/11/2014  09:15 a. m.            85.196 mail_step_01.png
+28/11/2014  09:15 a. m.            94.248 mail_step_02.png
+28/11/2014  09:16 a. m.            86.962 mail_step_03.png
+28/11/2014  09:16 a. m.            82.067 mail_step_04.png
+28/11/2014  09:16 a. m.            77.551 mail_step_05.png
+               6 archivos        426.024 bytes
+               2 dirs  98.883.788.800 bytes libres
