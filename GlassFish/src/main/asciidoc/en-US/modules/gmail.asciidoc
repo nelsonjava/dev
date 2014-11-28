@@ -41,3 +41,7 @@ La forma mas conveniente de confirgurar GlassFish es usar la http://localhost:48
 * http://www.hildeberto.com/2010/02/sending-e-mails-with-javamail-on-glassfish-v3.html[Sending E-mails with JavaMail on Glassfish V3]
 * http://spitballer.blogspot.com/2010/02/sending-email-via-glassfish-v3.html[Sending email via Glassfish v3]
 * http://wildfly.org/news/2014/02/06/GlassFish-to-WildFly-migration/[Migrating a Java EE App from GlassFish to WildFly]
+
+1. Recursos
+
+* https://github.com/nelsonjava?tab=repositories
