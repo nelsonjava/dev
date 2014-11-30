@@ -1,0 +1,183 @@
+[[forge]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== INSTALACI&#211;N DEL JBOSS FORGE
+
+* http://forge.jboss.org/[Descargar Jboss Forge]
+
+* Directorio de descarga:\download\JBoss Forge
+
+* Directorio de Instalaci&#243;n: D:\javajdk\forge
+
+* Configurar la variable de Entorno: FORGE_HOME. Ejemplo: FORGE_HOME=D:\javajdk\forge
+
+* Configurar el Forge al Path del windows. Ejemplos: ...; %FORGE_HOME%\bin
+
+* Ejecutar la prueba de Instalaci&#243;n: forge - about
+
+== LINKS
+
+* Referencias
+
+** http://www.redhat.com/[RedHat] - http://co.redhat.com/[Latam - Colombia] - http://www.jboss.org/[Jboss] - http://forge.jboss.org/[JBoss Forge]
+
+** https://community.jboss.org/en/forge[https://community.jboss.org/en/forge - User Forums]
+
+** http://forge.jboss.org/docs/index.html[http://forge.jboss.org/docs/index.html - Documentation]
+
+*  GitHub
+
+** http://forge.github.com/[GitHub]
+
+** http://forge.github.com/docs/[http://forge.github.com/docs/ - Documentaci&#243;n]
+
+** https://github.com/lincolnthree[https://github.com/lincolnthree - GitHub the Lincon Baster]
+
+* Examples
+
+* http://ocpsoft.org/socialpm/[http://ocpsoft.org/socialpm/ - Socialpm]
+
+* https://gist.github.com/pmuir/1242632 - [https://gist.github.com/pmuir/1242632 - Steps to run Forge to create a simple]
+
+== COMANDOS
+
+. list-commands --all
+
+. help {plugin-name} {command-name}
+
+. new-project --named {name} --topLevelPackage {com.package} --projectFolder {/directory/path}
+
+. install forge.scaffold
+
+. scaffold setup
+
+. scaffold create-indexes --overwrite
+
+. mvn clean package
+
+. mvn jboss:hard-deploy
+
+. mvn jboss:start
+
+. persistence setup --provider
+
+. entity --named Customer
+
+. Customer.java $ field string --named firstName
+
+. Customer.java $ field string --named lastName
+
+. Customer.java $ scaffold from-entity
+
+== CREACION DE UN PROYECTO
+
+. new-project --named demo --topLevelPackage com.naif  --type war --projectFolder /projects/demo
+
+. setup faces
+
+. build
+
+. as7 deploy
+
+. bean setup
+
+. persistence setup --provider
+
+. new-entity --named Person
+
+. new-field string --fieldName firstName
+
+. new-field string --fieldName lastName
+
+
+== COMANDO VARIOS
+
+. forge git-plugin git://githug.com/...
+
+* Otros
+
+. install forge.scaffold
+
+. new-entity --named Person
+
+. new-field string --fieldName firstName
+
+. new-field string --fieldName lastName
+
+. cd ..
+
+. scaffold generate-metawidget-jsf *.java
+
+== GENERAR ENTITADES
+
+. generate-entities --url jdbc:mysql://localhost:3306/hatchling --user hatchling --password hatchling --driver com.mysql.jdbc.Driver --detectManytoMany --detectOneToOne --detecOptimesticLock
+
+. Aplicacion conftrack
+
+== CREACI&#211;N DE LA APLICACI&#211;N
+
+PASOS:
+
+. Copiar el archivos base.fsh al directorio donde se va a crear la aplicaci&#243;n.
+
+[source, console]
+----
+ Archivo:base.fsh
+
+clear;
+
+new-project --topLevelPackage com.naif.base;
+
+set ACCEPT_DEFAULTS true;
+
+scaffold setup --scaffoldType faces;
+
+persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
+
+----
+
+. Ubicarse en el directorio de la aplicaci&#243;n y ejecutar el forge
+
+. forge
+
+. Una vez ejecutado el forge ejecutar el archivo base.dsc
+
+. run base.fsh
+
+. Ingresar el nombre del proyecto
+
+. Crear el directorio del proyecto
+
+. Una vez creado el proyecto salir del forge para estudiar la estructura de directorios creada para la aplicaci&#243;n.
+
+. exit
+
+. Editar el archivo pom.xml del proyecto
+
+. Agregar el Pluings del Maven para despegar la aplicaci&#243;n en el Jboss aplication Server
+
+. Ejecutar el Jboss Aplicati&#243;n Server
+
+. Compilar el proyecto
+
+. mvn clean package
+
+. Desplegar el proyecto
+
+. mvn jboss-as:deploy
+
+. mvn jboss-as:undeploy
+
+. mvn jboss-as:redeploy
+
+
+
+
+
