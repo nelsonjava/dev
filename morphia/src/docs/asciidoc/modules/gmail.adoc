@@ -1,0 +1,47 @@
+[[glassfish-gmail]]
+
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== ENVIANDO CORREOS USANDO GMAIL
+
+La forma mas conveniente de confirgurar GlassFish es usar la http://localhost:4848/[consola de administraci&#243;n]
+
+1. [Resources][JavaMail Sessions][New]
+
+* JNDI name: gmail/
+* Mail Host: smtp.gmail.com
+* Default User: yourmail.com@gmail.com
+* Default Return Address:yourmail.com@gmail.com
+* Transport protocol: smtps
+* Transport Protocol Class: com.sun.mail.smtp.SMTPTransport
+
+
+* Para realizar la prueba se debe editar la clase del ejemplo Quickstarts - Mail - Email.java
+
+    @Resource(mappedName = "java:jboss/mail/Gmail")
+
+* https://support.google.com/accounts/answer/6010255[Permitir que las aplicaciones menos seguras accedan a tu cuenta]
+
+* https://www.google.com/settings/security/lesssecureapps[Permitir el acceso de aplicaciones menos seguras]
+
+* https://security.google.com/settings/security/activity[Revisa la p&#225;gina Actividad de la cuenta en la direcci&#243;n]
+
+1. JavaMail
+
+* B&#250;squeda Google: GlassFish Sending Email using Gmail smtp server
+* http://javaeenotes.blogspot.com/2010/04/using-javamail-api-with-glassfish-and.html[Using JavaMail API with Glassfish and GMail]
+* http://www.hildeberto.com/2010/02/sending-e-mails-with-javamail-on-glassfish-v3.html[Sending E-mails with JavaMail on Glassfish V3]
+* http://spitballer.blogspot.com/2010/02/sending-email-via-glassfish-v3.html[Sending email via Glassfish v3]
+* http://wildfly.org/news/2014/02/06/GlassFish-to-WildFly-migration/[Migrating a Java EE App from GlassFish to WildFly]
+
+1. Recursos
+
+* https://github.com/nelsonjava?tab=repositories

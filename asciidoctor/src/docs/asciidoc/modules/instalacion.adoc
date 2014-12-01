@@ -1,0 +1,51 @@
+[[asciidoctor-instalacion]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+= INSTALACION
+
+* https://glassfish.java.net/
+
+* Descargar https://glassfish.java.net/download.html
+
+* https://docs.jboss.org/author/display/WFLY8/Getting+Started+Guide#GettingStartedGuide-Requirements[Getting Started Guide]
+
+* Configurar la variable de Entorno:  JBOSS_HOME. Ejemplo: JBOSS_HOME=D:\javasrv\wildfly
+
+* Configurar la variable de Entorno: JAVA_OPTS: -server -Xms64m -Xmx512m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true
+  -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000
+  -Djboss.modules.system.pkgs=org.jboss.byteman
+
+* Probar la instalaci&#243;n desde el browser: http://localhost:8080/
+
+* Crear los usuarios de administraci&#243;n:
+
+** Ubicarse en el directorio: %JBOSS_HOME%\bin\
+
+** Ejecutar el comando: add-user "archivo:add-user.bat"
+
+*** Management User (mgmt-users.properties): Seleccionar la opci&#243;n: a
+
+*** Username : admin
+
+*** Password : console
+
+*** http://localhost:9990/console/App.html
+
+== H2-CONSOLE
+
+* Descargar el h2console.war en https://github.com/wildfly/quickstart/tree/master/h2-console
+
+* Grabar el archivo en D:\download\wildfly
+
+* Desplegar la aplicaci&#243;n desde la consola de administraci&#243;n del wildfly
+
+** Estando en la consola ir a: [server][Manage Deployments][Add]
+
