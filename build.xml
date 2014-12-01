@@ -34,7 +34,8 @@
     <delete dir="mongo/target" failonerror="no"/>
     <delete dir="play/target" failonerror="no"/>
     <delete dir="morphia/target" failonerror="no"/>
-    <delete dir="asciidoctor/target" failonerror="no"/>        
+    <delete dir="asciidoctor/target" failonerror="no"/>
+    <delete dir="dev/target" failonerror="no"/>            
   </target>
 
   <target name="site" description="Initialize the build">

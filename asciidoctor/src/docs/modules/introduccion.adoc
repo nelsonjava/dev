@@ -10,7 +10,9 @@ n=&#241; N=&#209;
 
 == INTRODUCI&#211;N
 
-* GlassFish Server Open Source Edition is a Java EE compatible application server that is developed by Oracle and the GlassFish community
-using an open source license.
+* http://asciidoctor.org/
 
+* http://asciidoctor.org/docs/
+
+* http://asciidoctor.org/docs/asciidoctor-maven-plugin/[Installing and Using the Asciidoctor Maven Plugin]
 
