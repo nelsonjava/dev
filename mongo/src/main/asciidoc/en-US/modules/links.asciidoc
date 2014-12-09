@@ -18,3 +18,5 @@ n=&#241; N=&#209;
 
 ** http://docs.mongodb.org/ecosystem/tools/administration-interfaces/[MongoDB client]
 
+** http://www.mastertheboss.com/cool-stuff/mongodb/developing-applications-with-mongodb-and-primefaces-on-wildfly[Installing MongoDB as a module on WildFly]
+

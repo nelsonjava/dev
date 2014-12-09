@@ -1,0 +1,38 @@
+[[wildfly-mongo]]
+
+== INSTALLING MONGODB ON WILDFLY
+
+. RECURSOS
+
+* http://nmpallas.wordpress.com/tag/mongodb/[Wildfly and MongoDb Driver]
+
+* http://www.mastertheboss.com/cool-stuff/mongodb/developing-applications-with-mongodb-and-primefaces-on-wildfly[Installing MongoDB as a module on WildFly]
+
+. Installing MongoDB as a module on WildFly
+
+* 1. Ejecutar:
+
+[source, console]
+----
+%JBOSS_HOME%\bin\jboss-cli.sh [Enter]
+----
+
+* 2. Install it on the application Server as a Module using the following CLI:
+
+[source, console]
+----
+module add --name=org.mongodb --resources=C:\MongoDB2.6\mongo-2.10.1.jar --dependencies=javax.api,javax.transaction.api
+----
+
+* 3. Next, include in your Manifest file (or jboss-deployment-structure.xml) a Dependency on the module. For example:
+
+[source, console]
+----
+<dependency>
+  <groupId>org.mongodb</groupId>
+  <artifactId>mongo-java-driver</artifactId>
+  <version>2.10.1</version>
+  <scope>provided</scope>
+</dependency>
+----
+
