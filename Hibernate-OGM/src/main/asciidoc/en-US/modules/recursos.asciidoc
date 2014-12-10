@@ -19,6 +19,10 @@ n=&#241; N=&#209;
 
 ** http://www.arquitecturajava.com/integracion-de-jpa-mongodb/[Integración de JPA MongoDB]
 
+** http://in.relation.to/tag/Hibernate+OGM
+
+** https://github.com/hibernate/hibernate-ogm
+
 * Examples
 
-** 
+** https://developer.jboss.org/wiki/PortingSeamHotelBookingExampleToOGM[Porting seam hotel booking example to OGM]

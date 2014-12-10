@@ -20,3 +20,5 @@ n=&#241; N=&#209;
 
 ** http://www.mastertheboss.com/cool-stuff/mongodb/developing-applications-with-mongodb-and-primefaces-on-wildfly[Installing MongoDB as a module on WildFly]
 
+** http://www.arquitecturajava.com/integracion-de-jpa-mongodb/[Integración de JPA MongoDB]
+
