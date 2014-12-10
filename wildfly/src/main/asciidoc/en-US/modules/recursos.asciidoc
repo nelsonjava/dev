@@ -26,3 +26,7 @@ n=&#241; N=&#209;
 * Examples
 
 ** http://www.mastertheboss.com/mongodb[Developing applications with MongoDB and PrimeFaces on WildFly]
+
+* Examples
+
+** http://www.techpaste.com/2014/05/08/how-to-configure-datasource-in-jboss-wildfly/[How To Configure datasource in WildFly]
