@@ -49,3 +49,11 @@ n=&#241; N=&#209;
 
 ** Estando en la consola ir a: [server][Manage Deployments][Add]
 
+== PROYECTO ACTUAL
+
+* http://localhost:8080/
+
+* http://localhost:8080/console
+
+* http://localhost:8080/wildfly-mail
+
