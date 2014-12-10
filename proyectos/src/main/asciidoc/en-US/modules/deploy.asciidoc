@@ -1,0 +1,79 @@
+[[proyectos-deploy]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== DEPLOY
+
+. *PROYECTO ACTUAL*
+
+*
+
+. *LOCAL*
+
+* http://localhost:8080/
+
+* http://localhost:9990/console/
+
+* http://localhost:8080/h2console/
+
+
+. *PUBLICAS*
+
+* http://179.50.40.51:8080
+
+* http://179.50.40.51:9990/console/App.html
+
+* http://179.50.40.51:8080/h2console/
+
+* http://179.50.40.51:8080/wildfly-mail
+
+
+. *OTROS DEPLOY*
+
+* http://192.168.100.250:8088/naif-rc1/
+
+* http://192.168.100.250:8088/crm-rc2/
+
+* http://192.168.100.250:8088/iso-rc1/
+
+* http://192.168.100.250:8088/naif-rc1/TiposLinksModels.java?tiposLinksModelsId=3
+
+* http://192.168.100.250:8088/naif-rc1/TiposLinksModelsList.java
+
+
+. *PRUEBAS*
+
+* https://www.github.com/nelsonjava/pruebas[https://github.com/nelsonjava/pruebas]
+
+* https://read.amazon.com[Amazon Reader]
+
+* Informaci&#243;n importante: DISCO DURO F:\simavirtual\www\naif\modelos
+
+
+. *MAVEN*
+
+** mvn clean package
+
+** mvn jboss-as:deploy
+
+** mvn clean package jboss-as:deploy
+
+** mvn jboss-as:undeploy
+
+** mvn clean install --debug - Consulta de la Instalaci&#243;n
+
+
+. *CONFIGURING THE DEFAULT PUBLIC INTERFACE WILDFLY*
+
+* standalone.bat -b *youripaddress*
+
+
+. *CONFIGURING THE NEW ADMINISTRATION INTERFACE WILDFLY*
+
+* standalone.bat -bmanagement *youripaddress*

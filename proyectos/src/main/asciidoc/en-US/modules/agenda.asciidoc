@@ -15,3 +15,5 @@ n=&#241; N=&#209;
 ** Afiliarse a Coworking buscar informacion
 
 ** Practicas del Sena - Investigar
+
+** Solicitar una IP publica con Claro

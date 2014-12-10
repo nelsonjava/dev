@@ -1,5 +1,10 @@
 = DEVELOPMENT PROYECT
 
+include::modules/deploy.asciidoc[]
+include::modules/recursos.asciidoc[]
+include::modules/ebooks.asciidoc[]
+include::modules/maven.asciidoc[]
+include::modules/java.asciidoc[]
+include::modules/mongo.asciidoc[]
+include::modules/requerimientos.asciidoc[]
 include::modules/agenda.asciidoc[]
-
-include::modules/introduccion.asciidoc[]

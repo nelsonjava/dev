@@ -57,3 +57,12 @@ n=&#241; N=&#209;
 
 * http://localhost:8080/wildfly-mail
 
+. CONFIGURING THE DEFAULT PUBLIC INTERFACE
+
+* standalone.bat -b {youripaddress}
+
+. CONFIGURING THE NEW ADMINISTRATION INTERFACE
+
+* standalone.bat -b {youripaddress}
+
+

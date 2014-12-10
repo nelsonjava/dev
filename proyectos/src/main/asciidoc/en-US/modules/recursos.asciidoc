@@ -1,0 +1,38 @@
+[[proyectos-recursos]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== RECURSOS
+
+* https://www.github.com/nelsonjava/pruebas[https://github.com/nelsonjava/pruebas]
+
+* https://read.amazon.com[Amazon Reader]
+
+* http://my.safaribooksonline.com/book/databases/9781430257943[Pro Hibernate and MongoDB]
+
+* Codigo del libro:D:\download\eBooks\mongo\Hibernate Mongo
+
+* Build de Ant para el Jboss:D:\dev\tem\buil-jboss
+
+* https://ssl.safaribooksonline.com/trial?iid=anon-home-redirect[Safari Books Online] - nelsonfer1@gmail.com - nelsonjava@gmail.com
+
+** Biblioteca libre
+
+* Biblioteca de libros MicroSoft
+
+* https://www.udacity.com - Login - naif.nafg@gmail.com - 64
+
+** Introduction to Computer Science
+
+** Web Development
+
+** Introduction to Programming
+
+** Mobile Web Development
+

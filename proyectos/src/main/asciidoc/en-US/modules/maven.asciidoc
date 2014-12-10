@@ -1,0 +1,22 @@
+[[proyectos-maven]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== MAVEN
+
+* mvn clean package
+
+* mvn jboss-as:deploy
+
+* mvn clean package jboss-as:deploy
+
+* mvn jboss-as:undeploy
+
+* mvn clean install --debug - Consulta de la Instalaci&#243;n
+

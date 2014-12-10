@@ -1,0 +1,44 @@
+[[proyectos-mongo]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== MONGODB
+
+. MONGO
+
+. HIBERNATE OGM
+
+* Caused by: org.jboss.modules.ModuleNotFoundException: Module org.hibernate:ogm is not found in local module loader
+
+** https://forum.hibernate.org/viewtopic.php?p=2465959[https://forum.hibernate.org/viewtopic.php?p=2465959]
+
+* https://forum.hibernate.org/viewforum.php?f=31[Forum de MongoDb + OGM]
+
+** https://forum.hibernate.org/viewtopic.php?f=31&t=1027292[Adding persistance.xml for hibernate OGM?]
+
+** https://forum.hibernate.org/viewtopic.php?f=31&t=1025959[Running OGM in JBoss AS 7.2.0.Final]
+
+* http://hibernate.org/subprojects/ogm.html
+
+** https://github.com/hibernate/hibernate-ogm
+
+** https://forum.hibernate.org/viewforum.php?f=31&start=25
+
+* http://www.mongodb.com/presentations/webinar-creaci%C3%B3n-de-su-primera-aplicaci%C3%B3n-java-con-mongodb[Webinar: Creaci&#243;n de su primera aplicaci&#243;n Java con MongoDB]
+
+. RECURSOS
+
+* Aplicaci&#243;n de Pruebas = D:\dev\pruebas\RafaEShop
+
+* Ejemplo que se esta probando: D:\download\eBooks\mongo\Hibernate Mongo\9781430257943\apps\NetBeans\chapter_6\HOGM_MONGODB_HNAPI_CRUD
+
+* Codigo del libro:D:\download\eBooks\mongo\Hibernate Mongo
+
+* Aplicaci&#243;n de Prueba: D:\download\eBooks\mongo\Hibernate Mongo\9781430257943\apps\NetBeans\chapter_8\RafaEShop

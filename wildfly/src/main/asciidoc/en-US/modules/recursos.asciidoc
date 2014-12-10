@@ -23,6 +23,8 @@ n=&#241; N=&#209;
 
 ** http://www.mastertheboss.com[http://www.mastertheboss.com]
 
+** http://opensourcearchitect.co/tutorials/ip-addresses-interfaces-jboss-eap6-as7[IP Addresses and Interfaces on JBoss EAP 6 and JBoss AS 7 – Standalone]
+
 * Examples
 
 ** http://www.mastertheboss.com/mongodb[Developing applications with MongoDB and PrimeFaces on WildFly]

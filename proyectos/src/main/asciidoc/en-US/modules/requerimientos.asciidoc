@@ -1,0 +1,42 @@
+[[proyectos-requerimientos]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== REQUERIMIENTOS
+
+. FUNCIONALES
+
+* Crear un jar con las entidades para crear solamente la base de datos y compartirlas para las apliciones en MongoDb nativo y la aplicaci&#243;n web JDF.
+
+* D:\dev\pruebas\naifdb - Pruebas para lograr esta actividad.
+
+
+. NO FUNCIONALES
+
+* Escanear el documento de identidad
+
+* Mensajeria del Sistema
+
+* Enviar correos
+
+* Leer correos de gmail.com,hotmail camino a comunicaiones unificadas: Utilizar el API de Gmail y otros
+
+* Mensaje de Texto: Mensaje de textos enviados por el sistema en ciertas opciones del sistema
+
+* Base de Datos: Persistencia Polyglota,NoSql
+
+* Compatible con Mobiles: Apple, Android
+
+* Contactos
+
+* Compatiblidad con Verifiquese
+
+* Informes: Excel,pdf,directo a la impresora.
+
+* PicketLink
