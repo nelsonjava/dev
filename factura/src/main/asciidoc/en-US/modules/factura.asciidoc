@@ -69,6 +69,8 @@ n=&#241; N=&#209;
 
 . *RECURSOS*
 
+* http://www.facture.co/
+
 * http://www.dian.gov.co/feriaservicios/documentos/Impulso_y_masificacion_de_la_Factura_Electronica_en_Colombia.pdf[Documento de la Dian]
 
 * http://www.camaramedellin.com.co/site/Portals/0/Documentos/2014/Semana%20Actualizacion/Camilo%20Rodriguez%20Factura%20Electronica.pdf[FACTURACION ELECTRONICA]
