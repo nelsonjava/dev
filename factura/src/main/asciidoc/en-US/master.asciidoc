@@ -1,0 +1,4 @@
+= FACTURA ELECTRONICA EN COLOMBIA
+
+include::modules/factura.asciidoc[]
+

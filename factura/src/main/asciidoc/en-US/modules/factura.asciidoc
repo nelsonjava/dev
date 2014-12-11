@@ -1,0 +1,94 @@
+[[factura-factura]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== NUEVO MODELO DE FACTURA ELECTR&#243;NICA EN COLOMBIA (FE)
+
+. *QU&#233; ES LA FACTURACI&#243;N ELECTRONICA*
+
+* Es el documento que soporta transacciones de venta de bienes y/o servicios, que para efectos fiscales debe ser
+  expedida, entregada, aceptada y conservada por y en medios y formatos electr&#243;nicos,
+
+* A trav&#233;s de un proceso de facturaci&#243;n que utilice procedimientos y tecnolog&#237;a de informaci&#243;n, en forma directa o a trav&#233;s de terceros,
+
+* Que garantice su autenticidad e integridad desde su expedici&#243;n y durante todo el tiempo de su conservaci&#243;n,
+
+* De conformidad con lo establecido en el decreto, incluidos los documentos que la afectan como son las notas cr&#233;dito.
+
+
+. *MARCO NORMATIVO DE LA FACTURACI&#243;N ELECTRONICA*
+
+* http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=25311[Decreto 1929 de 2007]
+  Por medio del cual se reglament&#243; el art&#237;culo 616-1 del E.T.]
+
+* http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=39787[Resoluci&#243;n 14465 de 2007]
+  Se establecen las caracter&#237;sticas y contenido t&#233;cnico de la factura electr&#243;nica y de las notas cr&#233;dito y otros aspectos relacionados con esta
+  modalidad de facturaci&#243;n, y se adecua el sistema t&#233;cnico de control.
+
+* http://estatuto.co/?e=439[El Art&#237;culo 616-1 del Estatuto Tributario]
+  La factura electr&#243;nica es equivalente a la factura de venta
+
+* http://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=17004[El art&#237;culo 26 de la Ley 962 de 2005]
+  *Art&#237;culo 26.* Factura electr&#243;nica. Para todos los efectos legales, la factura electr&#243;nica podr&#225; expedirse, aceptarse, archivarse y en general
+  llevarse usando cualquier tipo de tecnolog&#237;a disponible, siempre y cuando se cumplan todos los requisitos legales establecidos y la
+  respectiva tecnolog&#237;a que garantice su autenticidad e integridad desde su expedici&#243;n y durante todo el tiempo de su conservaci&#243;n, aplicando
+  el principio de neutralidad tecnol&#243;gica.
+
+* http://estatuto.co/?o=26[Art&#237;culo 511 del Estatuto Tributario - Discriminaci&#243;n del impuesto en la factura]
+  Los responsables del impuesto sobre las ventas deber&#225;n entregar factura o documento equivalente por todas las operaciones
+  que realicen y s&#243;lo deber&#225;n discriminar el impuesto en los casos contemplados en el art&#237;culo 618.
+
+* http://estatuto.co/?o=32[Art&#237;culo 615 del Estatuto Tributario - Obligaci&#243;n de expedir factura]
+  Para efectos tributarios, todas las personas o entidades que tengan la calidad de comerciantes, ejerzan profesiones liberales o
+  presten servicios inherentes a &#233;stas, o enajenen bienes producto de la actividad agr&#237;cola o ganadera, deber&#225;n expedir factura o documento
+  equivalente, y conservar copia de la misma por cada una de las operaciones que realicen, independientemente de su calidad de contribuyentes
+  o no contribuyentes de los impuestos administrados por la Direcci&#243;n General de Impuestos Nacionales.
+  Para quienes utilicen m&#225;quinas registradoras, el documento equivalente ser&#225; el tiquete expedido por &#233;sta.
+  PAR. La boleta de ingreso a las salas de exhibici&#243;n cinematogr&#225;fica constituye el documento equivalente a la factura.
+  PAR 2. Quienes tengan la calidad de agentes de retenci&#243;n del impuesto sobre las ventas, deber&#225;n expedir un certificado bimestral
+  que cumpla los requisitos de que trata el art&#237;culo 381 del Estatuto Tributario. A solicitud del beneficiario del pago,
+  el agente de retenci&#243;n expedir&#225; un certificado por cada retenci&#243;n efectuada, el cual deber&#225; contener las mismas especificaciones
+  del certificado bimestral.
+  En los dem&#225;s aspectos se aplicar&#225;n las previsiones de los par&#225;grafos 1o. y 2o. del art&#237;culo 381 del Estatuto Tributario.
+
+* http://estatuto.co/?o=32[Art&#237;culo 617 del Estatuto Tributario - Requisitos de la factura para efectos tributarios]
+
+* http://estatuto.co/?o=32[Art&#237;culo 618 del Estatuto Tributario - Obligaci&#243;n de exigir factura o documento equivalente.]
+  A partir de la vigencia de la presente ley los adquirentes de bienes corporales muebles o servicios est&#225;n obligados a
+  exigir las facturas o documentos equivalentes que establezcan las normas legales, al igual que a exhibirlos cuando los funcionarios
+  de la administraci&#243;n tributaria debidamente comisionados para el efecto as&#237; lo exijan.
+
+* http://estatuto.co/?o=36[Art&#237;culo 684-2 del Estatuto Tributario - Implantaci&#243;n de sistemas t&#233;cnicos de control.]
+  La DIAN puede prescribir sistemas t&#233;cnicos de control a determinados contribuyentes o sectores.
+
+. *RECURSOS*
+
+* http://www.dian.gov.co/feriaservicios/documentos/Impulso_y_masificacion_de_la_Factura_Electronica_en_Colombia.pdf[Documento de la Dian]
+
+* http://www.camaramedellin.com.co/site/Portals/0/Documentos/2014/Semana%20Actualizacion/Camilo%20Rodriguez%20Factura%20Electronica.pdf[FACTURACION ELECTRONICA]
+
+* http://www.sprbun.com/documentos/Procesos_Electronicos_sprbun_final.pdf[Reglamentaci&#243;n de la Factura Electr&#243;nica]
+
+* https://colaboracion.dnp.gov.co/CDT/Conpes/3620.pdf[Documento Conpes 3620 del 2009 - LINEAMIENTOS DE POLITICA PARA EL DESARROLLO E IMPULSO DEL COMERCIO ELECTRONICO EN COLOMBIA]
+
+* http://www.dian.gov.co/descargas/plegables/factura2.pdf[Folleto No. Factura]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
