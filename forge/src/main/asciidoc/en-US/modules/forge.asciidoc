@@ -22,6 +22,8 @@ n=&#241; N=&#209;
 
 * Ejecutar la prueba de Instalaci&#243;n: forge - about
 
+* https://github.com/forge - Descargar los fuentes para mayor referencia.
+
 == LINKS
 
 * Referencias
@@ -40,11 +42,37 @@ n=&#241; N=&#209;
 
 ** https://github.com/lincolnthree[https://github.com/lincolnthree - GitHub the Lincon Baster]
 
+** https://github.com/javaee-samples
+
+** http://forge.jboss.org/addon/org.jboss.forge.addon:ui - UI INSTALLATION
+
 * Examples
 
 * http://ocpsoft.org/socialpm/[http://ocpsoft.org/socialpm/ - Socialpm]
 
 * https://gist.github.com/pmuir/1242632 - [https://gist.github.com/pmuir/1242632 - Steps to run Forge to create a simple]
+
+== CONFIGURACION DEL PROYECTO
+
+* forge --install org.jboss.forge.addon:configuration
+
+* forge --install org.jboss.forge.addon:ui
+
+* forge --install org.jboss.forge.addon:javaee
+
+* plugins setup
+
+* setup faces
+
+* persistence setup
+
+* scaffold setup
+
+* bean setup
+
+
+
+* forge install-plugin jboss-as-7
 
 == COMANDOS
 
@@ -78,7 +106,7 @@ n=&#241; N=&#209;
 
 == CREACION DE UN PROYECTO
 
-. new-project --named demo --topLevelPackage com.naif  --type war --projectFolder /projects/demo
+. project-new --named demo --topLevelPackage com.simavirtual  --type war
 
 . setup faces
 
@@ -177,7 +205,9 @@ persistence setup --provider HIBERNATE --container JBOSS_AS7 ;
 
 . mvn jboss-as:redeploy
 
+== RECURSOS
 
+* core\javaee\impl\src\main\java\org\jboss\forge\addon\javaee
 
 
 

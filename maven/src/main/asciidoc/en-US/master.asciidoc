@@ -1,25 +1,27 @@
 = MAVEN
 
-include::modules/introduccion.asciidoc[]
+include::modules/goals/setup.asciidoc[]
 
-include::modules/instalacion.asciidoc[]
+include::modules/teoria/introduccion.asciidoc[]
 
-include::modules/archetype.asciidoc[]
+include::modules/teoria/instalacion.asciidoc[]
 
-include::modules/pom.asciidoc[]
+include::modules/teoria/archetype.asciidoc[]
 
-include::modules/properties.asciidoc[]
+include::modules/teoria/pom.asciidoc[]
 
-include::modules/artifacts.asciidoc[]
+include::modules/teoria/properties.asciidoc[]
 
-include::modules/dependencias.asciidoc[]
+include::modules/teoria/artifacts.asciidoc[]
 
-include::modules/plugins.asciidoc[]
+include::modules/teoria/dependencias.asciidoc[]
 
-include::modules/profiles.asciidoc[]
+include::modules/teoria/plugins.asciidoc[]
 
-include::modules/repositorios.asciidoc[]
+include::modules/teoria/profiles.asciidoc[]
 
-include::modules/recursos.asciidoc[]
+include::modules/teoria/repositorios.asciidoc[]
 
-include::modules/glosario.asciidoc[]
+include::modules/teoria/recursos.asciidoc[]
+
+include::modules/teoria/glosario.asciidoc[]

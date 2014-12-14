@@ -1,0 +1,46 @@
+[[proyectos-war]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== PROYECTO WEB
+
+. TECNOLOGIAS SOPORTADAS
+
+* http://forge.jboss.org/[Jboss Forge]
+
+* http://maven.apache.org/[Maven]
+
+* https://facelets.java.net/[Facelets - view declaration language for JavaServer Faces technology]
+
+* Web Service B&#225;sico
+
+. PASOS PARA CREAR EL PROYECTO
+
+* Ubicarse en el directorio donde se va crear el proyecto
+
+* ejectuar forge[enter]
+
+* project-new --named demo1 --topLevelPackage com.simavirtual --type war
+
+* mvn archetype:generate -DgroupId=com.simavirtual -DartifactId=demo2 -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+
+. RECURSOS
+
+* \download\windiff.exe para comparar directorios.
+
+
+
+
+
+
+
+
+

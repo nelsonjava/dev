@@ -1,0 +1,25 @@
+[[maven-goals-setup]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+== CREACION DE GOAL DE MAVEN
+
+* maven-simasoft-plugin
+
+mvn archetype:generate -DgroupId=co.simasoft.plugin -DartifactId=maven-simasoft-plugin -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+mvn archetype:generate -DgroupId=co.simasoft.war -DartifactId=simasoft-war -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+== RECURSOS
+
+* http://www.avajava.com/tutorials/lessons/how-do-i-create-a-hello-world-goal-for-a-maven-plugin.html?page=1[How do I create a hello world goal for a maven plugin?]
+
+* http://www.avajava.com/tutorials/lessons/how-do-i-create-a-maven-plugin-project-using-the-archetype-plugin.html[How do I create a maven plugin project using the archetype plugin?]
+
