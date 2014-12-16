@@ -32,3 +32,29 @@ n=&#241; N=&#209;
 * Examples
 
 ** http://www.techpaste.com/2014/05/08/how-to-configure-datasource-in-jboss-wildfly/[How To Configure datasource in WildFly]
+
+=== Migrating a Java EE App from GlassFish to WildFly
+
+* http://wildfly.org/news/2014/02/06/GlassFish-to-WildFly-migration/
+
+** Migrating The Database Connection
+
+** Datasource
+
+** Migrating the JavaMail Session
+
+** http://www.solewing.org/blog/tag/wildfly-2/[Wildfly Datasource Deployment]
+
+** https://books.google.com.co/books?id=rufiBAAAQBAJ&pg=PT79&lpg=PT79&dq=wildfly+deployable+datasources&source=bl&ots=l8fMNJiaTY&sig=w6n-Tjvvaf3bCYZuSxIeVW8NLGM&hl=es&sa=X&ei=GIiPVO6FL8uoNpPrgPAN&ved=0CEQQ6AEwBQ#v=onepage&q=wildfly%20deployable%20datasources&f=false[Configuring Database Connectivity]
+
+=== Search Google
+
+* DataSource Deployments+wildfly
+
+* deployments directory wildfly
+
+* wildfly+ds.xml
+
+* DataSource Deploy+wildfly
+
+* wildfly deployable datasources
