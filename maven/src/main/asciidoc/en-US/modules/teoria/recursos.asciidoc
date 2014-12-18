@@ -77,6 +77,12 @@ n=&#241; N=&#209;
 
 * Referencias
 
+** https://eljaviador.wordpress.com/2013/05/22/comprender-maven-parte-1/ [Importante]
+
+** https://eljaviador.wordpress.com/2013/05/27/comprender-maven-parte-2/#more-769 [Parte 2]
+
+** https://eljaviador.wordpress.com/
+
 ** http://books.sonatype.com/mvnref-book/reference/[Maven: The Complete Reference]
 
 ** http://www.genbetadev.com/java-j2ee/introduccion-a-maven[Introducci&#243;n a Maven]
