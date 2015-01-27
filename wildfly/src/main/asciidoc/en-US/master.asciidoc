@@ -9,3 +9,5 @@ include::modules/recursos.asciidoc[]
 include::modules/gmail.asciidoc[]
 
 include::modules/mongo.asciidoc[]
+
+include::modules/examples.asciidoc[]
