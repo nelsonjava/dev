@@ -1,0 +1,6 @@
+= JPA
+
+include::modules/recursos.asciidoc[]
+include::modules/persistence.asciidoc[]
+
+

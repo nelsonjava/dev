@@ -1,0 +1,131 @@
+[[jpa-persistence-recursos]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== Links Persistence.xml
+
+* http://jcp.org/en/jsr/detail?id=317[JSR 317: JavaTM Persistence 2.0 - ]
+
+* http://download.oracle.com/otn-pub/jcp/persistence-2.0-fr-eval-oth-JSpec/persistence-2_0-final-spec.pdf?AuthParam=1423163884_3182b5ad9b3eb24a010fd2a3e2da8563[8.1 - Entity Packaging - Persistence Unit]
+
+* http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/index.html[Java Persistence API: XML Schemas]
+
+* http://docs.oracle.com/cd/E16439_01/doc.1013/e13981/cfgdepds005.htm[Configuring the persistence.xml File]
+
+== Entity Packaging
+
+*Persistence Unit*::
+
+A persistence unit is a logical grouping that includes: 
+
+* An entity manager factory and its entity managers, together with their configuration information.
+
+* The set of managed classes included in the persistence unit and managed by the entity managers
+of the entity manager factory.
+
+* Mapping metadata (in the form of metadata annotations and/or XML metadata) that specifies
+the mapping of the classes to the database
+
+
+*Persistence Unit Packaging*::
+
+A persistence unit is defined by a persistence.xml file. The jar file or directory whose
+META-INF directory contains the persistence.xml file is termed the root of the persistence unit.
+In Java EE environments, the root of a persistence unit must be one of the following:
+
+* an EJB-JAR file
+
+* the WEB-INF/classes directory of a WAR file[80]
+
+* a jar file in the WEB-INF/lib directory of a WAR file
+
+* a jar file in the EAR library directory
+
+* an application client jar file
+
+
+*Persistence.xml File*::
+
+A persistence unit must have a name. Only one persistence unit of any given name must be defined
+The persistence.xml file may be used to designate more than one persistence unit within the same
+scope.
+
+* A persistence.xml file defines a persistence unit.
+
+* The persistence.xml file is located in the META-INF directory of the root of the persistence unit.
+
+* The persistence.xml file may be used to specify:
+
+** Managed persistence classes included in the persistence unit
+
+** Object/relational mapping information for those classes
+
+** Other configuration information for the persistence unit and for the entity manager(s) and entity manager factory for the persistence unit.
+
+*Persistence.xml elements*::
+
+* The *root element* of the persistence.xml file is the <persistence> element.
+
+* The persistence element consists of one or more persistence-unit elements.
+
+* The persistence-unit element consists of the name and transaction-type attributes and
+the following sub-elements: *<persistence-unit name="" transaction-type="">*
+
+*  *<description>*:: Description of this persistence unit. *</description>*
+
+**  *<provider>* Provider class that supplies EntityManagers for this persistence unit. *</provider>*
+
+**  *<jta-data-source>*The container-specific name of the JTA datasource to use.*</jta-data-source>*
+
+**  *<non-jta-data-source>*The container-specific name of a non-JTA datasource to use.*</non-jta-data-source>*
+
+**  <mapping-file>File containing mapping information. Loaded as a resource by the persistence provider.</mapping-file>
+
+**  <jar-file>Jar file that is to be scanned for managed classes.</jar-file>
+
+**  <class>Managed class to be included in the persistence unit and to scan for annotations.  It should be annotated with either @Entity, @Embeddable or @MappedSuperclass.</class>
+
+** <exclude-unlisted-classes>When set to true then only listed classes and jars will be scanned for persistent classes, otherwise the enclosing jar or directory will also be scanned. Not applicable to Java SE persistence units.</exclude-unlisted-classes>
+
+** <shared-cache-mode>Defines whether caching is enabled for the persistence unit if caching is supported by the persistence provider. When set to ALL, all entities will be cached. When set to NONE, no entities will be cached. When set to ENABLE_SELECTIVE, only entities specified as cacheable will be cached. When set to DISABLE_SELECTIVE, entities specified as not cacheable will not be cached. When not specified or when set to UNSPECIFIED, provider defaults may apply.</shared-cache-mode>
+
+** <validation-mode>The validation mode to be used for the persistence unit.</validation-mode>
+
+** <properties> A list of standard and vendor-specific properties and hints.<property name="" value=""/></properties>
+
+
+[source, console]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                           http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+  <persistence-unit name="" transaction-type="">
+    <description></description>
+    <provider></provider>
+    <jta-data-source></jta-data-source>
+    <non-jta-data-source></non-jta-data-source>
+    <mapping-file></mapping-file>
+    <jar-file></jar-file>
+    <class></class>
+    <exclude-unlisted-classes></exclude-unlisted-classes>
+    <shared-cache-mode></shared-cache-mode>
+    <validation-mode></validation-mode>
+    <properties>
+      <property name="" value=""/>
+    </properties>
+  </persistence-unit>
+</persistence>
+----
+
+
+
