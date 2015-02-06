@@ -11,6 +11,10 @@ n=&#241; N=&#209;
 
 == Links Persistence.xml
 
+* https://jcp.org/en/jsr/detail?id=338[JSR 338: JavaTM Persistence 2.1]
+
+* http://download.oracle.com/otn-pub/jcp/persistence-2_1-fr-eval-spec/JavaPersistence.pdf?AuthParam=1423249172_0517aabbeeb0726d1b546a69d7093117[JSR 338: Java Persistence API, Version 2.1]
+
 * http://jcp.org/en/jsr/detail?id=317[JSR 317: JavaTM Persistence 2.0 - ]
 
 * http://download.oracle.com/otn-pub/jcp/persistence-2.0-fr-eval-oth-JSpec/persistence-2_0-final-spec.pdf?AuthParam=1423163884_3182b5ad9b3eb24a010fd2a3e2da8563[8.1 - Entity Packaging - Persistence Unit]
@@ -75,19 +79,52 @@ scope.
 
 * The persistence element consists of one or more persistence-unit elements.
 
-* The persistence-unit element consists of the name and transaction-type attributes and the following sub-elements: *<persistence-unit name="" transaction-type="">*
+*<persistence-unit name="" transaction-type="">*::
+
+The *name* attribute defines the name for the persistence unit. This name may be used to identify a persistence
+unit referred to by the PersistenceContext and PersistenceUnit annotations and
+in the programmatic API for creating an entity manager factory.
+
+::
+The *transaction-type* attribute is used to specify whether the entity managers provided by the
+entity manager factory for the persistence unit must be JTA entity managers or resource-local entity
+managers. The value of this element is *JTA* or *RESOURCE_LOCAL*. A transaction-type of JTA
+assumes that a JTA data source will be provided-either as specified by the jta-data-source element
+or provided by the container. In general, in Java EE environments, a transaction-type of
+RESOURCE_LOCAL assumes that a non-JTA datasource will be provided. In a Java EE environment, if
+this element is not specified, the default is JTA. In a Java SE environment, if this element is not specified,
+the default is RESOURCE_LOCAL.
+
+The persistence-unit element consists of the name and transaction-type attributes and the following sub-elements:
 
 *<description></description>*::
 
-Description of this persistence unit.
+The description element provides optional descriptive information about the persistence unit.
 
 *<provider></provider>*::
 
 Provider class that supplies EntityManagers for this persistence unit.
 
+::
+The provider element specifies the name of the persistence provider's 
+http://docs.oracle.com/javaee/7/api/javax/persistence/spi/PersistenceProvider.html[javax.persistence.spi.PersistenceProvider]
+class. The provider element is optional, but should be specified if the application is dependent upon a particular persistence
+provider being used.
+
 *<jta-data-source></jta-data-source>*::
 
 The container-specific name of the JTA datasource to use.
+
+::
+In Java EE environments, the jta-data-source and non-jta-data-source elements are
+used to specify the JNDI name of the JTA and/or non-JTA data source to be used by the persistence provider.
+If neither is specified, the deployer must specify a JTA data source at deployment or the default
+JTA data source must be provided by the container, and a JTA EntityManagerFactory will be created to
+correspond to it.
+
+::
+In Java SE environments, these elements may be used or the data source information may be specified
+by other means-depending upon the requirements of the provider.
 
 *<non-jta-data-source></non-jta-data-source>*::
 
@@ -97,14 +134,76 @@ The container-specific name of a non-JTA datasource to use.
 
 File containing mapping information. Loaded as a resource by the persistence provider.
 
+::
+The following classes must be implicitly or explicitly denoted as managed persistence classes to be
+included within a persistence unit: entity classes; embeddable classes; mapped superclasses; converter
+classes.
+
+::
+The set of managed persistence classes that are managed by a persistence unit is defined by using one or
+more of the following:
+
+::
+* Annotated managed persistence classes contained in the root of the persistence unit (unless the
+exclude-unlisted-classes element is specified)
+
+::
+* One or more object/relational mapping XML files
+
+::
+* One or more jar files that will be searched for classes
+
+::
+* An explicit list of classes
+
+::
+The set of entities managed by the persistence unit is the union of these sources, with the mapping metadata
+annotations (or annotation defaults) for any given class being overridden by the XML mapping
+information file if there are both annotations as well as XML mappings for that class. The minimum
+portable level of overriding is at the level of the persistent field or property.
+
+::
+The classes and/or jars that are named as part of a persistence unit must be on the classpath; referencing
+them from the persistence.xml file does not cause them to be placed on the classpath.
+
+::
+All classes must be on the classpath to ensure that entity managers from different persistence units that
+map the same class will be accessing the same identical class.
+
+
 *<jar-file></jar-file>*::
 
 Jar file that is to be scanned for managed classes.
+
+::
+One or more JAR files may be specified using the jar-file elements instead of, or in addition to the
+mapping files specified in the mapping-file elements. If specified, these JAR files will be searched
+for managed persistence classes, and any mapping metadata annotations found on them will be processed,
+or they will be mapped using the mapping annotation defaults defined by this specification.
+Such JAR files are specified relative to the directory or jar file that contains[89] the root of the persistence
+unit.
+
+::
+The following examples illustrate the use of the jar-file element to reference additional persistence
+classes. These examples use the convention that a jar file with a name terminating in "PUnit" contains
+the persistence.xml file and that a jar file with a name terminating in "Entities" contains
+additional persistence classes.
 
 *<class></class>*::
 
 Managed class to be included in the persistence unit and to scan for annotations.
 It should be annotated with either @Entity, @Embeddable or @MappedSuperclass.
+
+::
+A list of named managed persistence classes-entity classes, embeddable classes, mapped superclasses,
+and converter classes-may be specified instead of, or in addition to, the JAR files and mapping files.
+Any mapping metadata annotations found on these classes will be processed, or they will be mapped
+using the mapping annotation defaults. The class element is used to list a managed persistence class.
+A list of all named managed persistence classes must be specified in Java SE environments to insure
+portability. Portable Java SE applications should not rely on the other mechanisms described here to
+specify the managed persistence classes of a persistence unit. Persistence providers may require that the
+set of entity classes and classes that are to be managed must be fully enumerated in each of the persistence.xml
+files in Java SE environments.
 
 *<exclude-unlisted-classes></exclude-unlisted-classes>*::
 
@@ -119,13 +218,142 @@ When set to ENABLE_SELECTIVE, only entities specified as cacheable will be cache
 When set to DISABLE_SELECTIVE, entities specified as not cacheable will not be cached.
 When not specified or when set to UNSPECIFIED, provider defaults may apply.
 
+::
+The shared-cache-mode element determines whether second-level caching is in effect for the persistence
+unit.
+
 *<validation-mode></validation-mode>*::
 
 The validation mode to be used for the persistence unit.
 
+::
+The validation-mode element determines whether automatic lifecycle event time validation is in
+effect.
+
 *<properties><property name="" value=""/></properties>*::
 
- A list of standard and vendor-specific properties and hints.
+A list of standard and vendor-specific properties and hints.
+
+::
+The properties element is used to specify both standard and vendor-specific properties and hints
+that apply to the persistence unit and its entity manager factory configuration.
+
+::
+The following properties and hints defined by this specification are intended for use in both Java EE and
+Java SE environments:
+
+::
+* *javax.persistence.lock.timeout* - value in milliseconds for pessimistic lock
+timeout. This is a hint only.
+
+::
+* *javax.persistence.query.timeout* - value in milliseconds for query timeout.
+This is a hint only.
+
+::
+* *javax.persistence.validation.group.pre-persist* - groups that are targeted
+for validation upon the pre-persist event (overrides the default behavior).
+
+::
+* *javax.persistence.validation.group.pre-update* - groups that are targeted
+for validation upon the pre-update event (overrides the default behavior).
+
+::
+* *javax.persistence.validation.group.pre-remove* - groups that are targeted
+for validation upon the pre-remove event (overrides the default behavior).
+
+::
+The following properties defined by this specification are intended for use in Java SE environments:
+
+::
+* *javax.persistence.jdbc.driver* - fully qualified name of the driver class
+
+::
+* *javax.persistence.jdbc.url* - driver-specific URL
+
+::
+* *javax.persistence.jdbc.user* - username used by database connection
+
+::
+* *javax.persistence.jdbc.password* - password for database connection validation
+
+Scripts for use in schema generation may be specified using the javax.persistence.schema-generation.create-script-source
+and javax.persistence.schema-generation.drop-script-source properties. A script to specify SQL for the bulk loading of data 
+may be specified by the javax.persistence.sql-load-script-source property. These properties are intended for use in both Java EE and Java SE environments:
+
+::
+* *javax.persistence.schema-generation.create-script-source*  name of a script packaged as part of the persistence application or a 
+string corresponding to a file URL string that designates a script.
+
+::
+* *javax.persistence.schema-generation.drop-script-source* - name of a script packaged as part of the persistence application or a 
+string corresponding to a file URL string that designates a script.
+
+::
+* *javax.persistence.sql-load-script-source*  name of a script packaged as part of the persistence unit or a string corresponding to a 
+file URL string that designates a script.
+
+When scripts are packaged as part of the persistence application, these properties must specify locations
+relative to the root of the persistence unit. When scripts are provided externally (or when schema generation
+is to occur into script files, as described below), strings corresponding to file URLs must be specified.
+In Java EE environments, such file URL specifications must be absolute paths (not relative). In Java EE environments, all source and target file 
+locations must be accessible to the application server deploying the persistence unit.
+
+In general, it is expected that schema generation will be initiated by means of the APIs. However, schema generation actions may also be 
+specified by means of the following properties used in the persistence.xml file.
+
+::
+* *javax.persistence.schema-generation.database.action*
+The javax.persistence.schema-generation.database.action property specifies the action to be taken by the persistence provider with regard 
+to the database artifacts. The values for this property are none, create, drop-and-create, drop. If this property is not specified, it is assumed that 
+schema generation is not needed or will be initiated by other means, and, by default, no schema generation actions will be taken on the database.
+
+::
+* *javax.persistence.schema-generation.scripts.action*
+The javax.persistence.schema-generation.scripts.action property specifies which scripts are to be generated by 
+the persistence provider. The values for this property are none, create, drop-and-create, drop. A script will only be generated if the script 
+target is specified. If this property is not specified, it is assumed that script generation is not needed or will be initiated by other means, 
+and, by default, no scripts will be generated.
+
+::
+* *javax.persistence.schema-generation.create-source*
+The javax.persistence.schema-generation.create-source property specifies
+whether the creation of database artifacts is to occur on the basis of the object/relational
+mapping metadata, DDL script, or a combination of the two. The values for this property are
+metadata, script, metadata-then-script, script-then-metadata. If this property is not specified, and a script is specified by the 
+javax.persistence.schema-generation.create-script-source property, the script (only) will be used for schema generation; otherwise if this 
+property is not specified, schema generation will occur on the basis of the object/relational mapping metadata (only). 
+The metadata-then-script and script-then-metadata values specify that a combination of metadata and script is to be used and the order 
+in which this use is to occur. If either of these values is specified and the resulting database actions are not disjoint, 
+the results are undefined and schema generation may fail.
+
+::
+* *javax.persistence.schema-generation.drop-source*
+The javax.persistence.schema-generation.drop-source property specifies
+whether the dropping of database artifacts is to occur on the basis of the object/relational mapping
+metadata, DDL script, or a combination of the two. The values for this property are metadata, script, metadata-then-script, script-then-metadata. If this
+property is not specified, and a script is specified by the javax.persistence.schema-generation.drop-script-source
+property, the script (only) will be used for the dropping of database artifacts; otherwise if this property is not specified,
+the dropping of database artifacts will occur on the basis of the object/relational mapping metadata (only). The metadata-then-script and
+script-then-metadata values specify that a combination of metadata and script is to be used and the order in which this use is to occur.
+If either of these values is specified and the resulting database actions are not disjoint, the results are undefined and the dropping of
+database artifacts may fail.
+
+::
+* *javax.persistence.schema-generation.scripts.create-target*, *javax.persistence.schema-generation.scripts.drop-target*
+If scripts are to be generated, the target locations for the writing of these scripts must be specified.
+These targets are specified as strings corresponding to file URLs
+
+If a persistence provider does not recognize a property (other than a property defined by this specification),
+the provider must ignore it.
+
+Vendors should use vendor namespaces for properties (e.g., com.acme.persistence.logging).
+Entries that make use of the namespace javax.persistence and its subnamespaces must not be
+used for vendor-specific information. The namespace javax.persistence is reserved for use by
+this specification.
+
+
+
 
 
 [source, console]
