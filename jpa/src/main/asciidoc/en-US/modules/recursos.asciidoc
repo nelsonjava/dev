@@ -23,6 +23,8 @@ n=&#241; N=&#209;
 
 * http://docs.oracle.com/cd/E16439_01/doc.1013/e13981/cfgdepds005.htm[Configuring the persistence.xml File]
 
+* https://mail.google.com/mail/u/1/#inbox/14b82ee572467b4d[nelsonfer1@gmail.com - NoSQL with Hibernate OGM - Part one: Persisting your first Entities]
+
 == Entity Packaging
 
 *Persistence Unit*::
@@ -81,134 +83,169 @@ scope.
 
 *<persistence-unit name="" transaction-type="">*::
 
-The *name* attribute defines the name for the persistence unit. This name may be used to identify a persistence
-unit referred to by the PersistenceContext and PersistenceUnit annotations and
-in the programmatic API for creating an entity manager factory.
+* *name:* The *name* attribute defines the name for the persistence unit.
+  This name may be used to identify a persistence unit referred to by the PersistenceContext and PersistenceUnit
+  annotations and in the programmatic API for creating an entity manager factory.
 
-::
-The *transaction-type* attribute is used to specify whether the entity managers provided by the
+* *transaction-type*: The *transaction-type* attribute is used to specify whether the entity managers provided by the
 entity manager factory for the persistence unit must be JTA entity managers or resource-local entity
-managers. The value of this element is *JTA* or *RESOURCE_LOCAL*. A transaction-type of JTA
-assumes that a JTA data source will be provided-either as specified by the jta-data-source element
-or provided by the container. In general, in Java EE environments, a transaction-type of
-RESOURCE_LOCAL assumes that a non-JTA datasource will be provided. In a Java EE environment, if
-this element is not specified, the default is JTA. In a Java SE environment, if this element is not specified,
-the default is RESOURCE_LOCAL.
+managers. The value of this element is *JTA* or *RESOURCE_LOCAL*.
+
+** transaction-type="*JTA*":
+
+*** A transaction-type of *JTA* assumes that a JTA data source will be provided-either as specified by the jta-data-source element or provided by the container.
+
+*** In a Java EE environment, if this element is not specified, the default is JTA.
+
+*** The *container* will do *EntityManager* (PersistenceContext/Cache) creating and tracking.
+
+*** You cannot use the *EntityManagerFactory* to get an *EntityManager*.
+
+*** You can only get an *EntityManager* supplied by the container.
+
+*** An EntityManager can be injected via the @PersistenceContext annotation only (not @PersistenceUnit).
+
+*** You are not allowed to use *@PersistenceUnit* _to refer to a unit of type_ *JTA*.
+
+*** The *EntityManager* given by the container is a reference to the *PersistenceContext/Cache* associated with a *JTA Transaction*.
+
+*** If no *JTA transaction* is in progress, the *EntityManager* cannot be used because there is no PersistenceContext/Cache.
+
+*** Everyone with an *EntityManager* reference to the same unit in the same transaction will automatically have a reference to the same *PersistenceContext/Cache*.
+
+**** *The PersistenceContext/Cache* _is flushed and cleared at JTA commit time_.
+
+
+** transaction-type="*RESOURCE_LOCAL*":
+
+*** In general, in Java EE environments, a transaction-type of *RESOURCE_LOCAL* assumes that a non-JTA datasource will be provided.
+
+*** In a Java SE environment, if this element is not specified, the default is *RESOURCE_LOCAL*.
+
+*** With *RESOURCE_LOCAL* you are responsible for *EntityManager* (PersistenceContext/Cache) creating and tracking
+
+*** You must use the *EntityManagerFactory* to get an *EntityManager*
+
+*** The resulting *EntityManager* instance is a *PersistenceContext/Cache*
+
+*** An *EntityManagerFactory* can be injected via the *@PersistenceUnit* annotation only (*not @PersistenceContext*)
+
+*** You are _not allowed to use_ *@PersistenceContext* to refer to a unit of type *RESOURCE_LOCAL*
+
+*** You must use the *EntityTransaction API* to *begin/commit* around every call to your *EntityManger*.
+
+*** Calling *entityManagerFactory.createEntityManager()* twice results in two separate *EntityManager* instances and
+    therefor two separate *PersistenceContexts/Caches.*
+
+*** _It is almost never a good idea to have more than one instance of an EntityManager in use (don't create a second one unless you've destroyed the first)_
+
+** links:
+
+*** http://tomee.apache.org/jpa-concepts.html[JPA Concepts]
 
 The persistence-unit element consists of the name and transaction-type attributes and the following sub-elements:
 
 *<description></description>*::
 
-The description element provides optional descriptive information about the persistence unit.
+* The description element provides optional descriptive information about the persistence unit.
 
 *<provider></provider>*::
 
-Provider class that supplies EntityManagers for this persistence unit.
+* Provider class that supplies EntityManagers for this persistence unit.
 
-::
-The provider element specifies the name of the persistence provider's 
-http://docs.oracle.com/javaee/7/api/javax/persistence/spi/PersistenceProvider.html[javax.persistence.spi.PersistenceProvider]
-class. The provider element is optional, but should be specified if the application is dependent upon a particular persistence
-provider being used.
+* The provider element specifies the name of the persistence provider's
+  http://docs.oracle.com/javaee/7/api/javax/persistence/spi/PersistenceProvider.html[javax.persistence.spi.PersistenceProvider]
+  class.
+
+* The provider element is optional, but should be specified if the application is dependent upon a particular persistence provider being used.
 
 *<jta-data-source></jta-data-source>*::
 
-The container-specific name of the JTA datasource to use.
+* The container-specific name of the JTA datasource to use.
 
-::
-In Java EE environments, the jta-data-source and non-jta-data-source elements are
-used to specify the JNDI name of the JTA and/or non-JTA data source to be used by the persistence provider.
-If neither is specified, the deployer must specify a JTA data source at deployment or the default
-JTA data source must be provided by the container, and a JTA EntityManagerFactory will be created to
-correspond to it.
+* In Java EE environments, the jta-data-source and non-jta-data-source elements are used to specify the JNDI name of the JTA and/or non-JTA data source 
+  to be used by the persistence provider.
 
-::
-In Java SE environments, these elements may be used or the data source information may be specified
-by other means-depending upon the requirements of the provider.
+* If neither is specified, the deployer must specify a *JTA data source* at deployment or the _default_ *JTA data source* must be provided by the container,
+  and a JTA EntityManagerFactory will be created to correspond to it.
+
+* In Java SE environments, these elements may be used or the data source information may be specified by other means-depending
+  upon the requirements of the provider.
+
 
 *<non-jta-data-source></non-jta-data-source>*::
 
-The container-specific name of a non-JTA datasource to use.
+* The container-specific name of a non-JTA datasource to use.
+
 
 *<mapping-file></mapping-file>*::
 
-File containing mapping information. Loaded as a resource by the persistence provider.
+* File containing mapping information. Loaded as a resource by the persistence provider.
 
-::
-The following classes must be implicitly or explicitly denoted as managed persistence classes to be
-included within a persistence unit: entity classes; embeddable classes; mapped superclasses; converter
-classes.
+* The following classes must be implicitly or explicitly denoted as managed persistence classes to be included within a persistence unit: 
+  entity classes; embeddable classes; mapped superclasses; converter classes.
 
-::
-The set of managed persistence classes that are managed by a persistence unit is defined by using one or
-more of the following:
+* The set of managed persistence classes that are managed by a persistence unit is defined by using one or more of the following:
 
-::
-* Annotated managed persistence classes contained in the root of the persistence unit (unless the
+** Annotated managed persistence classes contained in the root of the persistence unit (unless the
 exclude-unlisted-classes element is specified)
 
-::
-* One or more object/relational mapping XML files
+** One or more object/relational mapping XML files
 
-::
-* One or more jar files that will be searched for classes
+** One or more jar files that will be searched for classes
 
-::
-* An explicit list of classes
+** An explicit list of classes
 
-::
-The set of entities managed by the persistence unit is the union of these sources, with the mapping metadata
-annotations (or annotation defaults) for any given class being overridden by the XML mapping
-information file if there are both annotations as well as XML mappings for that class. The minimum
-portable level of overriding is at the level of the persistent field or property.
+** The set of entities managed by the persistence unit is the union of these sources, with the mapping metadata
+   annotations (or annotation defaults) for any given class being overridden by the XML mapping information file if there are both
+   annotations as well as XML mappings for that class. The minimum portable level of overriding is at the level
+   of the persistent field or property.
 
-::
-The classes and/or jars that are named as part of a persistence unit must be on the classpath; referencing
-them from the persistence.xml file does not cause them to be placed on the classpath.
+** The classes and/or jars that are named as part of a persistence unit must be on the classpath; referencing
+   them from the persistence.xml file does not cause them to be placed on the classpath.
 
-::
-All classes must be on the classpath to ensure that entity managers from different persistence units that
-map the same class will be accessing the same identical class.
-
+** All classes must be on the classpath to ensure that entity managers from different persistence units that
+   map the same class will be accessing the same identical class.
 
 *<jar-file></jar-file>*::
 
-Jar file that is to be scanned for managed classes.
+* Jar file that is to be scanned for managed classes.
 
-::
-One or more JAR files may be specified using the jar-file elements instead of, or in addition to the
-mapping files specified in the mapping-file elements. If specified, these JAR files will be searched
-for managed persistence classes, and any mapping metadata annotations found on them will be processed,
-or they will be mapped using the mapping annotation defaults defined by this specification.
-Such JAR files are specified relative to the directory or jar file that contains[89] the root of the persistence
-unit.
+* One or more JAR files may be specified using the jar-file elements instead of, or in addition to the
+  mapping files specified in the mapping-file elements.
 
-::
-The following examples illustrate the use of the jar-file element to reference additional persistence
-classes. These examples use the convention that a jar file with a name terminating in "PUnit" contains
-the persistence.xml file and that a jar file with a name terminating in "Entities" contains
-additional persistence classes.
+* If specified, these JAR files will be searched for managed persistence classes, and any mapping metadata annotations found on them will be processed,
+  or they will be mapped using the mapping annotation defaults defined by this specification.
 
-*<class></class>*::
+* Such JAR files are specified relative to the directory or jar file that contains[89] the root of the persistence
+  unit.
 
-Managed class to be included in the persistence unit and to scan for annotations.
-It should be annotated with either @Entity, @Embeddable or @MappedSuperclass.
 
-::
-A list of named managed persistence classes-entity classes, embeddable classes, mapped superclasses,
-and converter classes-may be specified instead of, or in addition to, the JAR files and mapping files.
-Any mapping metadata annotations found on these classes will be processed, or they will be mapped
-using the mapping annotation defaults. The class element is used to list a managed persistence class.
-A list of all named managed persistence classes must be specified in Java SE environments to insure
-portability. Portable Java SE applications should not rely on the other mechanisms described here to
-specify the managed persistence classes of a persistence unit. Persistence providers may require that the
-set of entity classes and classes that are to be managed must be fully enumerated in each of the persistence.xml
-files in Java SE environments.
+*<class>if entities not in same jar, list here</class>*::
+
+* Managed class to be included in the persistence unit and to scan for annotations.
+
+* It should be annotated with either @Entity, @Embeddable or @MappedSuperclass.
+
+* A list of named managed persistence classes-entity classes, embeddable classes, mapped superclasses,
+  and converter classes-may be specified instead of, or in addition to, the JAR files and mapping files.
+
+* Any mapping metadata annotations found on these classes will be processed, or they will be mapped
+  using the mapping annotation defaults. The class element is used to list a managed persistence class.
+
+* A list of all named managed persistence classes must be specified in Java SE environments to insure
+  portability. 
+  
+* Portable Java SE applications should not rely on the other mechanisms described here to specify the managed persistence classes of a persistence unit. 
+
+* Persistence providers may require that the set of entity classes and classes that are to be managed must be fully enumerated in each of the persistence.xml
+  files in Java SE environments.
+
 
 *<exclude-unlisted-classes></exclude-unlisted-classes>*::
 
-When set to true then only listed classes and jars will be scanned for persistent classes,
-otherwise the enclosing jar or directory will also be scanned. Not applicable to Java SE persistence units.
+* When set to true then only listed classes and jars will be scanned for persistent classes,
+  otherwise the enclosing jar or directory will also be scanned. Not applicable to Java SE persistence units.
 
 *<shared-cache-mode></shared-cache-mode>*::
 
@@ -278,15 +315,15 @@ The following properties defined by this specification are intended for use in J
 * *javax.persistence.jdbc.password* - password for database connection validation
 
 Scripts for use in schema generation may be specified using the javax.persistence.schema-generation.create-script-source
-and javax.persistence.schema-generation.drop-script-source properties. A script to specify SQL for the bulk loading of data 
+and javax.persistence.schema-generation.drop-script-source properties. A script to specify SQL for the bulk loading of data
 may be specified by the javax.persistence.sql-load-script-source property. These properties are intended for use in both Java EE and Java SE environments:
 
 ::
-* *javax.persistence.schema-generation.create-script-source*  name of a script packaged as part of the persistence application or a 
+* *javax.persistence.schema-generation.create-script-source*  name of a script packaged as part of the persistence application or a
 string corresponding to a file URL string that designates a script.
 
 ::
-* *javax.persistence.schema-generation.drop-script-source* - name of a script packaged as part of the persistence application or a 
+* *javax.persistence.schema-generation.drop-script-source* - name of a script packaged as part of the persistence application or a
 string corresponding to a file URL string that designates a script.
 
 ::
@@ -310,7 +347,7 @@ schema generation is not needed or will be initiated by other means, and, by def
 
 ::
 * *javax.persistence.schema-generation.scripts.action*
-The javax.persistence.schema-generation.scripts.action property specifies which scripts are to be generated by 
+The javax.persistence.schema-generation.scripts.action property specifies which scripts are to be generated by
 the persistence provider. The values for this property are none, create, drop-and-create, drop. A script will only be generated if the script 
 target is specified. If this property is not specified, it is assumed that script generation is not needed or will be initiated by other means, 
 and, by default, no scripts will be generated.
