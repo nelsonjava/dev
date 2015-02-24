@@ -13,8 +13,180 @@ n=&#241; N=&#209;
 
 * http://picketlink.org/
 
+* http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Managing_Relationships.html[simple example - we'll begin by making the assumption that our organization is structured in the following way:]
+
 * http://picketlink.org/quickstarts/
 
 * https://github.com/jboss-developer/jboss-picketlink-quickstarts
 
 * http://docs.jboss.org/picketlink/2/latest/reference/html/
+
+* https://developer.jboss.org/en/picketlink[user forums]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Where_do_I_get_started.html[Where do I get started?]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/Maven_Dependencies.html[Maven Dependencies]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/Identity_Management.html[Identity Management]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Authentication.html[Authentication]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/sect-The_Authentication_Process.html[The Authentication Process]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/DefaultLoginCredentials.html[DefaultLoginCredentials]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Identity_Management_-_Overview.html[Identity Management - Overview]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/Getting_Started_-_The_5_Minute_Guide.html[Getting Started - The 5 Minute Guide]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Creating_a_Custom_Identity_Model.html[Creating a Custom Identity Model]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/Creating_Custom_Relationships.html[Creating Custom Relationships]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Identity_Management_-_Credential_Validation_and_Management.html[Identity Management - Credential Validation and Management]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Identity_Management_-_Basic_Identity_Model.html[Identity Management - Basic Identity Model]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Managing_Users_Groups_and_Roles.html[Managing Users, Groups and Roles]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Managing_Relationships.html[Managing Relationships]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/Realms_and_Tiers.html[Realms and Tiers]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Identity_Management_-_Working_with_JPA.html[Identity Management - Working with JPA]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Identity_Management_-_Permissions_API_and_Permission_Management.html[Identity Management - Permissions API and Permission Management]
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Authorization.html[Authorization]
+
+== What is PicketLink
+
+* PicketLink is an Application Security Framework for Java EE applications.
+* It provides features for authenticating users, authorizing access to the business methods of your application,
+  managing your application's users, groups, roles and permissions.
+
+http://docs.jboss.org/picketlink/2/latest/reference/html/What_is_PicketLink.html[diagram]
+
+== Q&R
+
+*What's the best way to add security to the application?*::
+
+* PicketLink provides an easy way to enable security to an application.
+* With a minimal configuration you are able to authenticate, authorize
+* perform identity management operations using a database or a LDAP identity store.
+
+*How do I authenticate and authorize users?*::
+
+* PicketLink provides a Identity bean to represent your users with useful methods for authentication, logout and authorization.
+* PicketLink also provides a bunch of authorization annotations that you can use to easily protect your beans and their methods.
+
+*How do I add Identity and Access Management(IAM) to my application ?*::
+
+* Identity Management is one of the core features provided by PicketLink.
+* With a minimal setup you are able to manage users, roles, groups and relationships between them.
+* It supports identity partitioning, useful for multi-tenancy architectures.
+* You can even store your identity data using different repositories such as databases or LDAP servers.
+
+*How can I create a secure multi-tenancy architecture for my SaaS (Software as a Service) application ?*::
+
+* PicketLink supports identity partitioning. This means that you can logically separate your identity data into partitions.
+* You can use a single repository or even use a different repository for each partition.
+* For instance, using different database servers for each partition.
+
+*How can I enable Single Sign-On for my applications?*::
+
+* PicketLink provides an easy way to configure Single Sign-On based on the SAML specification.
+* Enable your application as an Identity Provider or Service Provider requires only a few configuration.
+
+*How do I add authentication and authorization to my REST layer and API ?*::
+
+* PicketLink provides several features to secure REST-based applications.
+* Regarding authentication, it supports both stateful and stateless authentication models, depending on your requirements.
+* When using a steteless model user is re-authenticated on every single request, ideal when you have a huge load of requests.
+* It also provides a simple API to manage JSON Web Token(JWT) and Javascript Object Signing and Encryption(JOSE),
+  which you can use to create your own tokens or consume tokens following the format defined by these specifications.
+* Authorization can also be done by using the different annotations provided by PicketLink. You can even define your own authorization annotations.
+
+*How do I protect my application HTTP resources and pages ?*::
+
+* PicketLink provides an easy, simple and powerful API for Http Security fully integrated with the Java Servlet API.
+* It allows you to configure your aplication resources or paths to enable authentication and authorization.
+* With a minimal setup you can enforce security policies such as authentication and authorization based on roles, groups, realms or even use EL expressions.
+
+* How can my application authenticate users using their Facebook, Twitter, or Google accounts ?*::
+
+* PicketLink provides support for Social Authentication using the most common providers such as Facebook, Twitter and Google.
+* Please, take a look at the quickstarts for some examples.
+
+== PicketLink IDentity Management (IDM)
+
+* PicketLink Identity Management (IDM) is a fundamental module of PicketLink, with all other modules building on top of the IDM component to implement their
+  extended features.
+* It features provide a rich and extensible API for managing the identities (such as users, groups and roles) of your applications and services.
+* It also supports a flexible system for identity partitioning, allowing it to be used as a complete security solution in simple web applications
+  and/or as an Identity Provider (IDP) in more complex multi-domain scenarios. 
+* It also provides the core Identity Model API classes (see below) upon which an application's identity classes are defined to provide 
+  the security structure for that application.
+
+== Identity Model
+
+* The Identity Model is a set of classes that define the security structure of an application.
+* It may consist of identity objects such as users, groups and roles; relationships such as group and role memberships; and partitions such as realms or tiers. 
+* The classes found in the org.picketlink.idm.model package define the base types upon which the identity model is built.
+
+http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Identity_Model.html[diagram]
+
+== Stereotypes
+
+Most applications use all or a set of these concepts in order to represent their users, roles, groups, how users are associated with roles and groups, etc. 
+In PicketLink, those concepts are represented as Stereotypes.
+
+As you might know, PicketLink provides a very extensible Identity Model from which you can extend in order to define your own representation for users, 
+roles, groups, relationships between those entities and so forth. 
+A Stereotype helps PicketLink to identify what a specific IdentityType or Relationship type is.
+
+A Stereotype is a very important concept in PicketLink Identity Management, specially when you need to customize it in order to
+provide your own and custom identity model. Some built-in features (eg.: credential validation, authorization, etc)
+are strongly based on those recurring concepts and helps PicketLink to fully integrate and recognize your
+custom identity model in order to reuse those features.
+
+There is a set of recurring security concepts you will find in different applications such as: *Users*,*Roles*,*Groups*,*Users and Roles Relationship*,
+*Users and Groups Membership*
+
+*There are two types of stereotypes:*
+
+*http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Stereotypes.html[Identity Stereotypes]*::
+
+* Identity Stereotypes represent those recurring concepts applied to a specific IdentityType type.
+* Considering that the User type represents users we need to annotate the class with the @IdentityStereotype(USER) annotation.
+* This annotations supports the following stereotypes:
+** *USER* - Should be used by identity types that represent an user.
+** *ROLE* - Should be used by identity types that represent a role.
+** *GROUP* - Should be used by identity types that represent a group.
+* Each stereotype has its own common set of properties. Those properties represent some specific information which is usually associated with a stereotype.
+  For example, roles usually have a name property from where we can get its name.
+* Stereotype properties are defined using the StereotypeProperty annotation. It provides a set of values defining the properties for a specific stereotype.
+
+*http://docs.jboss.org/picketlink/2/latest/reference/html/Relationship_Stereotypes.html[Relationship Stereotypes]*::
+
+* Relationship Stereotypes represent those recurring concepts applied to a specific Relationship type.
+  Let's take for an example the Grant relationship type provided by the Basic Model
+
+== Partition Management
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/sect-Partition_Management.html[Partition Management]
+
+* PicketLink has been designed from the ground up to support a system of partitioning, allowing the identity objects it manages to be separated
+  into logical groupings.
+* Partitions may be used to split identities into separate realms, allowing an application to serve multiple organisations
+  (for example in a SaaS architecture) or to support a multi-tier application allowing each tier to define its own set of identity objects
+  (such as groups or roles).
+* PicketLink's architecture also allows you to define your own custom partition types, allowing more complex use cases to be supported.
+
+== Identity Management - Working with JPA
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Identity_Management_-_Working_with_JPA.html[Identity Management - Working with JPA]
+* The JPA identity store uses a relational database to store identity state.
+* The configuration for this identity store provides control over which entity beans are used to store identity data,
+  and how their fields should be used to store various identity-related state.
+* The entity beans that store the identity data must be configured using the annotations found in the org.picketlink.jpa.annotations package.
