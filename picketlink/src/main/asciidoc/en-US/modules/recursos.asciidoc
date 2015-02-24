@@ -16,3 +16,5 @@ n=&#241; N=&#209;
 * http://picketlink.org/quickstarts/
 
 * https://github.com/jboss-developer/jboss-picketlink-quickstarts
+
+* http://docs.jboss.org/picketlink/2/latest/reference/html/
