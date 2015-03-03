@@ -59,6 +59,10 @@ n=&#241; N=&#209;
 
 * http://docs.jboss.org/picketlink/2/latest/reference/html/chap-Authorization.html[Authorization]
 
+* http://www.ocpsoft.org/security/simple-java-ee-jsf-login-page-with-jboss-picketlink-security/[Simple Java EE (JSF) Login Page with JBoss PicketLink Security]
+
+* http://www.mastertheboss.com/
+
 == What is PicketLink
 
 * PicketLink is an Application Security Framework for Java EE applications.
