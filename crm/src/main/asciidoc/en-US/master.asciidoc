@@ -1,0 +1,3 @@
+= DEVELOPMENTS
+
+include::modules/home.asciidoc[]

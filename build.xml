@@ -40,6 +40,7 @@
     <delete dir="factura/target" failonerror="no"/>
     <delete dir="jpa/target" failonerror="no"/>
     <delete dir="picketlink/target" failonerror="no"/>
+    <delete dir="crm/target" failonerror="no"/>
   </target>
 
   <target name="site" description="Initialize the build">
