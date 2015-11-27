@@ -1,0 +1,103 @@
+[[jquery-apirest]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== Consumir una Api RESTful con jQuery
+
+* https://api.jquery.com/jquery.ajax/[jQuery.ajax( url [, settings ] )]
+
+** url es opcional se puede colocar en los settings
+
+** los settings son un objeto
+
+** Por defecto si no se especifica hace un metodo GET.
+
+[source, console]
+----
+  $.ajax({
+   url: 'http://api.tvmaze.com/shows',
+   success:
+  })
+----
+
+*success:*::
+
+Type: Function( Anything data, String textStatus, jqXHR jqXHR )
+
+A function to be called if the request succeeds. The function gets passed three arguments:
+The data returned from the server, formatted according to the dataType parameter or the dataFilter callback function,
+if specified; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object.
+As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn.
+This is an Ajax Event.
+
+* Tiene 3 parametros
+
+[source, console]
+----
+  $.ajax('http://api.tvmaze.com/shows', {
+    success: function (shows, textStatus, xhr) {
+      fn(shows)
+    }
+  })
+----
+
+$.ajax({
+   url: 'http://api.joind.in/v2.1/talks/10889',
+   data: {
+      format: 'json'
+   },
+   error: function() {
+      $('#info').html('<p>An error has occurred</p>');
+   },
+   dataType: 'jsonp',
+   success: function(data) {
+      var $title = $('<h1>').text(data.talks[0].talk_title);
+      var $description = $('<p>').text(data.talks[0].talk_description);
+      $('#info')
+         .append($title)
+         .append($description);
+   },
+   type: 'GET'
+});
+
+[source, console]
+----
+  $.ajax('http://api.tvmaze.com/shows', {
+    success: function (shows, textStatus, xhr) {
+      fn(shows)
+    }
+  })
+----
+
+== Enlaces
+
+* https://api.jquery.com/[https://api.jquery.com/]
+
+* https://api.jquery.com/jquery.ajax/[https://api.jquery.com/jquery.ajax/]
+
+* http://www.tvmaze.com/api[http://www.tvmaze.com/api]
+
+* https://github.com/slifszyc/tvify/[https://github.com/slifszyc/tvify/]
+
+* https://twitter.com/slifszyc[https://twitter.com/slifszyc]
+
+* https://twitter.com/slifszyc[https://twitter.com/slifszyc]
+
+== GLOSARIO
+
+*$:*::
+  Es una función, cuando se utiza $() la estamos ejecutando.
+
+
+*EMISOR:*::
+   Es aquella persona que emite o env&#237;a el mensaje a trav&#233;s de un canal hasta un receptor.
+
+*DESTINATARIO:*::
+  Persona a quien se dirige algo.
