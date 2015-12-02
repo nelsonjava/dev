@@ -1,0 +1,22 @@
+[[nodejs-standard]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== Standard - JavaScript Standard Style
+
+* https://www.npmjs.com/package/standard[https://www.npmjs.com/package/standard]
+
+Es un modulo que permite definir un estilo de trabajo con JavaScript son reglas bastantes sencillas, por ejemplo utilizar dos espacios
+para la indentación, etc.
+
+
+== Enlaces
+
+* https://github.com/julianduque/tvify[https://github.com/julianduque/tvify]

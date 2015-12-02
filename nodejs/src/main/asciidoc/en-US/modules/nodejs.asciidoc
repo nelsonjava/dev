@@ -1,0 +1,45 @@
+[[nodejs-nodejs]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== Enlaces
+
+* https://opensource.org/[https://opensource.org/] Tipos de Licencias
+
+== Iniciar el proyecto Node.js
+
+[source, console]
+----
+   npm init
+   npm init
+   npm install --save-dev tape
+   npm install --save-dev tap-spec
+----
+
+* --save-dev: Los módulos instalados lo va a savar como dev dependencia
+
+* Los proyectos de node.js tienen dos tipos de dependencia: La dependencias del modulo como tal que va a utilizar en modo de producción o
+  los dependencias de tipo de desarrollo que solo se utitilazan en el periodo de desarrollo.
+
+* Los pruebas unitarias solo se hacen en el fase de desarrollo y por eso se instalando de tipo desarrollo.
+
+== npm install --save-dev tape
+
+=== Script de Pruebas
+
+[source, console]
+----
+
+----
+
+
+== npm install --save-dev tape-spec
+
+Permite hacer formateo de la salidad de TAP para poderla ver de manera mejor presentada.
