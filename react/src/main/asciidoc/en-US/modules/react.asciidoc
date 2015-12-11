@@ -1,0 +1,149 @@
+[[react-introducion]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== Single Page Appss.
+
+Single Page Application (en español Aplicación de una sola página). Podemos definir SPA como una aplicación web que se ejecuta en una única página,
+logrando así una experiencia de usuario más cercana a una aplicación de escritorio. En una SPA el usuario no navega por un engorroso sistema de enlaces
+tradicionales si no que en su lugar, mediante el uso cada vez mas extendido de JavaScript, Ajax, HTML5 o una combinación de las anteriores,
+se actualiza lo que el usuario ve siempre desde la misma página (sin cambiar de URL ni refrescar el contenido entero).
+
+* Es el mejor intento para trasladar las aplicaciones del escritorio al browser.
+
+* Las aplicaciones que corrian en el escritorio ahora la idea es correrlas en el browser. Porque:
+
+** Mas rapidas, dando mayor velocidad.
+
+** Mejorar la esperiencia de usuario, mas posibilidad de interación con el usuario.
+
+* Las Single Page Appss no hace falta refrescar la pantalla, solo se actualiza la parte
+  que necesita actualizarse.
+
+* Single Page Appss tienen estan compuestas por un html, un css con los estilos de la apliación
+  y un javascript que contiene toda la logica de la apliación que va a correr en el cliente en
+  este caso el browser.
+
+* Los browser actuales tienen mucha mas información, mucha mas lógica para hacer funcionar la
+  aplicación que el server, el server lo unico que hace es responder los datos que el browser
+  le pide, si tiene los permisos adecuados.
+
+image::https://s3.amazonaws.com/kinlane-productions/single-page-applications/single-page-web-applications.png[]
+
+== PATRON MVC
+
+El Modelo Vista Controlador es un patrón de arquitectura de software que se utiliza mucho en aplicaciones web, separandola en tres capas
+(modelo, controlador y vista)
+
+image::http://farm4.static.flickr.com/3164/3284983140_d803e80c7c_o.gif[]
+
+image::http://1.bp.blogspot.com/-oprLkMsVdQg/Ttf9WEQ59uI/AAAAAAAAAF0/5trAubER08c/s1600/ash-mvc-architecture.gif[]
+
+* La ida y vuelta que existe entre los modelos y la vista es los que se conoce como DATA BINDING
+
+
+== DATA BINDING
+
+Data binding es un mecanismo mediante el cual podemos enlazar los elementos de la interfaz de usuario con el modelo que contienen la información a mostrar.
+El caso más típico de data binding es el enlazar un control de la interfaz de usuario con un valor o registro de una base de datos.
+
+image::https://javiersuarezruiz.files.wordpress.com/2011/07/valueconverters.png[]
+
+== https://facebook.github.io/react/[REACT.JS]
+
+Es una librería de javascript para construir interfaces de usuario que nos brinda Rerender
+velocidad y UX.
+
+* La V de MVC, React se encarga solo de la *V*ista
+
+
+=== http://react-components.com/[React Components]
+
+React Components brindan un api reusable y puede contener otros componets, tienen las siguientes
+caracteristicas:
+
+* Brindan un alto grado de cohesividad que estan altamente relacionados.
+
+* Bajo grado de acoplamiento, los cambios del component solo afecta a ese componente.
+
+* Son faciles de hacerle pruebas.
+
+* Los components son el corazon de React
+
+* La idea de un componets que haga una sola cosa.
+
+* En la siguiente imagen cada cuadro de color es un componente.
+
+image::https://facebook.github.io/react/img/blog/thinking-in-react-components.png[]
+
+Un ejemplo de componente usando EMACSCRIP6
+[source, console]
+----
+   class HelloWorldComponent extends React.Component{
+     render(){
+       return <div className="message">Hello world!<div>;
+     }
+   }
+----
+
+=== https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi[React Developer Tools]
+
+* Añadir a Chrome
+
+* Configuración Chrome/Mas Herramientas/Extensiones/React Developer Tools
+   Activar: Perimitir acceso a URL de archivo
+
+
+
+<script src="https://fb.me/react-0.14.3.js"></script>
+
+=== jsx
+
+* http://facebook.github.io/react/docs/tooling-integration.html#jsx[http://facebook.github.io/react/docs/tooling-integration.html#jsx]
+
+
+== GitHub
+
+* https://github.com/hecto932/pokechat[https://github.com/hecto932/pokechat]
+
+== Enlaces
+
+* http://semver.org/[http://semver.org/]
+
+
+== GLOSARIO
+
+*SPA - Single page application:*::
+                                 Aplicación de página única es una aplicación web o es un sitio web que cabe en una sola página con el propósito de dar una
+experiencia más fluida a los usuarios como una aplicación de escritorio. En un SPA todos los códigos de HTML, JavaScript, y CSS se carga
+en de una vez o los recursos necesarios se cargan dinámicamente como lo requiera la página y se van agregando, normalmente como respuesta de los acciones
+del usuario.La página no tiene que cargar otra vez en ningún punto del proceso tampoco se transfiere a otra página.
+
+*Data binding:*::
+                 Es una forma automática de actualizar a la vista cuando el modelo cambia, así como actualizaciones al modelo cuando la vista cambia.
+
+*Cohesividad:*::
+                Unión o enlace entre dos cosas. Unión íntima entre las moléculas de
+un cuerpo. ; Fuerza de atracción que mantiene unidas las moléculas de un cuerpo.
+Cualidad de los cuerpos que produce su cohesión interna, unión, atracción que existe entre sus moléculas.
+
+*Acoplamiento:*::
+                 Unión de dos piezas o cuerpos que se ajustan perfectamente. El acoplamiento informático indica el nivel de dependencia entre las unidades de
+software de un sistema informático, es decir, el grado en que una unidad puede funcionar sin recurrir a otras; dos funciones son absolutamente
+independientes entre sí (el nivel más bajo de acoplamiento) cuando una puede hacer su trabajo completamente sin recurrir a la otra. El bajo acoplamiento
+entre las unidades de software es el estado ideal que siempre se intenta obtener para lograr una buena programación o un buen diseño. Cuanto menos dependiente
+sean las partes que constituyen un sistema informático, mejor será el resultado.
+
+
+
+
+
+
+
