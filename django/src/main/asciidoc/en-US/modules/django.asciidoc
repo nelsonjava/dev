@@ -1,0 +1,49 @@
+[[Django-introducion]]
+
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+
+n=&#241; N=&#209;
+////
+
+
+== Definición
+
+Django es un entorno de desarrollo web escrito en Python que fomenta el desarrollo rápido y el diseño limpio y pragmático.
+
+* Sirve para realizar aplicaciones muy robustas y en poco tiempo.
+
+* Django es un framework más popular de Python, existen otros.
+
+* Vesión Django 1.9 es la versión mas estable por eso es mejor trabajar con esta versión
+
+image::https://s3.amazonaws.com/kinlane-productions/single-page-applications/single-page-web-applications.png[]
+
+== Enlaces
+
+* https://docs.djangoproject.com/en/1.9/[Documentación 1.9]
+
+== Instalación
+
+== Instale Python - instalar la 2.7
+
+Al ser un framework web de Python, Django requiere Python. Consulte: ref: faq-python-version-support para más detalles.
+
+Python contiene una base de datos ligera llamada SQLite por lo que no tendrá que crear una base de datos por el momento.
+
+Obtenga la última versión de Python en https://www.python.org/download/[https://www.python.org/download/] o con el
+administrador de paquetes de su sistema operativo.
+
+== Instale Django
+
+Tiene tres opciones fáciles para instalar Django:
+
+* Instale una versión de Django: doc: `proporcionada por su sistema operativo de distribución </misc/distributions> `. Esta es la opción más rápida para aquellos que tienen sistemas operativos que distribuyen Django.
+
+* : ref: `Instale una versión oficial <installing-official-release> `. Este es el mejor modo para la mayoría de usuarios.
+
+* : ref: `Instale la última versión de desarrollo <installing-development-version> `. Esta opción es para los entusiastas que desean las últimas y mejores características y no tienen miedo de ejecutar un código novedoso. Usted puede encontrarse con nuevos errores en la versión de desarrollo, pero notificarlos ayuda al desarrollo de Django. Además, las versiones de paquetes de terceros tienen menos probabilidades de ser compatibles con la versión de desarrollo que con la última versión estable.
+
+

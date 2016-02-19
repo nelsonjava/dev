@@ -43,7 +43,8 @@
     <delete dir="crm/target" failonerror="no"/>
     <delete dir="jquery/target" failonerror="no"/>
     <delete dir="nodejs/target" failonerror="no"/>
-    <delete dir="react/target" failonerror="no"/>    
+    <delete dir="react/target" failonerror="no"/>
+    <delete dir="django/target" failonerror="no"/>
   </target>
 
   <target name="site" description="Initialize the build">
