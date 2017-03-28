@@ -25,9 +25,26 @@ image::https://s3.amazonaws.com/kinlane-productions/single-page-applications/sin
 
 * https://docs.djangoproject.com/en/1.9/[Documentación 1.9]
 
-== Instalación
+== INSTALACIONES
 
-== Instale Python - instalar la 2.7
+Lo primero que necesitamos antes de crear una aplicación en Django es VirtualEnv.
+
+=== Instalar el entorno virtual
+
+Virtualenv nos ayuda a "encapsular" versiones de librerias, herramientas y utilidades de Django, permitiendo tener un entorno de desarrollo aislado
+y mas controlado (y pudiendo crear otras variantes sin afectar la primera).
+
+Puedes instalar virtualenv desde el gestor de paqueres de Python PIP:
+
+[source, console]
+----
+pip install virtualenv
+----
+
+Si tienes algún error, puedes correrlo como superadministrador o sudo.
+
+
+=== Instale Python - instalar la 2.7
 
 Al ser un framework web de Python, Django requiere Python. Consulte: ref: faq-python-version-support para más detalles.
 
@@ -36,14 +53,137 @@ Python contiene una base de datos ligera llamada SQLite por lo que no tendrá que
 Obtenga la última versión de Python en https://www.python.org/download/[https://www.python.org/download/] o con el
 administrador de paquetes de su sistema operativo.
 
-== Instale Django
+=== Instalar Django de forma global
 
-Tiene tres opciones fáciles para instalar Django:
+[source, console]
+----
+pip install django
+----
 
-* Instale una versión de Django: doc: `proporcionada por su sistema operativo de distribución </misc/distributions> `. Esta es la opción más rápida para aquellos que tienen sistemas operativos que distribuyen Django.
+=== Configura Django para tu primer proyecto
 
-* : ref: `Instale una versión oficial <installing-official-release> `. Este es el mejor modo para la mayoría de usuarios.
+=== Instalar el entorno virtual
 
-* : ref: `Instale la última versión de desarrollo <installing-development-version> `. Esta opción es para los entusiastas que desean las últimas y mejores características y no tienen miedo de ejecutar un código novedoso. Usted puede encontrarse con nuevos errores en la versión de desarrollo, pero notificarlos ayuda al desarrollo de Django. Además, las versiones de paquetes de terceros tienen menos probabilidades de ser compatibles con la versión de desarrollo que con la última versión estable.
+Para instalar virtualenv usamos el siguiente comando en la consola.
+
+[source, console]
+----
+easy_install virtualenv
+----
+
+=== Crear un nuevo entorno virtual
+
+Para crear un nuevo entorno virtual usamos el siguiente comando, direccionados en la carpeta donde lo queremos crear y ejecutamos el comando:
+
+[source, console]
+----
+virtualenv nombre del proyecto
+----
+
+Esto nos genera una carpeta con una instancia de Python, entre otras cosas, es un entorno virtual.
+
+=== Comprobar la instalación:
+
+[source, console]
+----
+pip freeze
+----
+
+=== Activar el entorno virtual
+
+Para activar el entorno virtual, estando dentro de la carpeta del proyecto y activamos mediante:
+
+[source, console]
+----
+source /bin/activate
+----
+
+El nombredelproyecto es el mismo que usamos al crear el entorno virtual.
+
+Eso cambiará el promt de la consola de comandos.
 
 
+=== Instalar Django dentro del entorno virtual
+
+En el entorno virtual ejecutamos:
+
+[source, console]
+----
+pip install django
+----
+
+y en caso de que no funcione también podemos utilizar:
+
+[source, console]
+----
+easy_install django
+----
+
+Nota: En comando anterior instala la versión estable mas reciende de Django, si queremos forzar alguna otra versión,
+lo hacemos agregando un "==" y la versión que quiero: pip install django=="1.8"
+
+=== Requirements Files
+
+¿Qué pasa si despues queremos volver a usar este proyecto?, uno pensaría que necesitamos recordar cada pip install que hemos usado,
+sin embargo, podemos crear un archivo de texto con todas las dependencias usadas e instalar sin problemas en el futuro,
+para configurar ese archivo de texto usamos:
+
+[source, console]
+----
+pip freeze > requirements.txt
+pip install -r requirements.txt : Para instalar todas las rependencias a partir del archivo.
+----
+
+
+
+
+
+=== Iniciar un proyecto con Django
+
+Es lo mismo solo con diferente administrador de paquetes. Una vez instalado iniciaremos un proyecto con Django para lo que ejecutamos el comando:
+
+[source, console]
+----
+django-admin.py startproject nombre del proyecto
+----
+
+Esto generará una carpeta con el nombre del proyecto donde se encuentra el archivo manage.py.
+
+
+=== Servidor Local
+
+Levantemos el servidor primero. Nos direccionamos en la carpeta del proyecto Django con el comando:
+
+[source, console]
+----
+cd nombre del proyecto
+python manage.py runserver
+----
+
+La consola nos arrojará los resultados y si todo ha salido bien iremos a la URL http://localhost:8000/ con el navegador
+y nos debe mostrar una página Web vacía, pero página funcionando al fin!
+
+
+=== RESUMEN DE COMANDOS
+
+[source, console]
+----
+pip install virtualenv   Instalar el entorno virtual
+pip install django       Instalar Django de forma global
+----
+
+
+[source, console]
+----
+virtualenv nombre del proyecto     Crear un nuevo entorno virtual
+pip install django                 Instalar Django dentro del entorno virtual
+pip freeze                         Comprobar la instalación
+Scripts/activate                   Ubicado en el proeyecto activar el entorno virtual
+----
+
+
+[source, console]
+----
+pip freeze > requirements.txt
+pip install -r requirements.txt : Para instalar todas las rependencias a partir del archivo.
+----

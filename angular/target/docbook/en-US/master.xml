@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+
+<?asciidoc-numbered?>
+
+<book lang="en">
+  <bookinfo>
+    
+    <title>jQuery</title>
+    
+    
+    <date>2017-02-03</date>
+    
+    
+    
+    
+<!--<subtitle>Some subtitle</subtitle -->
+<!--
+<releaseinfo>4.0.0-SNAPSHOT</releaseinfo>
+<corpauthor>
+   <inlinemediaobject>
+      <imageobject>
+         <imagedata fileref="./images/hibernate_ogm_600px.png"
+                    format="PNG"
+                    scalefit="1"
+                    width="444"/>
+      </imageobject>
+      <textobject>
+         <phrase>Logo</phrase>
+      </textobject>
+   </inlinemediaobject>
+</corpauthor>
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>Emmanuel</firstname>
+      <surname>Bernard</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <author>
+      <firstname>Sanne</firstname>
+      <surname>Grinovero</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <collab>
+     <collabname>Guillaume Scheibel</collabname>
+   </collab>
+</authorgroup>
+ -->
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>NAIF</firstname>
+      <affiliation>
+         <shortaffil>SIMASOFT</shortaffil>
+      </affiliation>
+   </author>
+</authorgroup>
+    
+    
+
+  </bookinfo>
+<chapter id="jquery-apirest">
+<title>Consumir una Api RESTful con jQuery</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="https://api.jquery.com/jquery.ajax/">jQuery.ajax( url [, settings </ulink> )]</simpara>
+      
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>url es opcional se puede colocar en los settings</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>los settings son un objeto</simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara>Por defecto si no se especifica hace un metodo GET.</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+
+      
+    </listitem>
+  
+</itemizedlist>
+
+<programlisting language="console" linenumbering="unnumbered">  $.ajax({
+   url: 'http://api.tvmaze.com/shows',
+   success:
+  })</programlisting>
+<variablelist>
+<varlistentry>
+<term><emphasis role="strong">success:</emphasis></term>
+<listitem>
+<simpara>Type: Function( Anything data, String textStatus, jqXHR jqXHR )</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<simpara>A function to be called if the request succeeds. The function gets passed three arguments:
+The data returned from the server, formatted according to the dataType parameter or the dataFilter callback function,
+if specified; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object.
+As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn.
+This is an Ajax Event.</simpara>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara>Tiene 3 parametros</simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+<programlisting language="console" linenumbering="unnumbered">  $.ajax('http://api.tvmaze.com/shows', {
+    success: function (shows, textStatus, xhr) {
+      fn(shows)
+    }
+  })</programlisting>
+<simpara>$.ajax({
+   url: <emphasis><ulink url="http://api.joind.in/v2.1/talks/10889">http://api.joind.in/v2.1/talks/10889</ulink></emphasis>,
+   data: {
+      format: <emphasis>json</emphasis>
+   },
+   error: function() {
+      $(<emphasis>#info</emphasis>).html(<emphasis>&lt;p&gt;An error has occurred&lt;/p&gt;</emphasis>);
+   },
+   dataType: <emphasis>jsonp</emphasis>,
+   success: function(data) {
+      var $title = $(<emphasis>&lt;h1&gt;</emphasis>).text(data.talks[0].talk_title);
+      var $description = $(<emphasis>&lt;p&gt;</emphasis>).text(data.talks[0].talk_description);
+      $(<emphasis>#info</emphasis>)
+         .append($title)
+         .append($description);
+   },
+   type: <emphasis>GET</emphasis>
+});</simpara>
+<programlisting language="console" linenumbering="unnumbered">  $.ajax('http://api.tvmaze.com/shows', {
+    success: function (shows, textStatus, xhr) {
+      fn(shows)
+    }
+  })</programlisting>
+</chapter>
+<chapter id="_enlaces">
+<title>Enlaces</title>
+
+<itemizedlist>
+  
+    <listitem>
+      <simpara><ulink url="https://api.jquery.com/">https://api.jquery.com/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://api.jquery.com/jquery.ajax/">https://api.jquery.com/jquery.ajax/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="http://www.tvmaze.com/api">http://www.tvmaze.com/api</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://github.com/slifszyc/tvify/">https://github.com/slifszyc/tvify/</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://twitter.com/slifszyc">https://twitter.com/slifszyc</ulink></simpara>
+      
+    </listitem>
+  
+    <listitem>
+      <simpara><ulink url="https://twitter.com/slifszyc">https://twitter.com/slifszyc</ulink></simpara>
+      
+    </listitem>
+  
+</itemizedlist>
+
+</chapter>
+<chapter id="_glosario">
+<title>GLOSARIO</title>
+<variablelist>
+<varlistentry>
+<term><emphasis role="strong">$:</emphasis></term>
+<listitem>
+<simpara>Es una funci�n, cuando se utiza $() la estamos ejecutando.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">EMISOR:</emphasis></term>
+<listitem>
+<simpara>Es aquella persona que emite o env&#237;a el mensaje a trav&#233;s de un canal hasta un receptor.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">DESTINATARIO:</emphasis></term>
+<listitem>
+<simpara>Persona a quien se dirige algo.</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</chapter>
+</book>

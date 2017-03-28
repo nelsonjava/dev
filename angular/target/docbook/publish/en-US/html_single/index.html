@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory">jQuery</title><link rel="stylesheet" href="css/hibernate-single.css" type="text/css"/><meta xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" name="generator" content="DocBook XSL Stylesheets V1.74.0"/><meta xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" http-equiv="Content-Type" content="text/html; charset=UTF-8"/></head><body><div class="book" lang="en-US"><div class="titlepage"><div><p id="title"><a href="http://www.hibernate.org" class="site_href"><strong>Hibernate.org</strong></a><a href="http://hibernate.org/Documentation/DocumentationOverview" class="doc_href"><strong>Community Documentation</strong></a></p><div><h1 class="title"><a id="d0e2"/>jQuery</h1></div><div><div xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="authorgroup"><div class="authors">by <span xmlns="http://www.w3.org/1999/xhtml" class="firstname">NAIF</span> (SIMASOFT)</div><div class="editors"/><div class="others"/></div></div></div><hr/></div><div class="toc"><dl><dt><span class="chapter"><a href="#jquery-apirest">1. Consumir una Api RESTful con jQuery</a></span></dt><dt><span class="chapter"><a href="#_enlaces">2. Enlaces</a></span></dt><dt><span class="chapter"><a href="#_glosario">3. GLOSARIO</a></span></dt></dl></div><div class="chapter" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="jquery-apirest"/>Chapter 1. Consumir una Api RESTful con jQuery</h2></div></div></div><div class="itemizedlist"><ul><li><p><a class="ulink" href="https://api.jquery.com/jquery.ajax/">jQuery.ajax( url [, settings </a> )]</p><div class="itemizedlist"><ul><li>url es opcional se puede colocar en los settings</li><li>los settings son un objeto</li><li>Por defecto si no se especifica hace un metodo GET.</li></ul></div></li></ul></div><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="CONSOLE">  $.ajax({
+   url: 'http://api.tvmaze.com/shows',
+   success:
+  })</pre><div class="variablelist"><dl><dt><span class="term"><span class="strong"><strong>success:</strong></span></span></dt><dd>Type: Function( Anything data, String textStatus, jqXHR jqXHR )</dd></dl></div><p>A function to be called if the request succeeds. The function gets passed three arguments:
+The data returned from the server, formatted according to the dataType parameter or the dataFilter callback function,
+if specified; a string describing the status; and the jqXHR (in jQuery 1.4.x, XMLHttpRequest) object.
+As of jQuery 1.5, the success setting can accept an array of functions. Each function will be called in turn.
+This is an Ajax Event.</p><div class="itemizedlist"><ul><li>Tiene 3 parametros</li></ul></div><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="CONSOLE">  $.ajax('http://api.tvmaze.com/shows', {
+    success: function (shows, textStatus, xhr) {
+      fn(shows)
+    }
+  })</pre><p>$.ajax({
+   url: <span class="emphasis"><em><a class="ulink" href="http://api.joind.in/v2.1/talks/10889">http://api.joind.in/v2.1/talks/10889</a></em></span>,
+   data: {
+      format: <span class="emphasis"><em>json</em></span>
+   },
+   error: function() {
+      $(<span class="emphasis"><em>#info</em></span>).html(<span class="emphasis"><em>&lt;p&gt;An error has occurred&lt;/p&gt;</em></span>);
+   },
+   dataType: <span class="emphasis"><em>jsonp</em></span>,
+   success: function(data) {
+      var $title = $(<span class="emphasis"><em>&lt;h1&gt;</em></span>).text(data.talks[0].talk_title);
+      var $description = $(<span class="emphasis"><em>&lt;p&gt;</em></span>).text(data.talks[0].talk_description);
+      $(<span class="emphasis"><em>#info</em></span>)
+         .append($title)
+         .append($description);
+   },
+   type: <span class="emphasis"><em>GET</em></span>
+});</p><pre xmlns="" xmlns:rf="java:org.jboss.highlight.XhtmlRendererFactory" class="CONSOLE">  $.ajax('http://api.tvmaze.com/shows', {
+    success: function (shows, textStatus, xhr) {
+      fn(shows)
+    }
+  })</pre></div><div class="chapter" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="_enlaces"/>Chapter 2. Enlaces</h2></div></div></div><div class="itemizedlist"><ul><li><a class="ulink" href="https://api.jquery.com/">https://api.jquery.com/</a></li><li><a class="ulink" href="https://api.jquery.com/jquery.ajax/">https://api.jquery.com/jquery.ajax/</a></li><li><a class="ulink" href="http://www.tvmaze.com/api">http://www.tvmaze.com/api</a></li><li><a class="ulink" href="https://github.com/slifszyc/tvify/">https://github.com/slifszyc/tvify/</a></li><li><a class="ulink" href="https://twitter.com/slifszyc">https://twitter.com/slifszyc</a></li><li><a class="ulink" href="https://twitter.com/slifszyc">https://twitter.com/slifszyc</a></li></ul></div></div><div class="chapter" lang="en-US"><div class="titlepage"><div><div><h2 class="title"><a id="_glosario"/>Chapter 3. GLOSARIO</h2></div></div></div><div class="variablelist"><dl><dt><span class="term"><span class="strong"><strong>$:</strong></span></span></dt><dd>Es una funci�n, cuando se utiza $() la estamos ejecutando.</dd><dt><span class="term"><span class="strong"><strong>EMISOR:</strong></span></span></dt><dd>Es aquella persona que emite o envía el mensaje a través de un canal hasta un receptor.</dd><dt><span class="term"><span class="strong"><strong>DESTINATARIO:</strong></span></span></dt><dd>Persona a quien se dirige algo.</dd></dl></div></div></div><HR xmlns=""/><a xmlns="" href=""/></body></html>
